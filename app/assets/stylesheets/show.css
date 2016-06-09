@@ -1,0 +1,19 @@
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -60px;
+  background-color: #e6ccff !important;
+}
+html, body {
+ height: 100%;
+}
+footer {
+ width: 100%;
+ /* Set the fixed height of the footer here */
+ height: 60px;
+ background-color: #c68c53 !important;
+
+}
+.navbar.navbar-default {
+  background-color: #c68c53;
