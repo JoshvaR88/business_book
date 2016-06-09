@@ -5,7 +5,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :company_type
       t.string :country
       t.string :business
-      t.integer :mobile_no
+      t.string :mobile_no
 
       t.timestamps null: false
     end

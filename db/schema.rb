@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160608143912) do
     t.string   "company_type"
     t.string   "country"
     t.string   "business"
-    t.integer  "mobile_no"
+    t.string   "mobile_no"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
