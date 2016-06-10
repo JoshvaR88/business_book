@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20160608143912) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "company_name"
-    t.string   "company_type"
     t.string   "country"
     t.string   "business"
     t.string   "mobile_no"

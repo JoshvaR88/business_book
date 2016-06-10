@@ -73,9 +73,8 @@
 .col-sm-6
   .main-login.main-center
     = form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'form-horizontal') do |f|
-      = devise_error_messages!
+      - devise_error_messages!
       .form-group
-        %label.cols-sm-2.control-label{:for => "first_name"}
         .cols-sm-10
           .input-group
             %span.input-group-addon
@@ -83,14 +82,12 @@
             = f.text_field :first_name, autofocus: true,  :class => "form-control", :placeholder => "First Name"
             / %input#name.form-control{:name => "first_name", :placeholder => "First Name", :type => "text"}/
       .form-group
-        %label.cols-sm-2.control-label{:for => "last_name"}
         .cols-sm-10
           .input-group
             %span.input-group-addon
               %i.fa.fa-user.fa{"aria-hidden" => "true"}
             = f.text_field :last_name, autofocus: true,  :class => "form-control", :placeholder => "Last Name"
       .form-group
-        %label.cols-sm-2.control-label{:for => "email"}
         .cols-sm-10
           .input-group
             %span.input-group-addon
@@ -98,7 +95,6 @@
             = f.email_field :email, autofocus: true,  :class => "form-control",  :placeholder => "Email-ID"
 
       .form-group
-        %label.cols-sm-2.control-label{:for => "user_id"}
         .cols-sm-10
           .input-group
             %span.input-group-addon
@@ -107,7 +103,6 @@
 
 
       .form-group
-        %label.cols-sm-2.control-label{:for => "password"}
         .cols-sm-10
           .minimum-password
             - if @minimum_password_length
@@ -116,54 +111,39 @@
           .input-group
             %span.input-group-addon
               %i.fa.fa-lock.fa-lg{"aria-hidden" => "true"}
-
-
             = f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password"
 
       .form-group
-        %label.cols-sm-2.control-label{:for => "password_confirmation"}
         .cols-sm-10
           .input-group
             %span.input-group-addon
               %i.fa.fa-lock.fa-lg{"aria-hidden" => "true"}
             = f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder => "Confirm Password"
             %br/
-
+          %br/
         - @user.build_profile
 
         = f.fields_for :profile do |p|
           .form-group
-            %label.cols-sm-2.control-label{:for => "company_name"}
             .cols-sm-10
               .input-group
                 %span.input-group-addon
                   %i.fa.fa-user.fa{"aria-hidden" => "true"}
                 = p.text_field :company_name, autofocus: true,  :class => "form-control", :placeholder => "Company Name"
           .form-group
-            %label.cols-sm-2.control-label{:for => "company_type"}
             .cols-sm-10
               .input-group
                 %span.input-group-addon
                   %i.fa.fa-user.fa{"aria-hidden" => "true"}
 
-                = p.select(:company_type, User::COMPANY,{}, {class: "selectpicker form-control",'multiple': '',title: "select country", "data-live-search": "true"})
+                = p.select(:business, User::BUSINESS,{},{class: "selectpicker dropdown_business form-control",'multiple': '',title: "Select Business Type", "data-live-search": "true"})
           .form-group
-            %label.cols-sm-2.control-label{:for => "business"}
             .cols-sm-10
               .input-group
                 %span.input-group-addon
                   %i.fa.fa-user.fa{"aria-hidden" => "true"}
-
-                = p.select(:business, User::BUSINESS,{},{class: "selectpicker form-control",'multiple': '',title: "select country", "data-live-search": "true"})
+                = p.select(:country, User::COUNTRY,{}, {class: "selectpicker dropdown_country form-control", 'multiple': '',title: "select country", "data-live-search": "true"})
           .form-group
-            %label.cols-sm-2.control-label{:for => "country"}
-            .cols-sm-10
-              .input-group
-                %span.input-group-addon
-                  %i.fa.fa-user.fa{"aria-hidden" => "true"}
-                = p.select(:country, User::COUNTRY,{}, {class: "selectpicker form-control", 'multiple': '',title: "select country", "data-live-search": "true"})
-          .form-group
-            %label.cols-sm-2.control-label{:for => "mobile_no"}
             .cols-sm-10
               .input-group
                 %span.input-group-addon
@@ -172,7 +152,9 @@
       .form-group
         / %button.btn.btn-primary.btn-lg.btn-block.login-button{:type => "button",:href => "sign_in" } Sign_Up
         = f.submit "Sign up", class: "btn btn-primary btn-lg btn-block login-button"
+        %br/
+        %p.center-align= "OR"
 
-= render "devise/shared/links"
+        = render "devise/shared/links"
 
 
