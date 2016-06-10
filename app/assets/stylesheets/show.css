@@ -12,10 +12,15 @@ footer {
   width: 100%;
   height: 60px;
   background-color: #8080ff !important;
+  z-index: 1000;
 
 }
 .navbar.navbar-default {
+  position: fixed !important;
+  width: 100%;
+  top: 0;
   background-color: #8080ff;
+  z-index: 1000;
 }
 
 .minimum_password {
@@ -74,7 +79,7 @@ input::-webkit-input-placeholder {
   margin-top: 30px;
   margin: 0 auto;
   max-width: 500px;
-    padding: 40px 40px;
+  padding: 40px 40px;
 
 }
 

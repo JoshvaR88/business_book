@@ -13,10 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require select2-full
 //= require turbolinks
+//= require select2-full
+//= require bootstrap-select
 //= require_tree .
 
-$(document).ready(function(){
-  $( 'select' ).select2();
+$( document ).on('ready page:load', function() {
+  // $( 'select' ).select2();
+  $('.selectpicker').selectpicker();
 });
