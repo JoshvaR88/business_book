@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160608143912) do
   create_table "profiles", force: :cascade do |t|
     t.string   "company_name"
     t.string   "country"
+    t.string   "state"
     t.string   "business"
     t.string   "mobile_no"
     t.datetime "created_at",   null: false

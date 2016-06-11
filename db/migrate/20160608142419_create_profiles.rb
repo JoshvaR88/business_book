@@ -3,6 +3,7 @@ class CreateProfiles < ActiveRecord::Migration
     create_table :profiles do |t|
       t.string :company_name
       t.string :country
+      t.string :state
       t.string :business
       t.string :mobile_no
 
