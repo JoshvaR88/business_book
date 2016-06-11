@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-//= require select2-full
 //= require bootstrap-select
 //= require_tree .
 

@@ -143,6 +143,12 @@
                 %span.input-group-addon
                   %i.fa.fa-user.fa{"aria-hidden" => "true"}
                 = p.select(:country, User::COUNTRY,{}, {class: "selectpicker dropdown_country form-control", 'multiple': '',title: "select country", "data-live-search": "true"})
+          / .form-group
+          /   .cols-sm-10
+          /     .input-group
+          /       %span.input-group-addon
+          /         %i.fa.fa-user.fa{"aria-hidden" => "true"}
+          /       = p.select(:state, User::STATE,{}, {class: "selectpicker dropdown_state form-control", 'multiple': '',title: "select state", "data-live-search": "true"})
           .form-group
             .cols-sm-10
               .input-group

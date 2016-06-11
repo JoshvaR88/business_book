@@ -100,6 +100,9 @@ input::-webkit-input-placeholder {
 }
 
 .dropdown_country{
+  z-index: 1500 !important;
+}
+.dropdown_state{
   z-index: 1000 !important;
 }
 
