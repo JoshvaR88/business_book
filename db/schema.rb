@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608143912) do
+ActiveRecord::Schema.define(version: 20160611072431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "businesses", force: :cascade do |t|
+    t.string   "name",       default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name",               default: ""
+    t.string   "phone_country_code", default: ""
+    t.string   "currency",           default: ""
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "company_name"
@@ -28,6 +42,15 @@ ActiveRecord::Schema.define(version: 20160608143912) do
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "states", force: :cascade do |t|
+    t.string   "name",       default: ""
+    t.integer  "country_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "states", ["country_id"], name: "index_states_on_country_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -51,4 +74,5 @@ ActiveRecord::Schema.define(version: 20160608143912) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "profiles", "users"
+  add_foreign_key "states", "countries"
 end
