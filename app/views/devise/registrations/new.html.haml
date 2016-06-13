@@ -2,7 +2,7 @@
 .col-sm-6
   .main-login.main-center
     = form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'form-horizontal') do |f|
-      - devise_error_messages!
+      = devise_error_messages!
       .form-group
         .cols-sm-10
           .input-group
@@ -59,25 +59,24 @@
                 %span.input-group-addon
                   %i.fa.fa-user.fa{"aria-hidden" => "true"}
                 = p.text_field :company_name, autofocus: true,  :class => "form-control", :placeholder => "Company Name"
-          .form-group
+          .form-group.select_business
             .cols-sm-10
               .input-group
                 %span.input-group-addon
                   %i.fa.fa-user.fa{"aria-hidden" => "true"}
-
-                = p.select(:business, BusinessType.collect_businees_type,{},{class: "selectpicker dropdown_business form-control",title: "Select Business Type", "data-live-search": "true"})
-          .form-group
+                = p.select(:business, BusinessType.collect_business_type,{},{class: "selectpicker add_class_business dropdown_business form-control",title: "Select Business Type", "data-live-search": "true"})
+          .form-group.select_country
             .cols-sm-10
               .input-group
                 %span.input-group-addon
                   %i.fa.fa-user.fa{"aria-hidden" => "true"}
-                = p.select(:country, User::COUNTRY,{}, {class: "selectpicker dropdown_country form-control", title: "select country", "data-live-search": "true"})
-          .form-group
+                = p.select(:country, Country.collect_country,{}, {class: "selectpicker add_class_country dropdown_country form-control", title: "select country", "data-live-search": "true"})
+          .form-group.select_state
             .cols-sm-10
               .input-group
                 %span.input-group-addon
                   %i.fa.fa-user.fa{"aria-hidden" => "true"}
-                = p.select(:state, User::STATE,{}, {class: "selectpicker dropdown_state form-control", title: "select state", "data-live-search": "true"})
+                = p.select(:state, State.collect_state,{}, {class: "selectpicker add_class_state dropdown_state form-control", title: "select state", "data-live-search": "true"})
           .form-group
             .cols-sm-10
               .input-group

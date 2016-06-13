@@ -41,17 +41,6 @@
             %a.navbar-brand{ :href => root_path }Business Book
 
           #bs-example-navbar-collapse-1.collapse.navbar-collapse
-            / %ul.nav.navbar-nav
-            /   %li.dropdown
-            /     %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-
-            /       Questions
-            /       %span.caret
-            /     %ul.dropdown-menu
-            /       %li
-            /         = link_to "Create Questions", new_question_path
-            /       %li
-            /         = link_to "All Questions",root_path
 
             %ul.nav.navbar-nav.navbar-right{class: user_signed_in? ? "signed-in-navbar" : ""}
 
