@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  branch: MyString
+  address: MyText
+  state: 1
+  telephone_no: MyString
+  is_registered: false
+  company_profile_id: 
+
+two:
+  branch: MyString
+  address: MyText
+  state: 1
+  telephone_no: MyString
+  is_registered: false
+  company_profile_id: 

@@ -11,15 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160611072431) do
+ActiveRecord::Schema.define(version: 20160613053207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "businesses", force: :cascade do |t|
+  create_table "authorized_signatories", force: :cascade do |t|
+    t.string   "person_name"
+    t.integer  "person_position"
+    t.integer  "person_id_no"
+    t.integer  "company_profile_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "authorized_signatories", ["company_profile_id"], name: "index_authorized_signatories_on_company_profile_id", using: :btree
+
+  create_table "business_types", force: :cascade do |t|
     t.string   "name",       default: ""
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "company_profiles", force: :cascade do |t|
+    t.string   "company_name"
+    t.string   "email"
+    t.string   "company_website"
+    t.string   "company_type"
+    t.string   "pan_no"
+    t.string   "corp_id_no"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "countries", force: :cascade do |t|
@@ -29,6 +51,19 @@ ActiveRecord::Schema.define(version: 20160611072431) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
+
+  create_table "office_addresses", force: :cascade do |t|
+    t.string   "branch"
+    t.text     "address"
+    t.integer  "state"
+    t.string   "telephone_no"
+    t.boolean  "is_registered"
+    t.integer  "company_profile_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "office_addresses", ["company_profile_id"], name: "index_office_addresses_on_company_profile_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.string   "company_name"
@@ -73,6 +108,8 @@ ActiveRecord::Schema.define(version: 20160611072431) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "authorized_signatories", "company_profiles"
+  add_foreign_key "office_addresses", "company_profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "states", "countries"
 end
