@@ -6,13 +6,13 @@
         .input-group
           %span.input-group-addon
             %i.fa.fa-user.fa{"aria-hidden" => "true"}
-          = f.email_field :first_name, autofocus: true,  :class => "form-control", :placeholder => "Email"
+          = f.email_field :email, autofocus: true,  :class => "form-control", :placeholder => "Email"
     .form-group
       .cols-sm-10
         .input-group
           %span.input-group-addon
             %i.fa.fa-lock.fa-lg{"aria-hidden" => "true"}
-          = f.password_field :first_name, autofocus: true,  :class => "form-control", :placeholder => "Enter Password"
+          = f.password_field :password, autofocus: true,  :class => "form-control", :placeholder => "Enter Password"
     - if devise_mapping.rememberable?
       .form-group
         = f.check_box :remember_me
