@@ -15,9 +15,27 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require bootstrap-select
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require_tree .
 
 $( document ).on('ready page:load', function() {
   // $( 'select' ).select2();
+
+  $('.verify').validate({
+    rules: {
+      // simple rule, converted to {required:true}
+      'user[email]': "required",
+      // compound rule
+      email: {
+        required: true,
+        email: true
+      }
+    }
+  });
+
   $('.selectpicker').selectpicker();
+
 });
+
+

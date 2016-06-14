@@ -1,8 +1,7 @@
 class CreateOfficeAddresses < ActiveRecord::Migration
   def change
     create_table :office_addresses do |t|
-      t.string :branch
-      t.text :address
+      t.text :branch_address
       t.integer :state
       t.string :telephone_no
       t.boolean :is_registered

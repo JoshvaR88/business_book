@@ -53,8 +53,7 @@ ActiveRecord::Schema.define(version: 20160613053207) do
   end
 
   create_table "office_addresses", force: :cascade do |t|
-    t.string   "branch"
-    t.text     "address"
+    t.text     "branch_address"
     t.integer  "state"
     t.string   "telephone_no"
     t.boolean  "is_registered"

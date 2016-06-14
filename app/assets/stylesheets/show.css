@@ -20,7 +20,7 @@ footer {
   width: 100%;
   top: 0;
   background-color: #999966;
-  z-index: 2500;
+  z-index: 1000 !important;
 }
 
 .minimum_password {
@@ -72,7 +72,7 @@ input::-webkit-input-placeholder {
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    margin-top: 100px !important;
+    margin-top: 70px !important;
     margin-bottom: 100px !important;
 }
 
@@ -100,12 +100,17 @@ input::-webkit-input-placeholder {
 }
 
 .dropdown_country{
-  z-index: 1500 !important;
+  z-index: 500 !important;
 }
 .dropdown_state{
-  z-index: 1000 !important;
+  z-index: 400 !important;
 }
 
 .dropdown_business{
-  z-index: 2000 !important;
+  z-index: 600 !important;
+}
+
+.alert{
+  margin-top: 75px !important;
+  margin-bottom: 0 !important;
 }

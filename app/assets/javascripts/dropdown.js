@@ -9,5 +9,7 @@ $( document ).on('ready page:load', function() {
   $('.select_state').click(function () {
     $('.add_class_country').removeClass("dropdown_country");
     $('.add_class_business').removeClass("dropdown_business");
+
+
   });
 });

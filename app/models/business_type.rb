@@ -1,6 +1,6 @@
 class BusinessType < ActiveRecord::Base
 
-  def self.collect_businees_type
+  def self.collect_business_type
     pluck(:name)
   end
 
