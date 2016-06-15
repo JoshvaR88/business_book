@@ -6,6 +6,25 @@
         .cols-sm-10
           .input-group
             = f.text_field :company_name, autofocus: true,  :class => "form-control form-width", :placeholder => "Company Name"
+            %br/
+            %br/
+            %br/
+        = f.fields_for :office_addresses do  |p|
+          .form-group
+            .cols-sm-10
+              .input-group
+                = p.text_area :branch_address, autofocus: true,  :class => "form-control form-width", :placeholder => "Branch Address"
+          .form-group.select_state
+            .cols-sm-10
+              .input-group
+                = p.select(:state, CompanyProfile::STATE,{},{class: "selectpicker form-width", "data-live-search": "true"})
+          .form-group
+            .cols-sm-10
+              .input-group
+                = p.text_field :telephone_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Telephone No"
+                %br/
+
+
       .form-group
         .cols-sm-10
           .input-group
@@ -29,21 +48,6 @@
             %br/
             %br/
 
-        = f.fields_for :office_addresses do  |p|
-          .form-group
-            .cols-sm-10
-              .input-group
-                = p.text_area :branch_address, autofocus: true,  :class => "form-control form-width", :placeholder => "Branch Address"
-          .form-group.select_state
-            .cols-sm-10
-              .input-group
-                = p.select(:state, CompanyProfile::STATE,{},{class: "selectpicker form-width", "data-live-search": "true"})
-          .form-group
-            .cols-sm-10
-              .input-group
-                = p.text_field :telephone_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Telephone No"
-                %br/
-                %br/
 
 
         = f.fields_for :authorized_signatories do |t|
