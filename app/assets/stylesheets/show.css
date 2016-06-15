@@ -31,7 +31,7 @@ footer {
 
 body, html{
   height: 100%;
-  background-color:#f2f2f2!important;
+  background-color: #FFFFFF !important;
 }
 
 .main{
@@ -83,6 +83,9 @@ input::-webkit-input-placeholder {
   padding: 30px 40px 10px 40px;
   margin-bottom: 40px;
 }
+.company_profile{
+  max-width: 700px !important;
+}
 
 .login-button{
   margin-top: 5px;
@@ -94,6 +97,9 @@ input::-webkit-input-placeholder {
 }
 .center-align{
   margin-left: 50%;
+}
+.left-align{
+  margin-left: 4%;
 }
 .dropdown{
   z-index: 1000 !important;
@@ -114,3 +120,19 @@ input::-webkit-input-placeholder {
   margin-top: 75px !important;
   margin-bottom: 0 !important;
 }
+.form-width{
+  width: 350px !important;
+}
+.horizontal_dropdown{
+  width: 150px !important;
+  margin-left: 44px !important;
+}
+.horizontal_textfield{
+  width: 160px !important;
+  margin-left: 90px !important;
+}
+.horizontal_text{
+  width: 150px !important;
+}
+
+

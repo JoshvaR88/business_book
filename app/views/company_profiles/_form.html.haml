@@ -1,31 +1,31 @@
 .col-sm-6
-  .main-login.main-center
+  .main-login.main-center.company_profile
     = form_for(@company_profile) do |f|
       - all_views_side_error_messages!(@company_profile)
       .form-group
         .cols-sm-10
           .input-group
-            = f.text_field :company_name, autofocus: true,  :class => "form-control", :placeholder => "Company Name"
+            = f.text_field :company_name, autofocus: true,  :class => "form-control form-width", :placeholder => "Company Name"
       .form-group
         .cols-sm-10
           .input-group
-            = f.email_field :email, autofocus: true,  :class => "form-control", :placeholder => "Email"
+            = f.email_field :email, autofocus: true,  :class => "form-control form-width", :placeholder => "Email"
       .form-group
         .cols-sm-10
           .input-group
-            = f.text_field :company_website, autofocus: true,  :class => "form-control", :placeholder => "Company Website"
+            = f.text_field :company_website, autofocus: true,  :class => "form-control form-width", :placeholder => "Company Website"
       .form-group.select_company
         .cols-sm-10
           .input-group
-            = f.select(:company_type, CompanyProfile::COMPANY,{},{class: "selectpicker  dropdown_company form-control", "data-live-search": "true"})
+            = f.select(:company_type, CompanyProfile::COMPANY,{},{class: "selectpicker form-width", "data-live-search": "true"})
       .form-group
         .cols-sm-10
           .input-group
-            = f.text_field :pan_no, autofocus: true,  :class => "form-control", :placeholder => "Pan No"
+            = f.text_field :pan_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Pan No"
       .form-group
         .cols-sm-10
           .input-group
-            = f.text_field :corp_id_no, autofocus: true,  :class => "form-control", :placeholder => "Corporate Identity Number"
+            = f.text_field :corp_id_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Corporate Identity Number"
             %br/
             %br/
 
@@ -33,31 +33,50 @@
           .form-group
             .cols-sm-10
               .input-group
-                = p.text_area :branch_address, autofocus: true,  :class => "form-control", :placeholder => "Branch Address"
+                = p.text_area :branch_address, autofocus: true,  :class => "form-control form-width", :placeholder => "Branch Address"
           .form-group.select_state
             .cols-sm-10
               .input-group
-                = p.select(:state, CompanyProfile::STATE,{},{class: "selectpicker  form-control", "data-live-search": "true"})
+                = p.select(:state, CompanyProfile::STATE,{},{class: "selectpicker form-width", "data-live-search": "true"})
           .form-group
             .cols-sm-10
               .input-group
-                = p.text_field :telephone_no, autofocus: true,  :class => "form-control", :placeholder => "Telephone No"
+                = p.text_field :telephone_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Telephone No"
                 %br/
                 %br/
 
 
         = f.fields_for :authorized_signatories do |t|
-          .form-group
-            .cols-sm-10
-              .input-group
-                = t.text_field :person_name, autofocus: true,  :class => "form-control", :placeholder => "Name"
-          .form-group.select_state
-            .cols-sm-10
-              .input-group
-                = t.select(:person_position, CompanyProfile::POSITION,{},{class: "selectpicker   form-control", "data-live-search": "true"})
-          .form-group
-            .cols-sm-10
-              .input-group
-                = t.text_field :person_id_no, autofocus: true,  :class => "form-control", :placeholder => "Person Identity Number"
-          .form-group
-            = f.submit "Save", class: "btn btn-primary btn-lg btn-block login-button"
+
+          .row.form-width
+            .col-xs-4
+              .form-group
+                .cols-sm-10
+                  .input-group
+                    = t.text_field :person_name, autofocus: true,  :class => "form-control horizontal_text", :placeholder => "Name"
+
+            .col-xs-4
+              .form-group.select_state
+                .cols-sm-10
+
+                  = t.select(:person_position, CompanyProfile::POSITION,{},{class: "selectpicker horizontal_dropdown", "data-live-search": "true"})
+            .col-xs-4
+              .form-group
+                .cols-sm-10
+                  .input-group
+                    = t.text_field :person_id_no, autofocus: true, :class => "form-control horizontal_textfield", :placeholder => "Person Identity Number"
+            .form-group
+              = f.submit "Save", class: "btn btn-primary left-align"
+
+
+
+
+
+
+
+
+
+
+
+
+
