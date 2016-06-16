@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :company_profiles do
+    collection do
+      post 'dropdown'
+    end
+  end
+
 
 
 
@@ -18,7 +24,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :company_profiles
+  #resources :company_profiles
 
   # Example resource route with options:
   #   resources :products do
