@@ -20,7 +20,7 @@ $( document ).on('ready page:load', function() {
       data:{ selected: selected},
       success: function(result) {
         $('.selectpicker').selectpicker('refresh');
-        $(".conditional_position").html(result.html);
+        $(".conditional_dropdown").empty().append(result.html);
       }
     });
   });

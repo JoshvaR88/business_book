@@ -17,7 +17,7 @@
           .form-group.select_state
             .cols-sm-10
               .input-group
-                = p.select(:state, State.collect_state,{},{class: "selectpicker form-width", "data-live-search": "true"})
+                = select_tag(:state, options_for_select(State.collect_state), prompt: "State", class: "selectpicker form-width", "data-live-search": "true")
           .form-group
             .cols-sm-10
               .input-group
@@ -36,7 +36,7 @@
       .form-group.select_company
         .cols-sm-10
           .input-group
-            = f.select(:company_type, CompanyProfile::COMPANY,{},{class: "selectpicker form-width add-class-company", "data-live-search": "true"})
+            = select_tag(:company_type, options_for_select(CompanyProfile::COMPANY), prompt: "Company Type", class: "selectpicker form-width add-class-company", "data-live-search": "true")
       .form-group
         .cols-sm-10
           .input-group
@@ -51,21 +51,9 @@
 
 
         = f.fields_for :authorized_signatories do |t|
-          .row.form-width
-            .col-xs-4
-              .form-group
-                .cols-sm-10
-                  .input-group
-                    = t.text_field :person_name, autofocus: true,  :class => "form-control horizontal_text", :placeholder => "Name"
-            .col-xs-4.select_position
-              .form-group.select_state
-                .cols-sm-10
-                  = render partial: 'company_profiles/append_conditional_dropdown_list', locals: {t: t, dropdown_list: CompanyProfile::POSITION}
-            .col-xs-4
-              .form-group
-                .cols-sm-10
-                  .input-group
-                    = t.text_field :person_id_no, autofocus: true, :class => "form-control horizontal_textfield", :placeholder => "Person Identity Number"
+
+          = render partial: 'company_profiles/append_conditional_dropdown_list', locals: {t: t, dropdown_list: CompanyProfile::POSITION, b: "okokok"}
+
       .form-group
         = f.submit "Save", class: "btn btn-primary left-align"
 
