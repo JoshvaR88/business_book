@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     collection do
       post 'dropdown'
     end
+    collection do
+      post 'add_branch_address'
+    end
   end
 
 

@@ -2,9 +2,16 @@ class CompanyProfilesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_company_profile, only: [:show, :edit, :update, :destroy]
 
+  def add_branch_address
+    @company_profile = CompanyProfile.new
+    @company_profile.office_addresses.build
+    p "===================#{@company_profile}"
+    p "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"
+    render json: {html: render_to_string("/company_profiles/_add_branch_address", layout: false, locals: {f: @company_profile })} and return
+  end
+
   def dropdown
     conditional_dropdown_list(params[:selected])
-
   end
 
   def new
@@ -13,7 +20,6 @@ class CompanyProfilesController < ApplicationController
     2.times do
       @company_profile.authorized_signatories.build
     end
-
   end
 
   def index

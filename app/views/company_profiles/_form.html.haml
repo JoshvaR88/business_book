@@ -1,6 +1,6 @@
 .col-sm-6
   .main-login.main-center.company_profile
-    = form_for(@company_profile) do |f|
+    = nested_form_for(@company_profile) do |f|
       - all_views_side_error_messages!(@company_profile)
       .form-group
         .cols-sm-10
@@ -9,22 +9,27 @@
             %br/
             %br/
             %br/
-        = f.fields_for :office_addresses do  |p|
-          .form-group
-            .cols-sm-10
-              .input-group
-                = p.text_area :branch_address, autofocus: true,  :class => "form-control form-width", :placeholder => "Registered office Address"
-          .form-group.select_state
-            .cols-sm-10
-              .input-group
-                = select_tag(:state, options_for_select(State.collect_state), prompt: "State", class: "selectpicker form-width", "data-live-search": "true")
-          .form-group
-            .cols-sm-10
-              .input-group
-                = p.text_field :telephone_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Telephone No"
-                %br/
+        %div{:id => "another_branch_address"}
+          = f.fields_for :office_addresses do  |p|
+            #fields
+              .form-group
+                .cols-sm-10
+                  .input-group
+                    = p.text_area :branch_address, autofocus: true,  :class => "form-control form-width", :placeholder => "Registered office Address"
+              .select_state
+                .form-group
+                  .cols-sm-10
+                    .input-group
+                      = p.select(:state, options_for_select(State.collect_state),{},{class: "selectpicker form-width", "data-live-search": "true"})
 
-
+              .form-group
+                .cols-sm-10
+                  .input-group
+                    = p.text_field :telephone_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Telephone No"
+                    %br/
+                    %br/
+                    %div{:class => "another_branch_address"}
+          = f.link_to_add "Add", :office_addresses, :data => { :target => ".another_branch_address" }
       .form-group
         .cols-sm-10
           .input-group
@@ -50,9 +55,9 @@
 
 
 
-        = f.fields_for :authorized_signatories do |t|
 
-          = render partial: 'company_profiles/append_conditional_dropdown_list', locals: {t: t, dropdown_list: CompanyProfile::POSITION, b: "okokok"}
+
+        = render partial: 'company_profiles/append_conditional_dropdown_list', locals: {f: f, dropdown_list: CompanyProfile::POSITION, placeholder_value: "okokok"}
 
       .form-group
         = f.submit "Save", class: "btn btn-primary left-align"

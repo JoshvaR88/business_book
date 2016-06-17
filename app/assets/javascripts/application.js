@@ -15,11 +15,12 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require bootstrap-select
+//= require jquery_nested_form
 //= require_tree .
 
 $( document ).on('ready page:load', function() {
 
-  $('.selectpicker').selectpicker();
+  $('.selectpicker').selectpicker('refresh');
 
 });
 

@@ -25,4 +25,18 @@ $( document ).on('ready page:load', function() {
     });
   });
 
+
+  $('.add_another_address').on("click", ".add_address", function() {
+
+    $.ajax({
+      type: "POST",
+      url:  "/company_profiles/add_branch_address",
+      success: function(result) {
+        $(".another_branch_address").append(result.html);
+        // $('.hide-answer-button').addClass("hide");
+      }
+    });
+  });
+
+
 });
