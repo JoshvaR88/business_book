@@ -1,0 +1,60 @@
+= f.fields_for :tax_deductions do |o|
+  #fields
+    .form-group
+      .cols-sm-10
+        .input-group
+          = o.text_field :tan_no, autofocus: true, :class => "form-control form-width", :placeholder => "TAN NUMBER"
+    %div{id: 'tax_details'}
+      .form-group
+        .cols-sm-10
+          .input-group
+            = o.text_area :cit_address, autofocus: true, :class => "form-control form-width", :placeholder => "CIT(TDS) & Address"
+      .form-group
+        .cols-sm-10
+          .input-group
+            = select_tag(:deductor_collector, options_for_select(CompanyProfile::DEDUCTOR_COLLECTOR_TYPE), prompt: "Collector-Deductor Type", class: "selectpicker form-width", "data-live-search": "true")
+      .form-group
+        .cols-sm-10
+          .input-group
+            = o.text_field :responsibility_tax_person, autofocus: true, :class => "form-control form-width", :placeholder => "Responsibility of Tax Collection Authorized Person Name"
+      .form-group
+        .cols-sm-10
+          .input-group
+            = o.text_field :designation, autofocus: true, :class => "form-control form-width", :placeholder => "Designation"
+            %br/
+            %br/
+            %div{:class => "append_tan_info"}
+%div{id: 'add_details'}
+  = f.link_to_add "Add", :tax_deductions, :data => { :target => ".append_tan_info"}
+%div{id: 'plus_details'}
+= f.link_to "+","javascript:void();", id: "show_fields"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

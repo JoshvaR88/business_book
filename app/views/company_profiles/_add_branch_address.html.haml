@@ -1,16 +1,21 @@
-= f.fields_for :office_addresses do  |p|
-  .form-group
-    .cols-sm-10
-      .input-group
-        = p.text_area :branch_address, autofocus: true,  :class => "form-control form-width", :placeholder => "Registered office Address"
-  .form-group.select_state
-    .cols-sm-10
-      .input-group
-        = select_tag(:state, options_for_select(State.collect_state), prompt: "State", class: "selectpicker form-width", "data-live-search": "true")
+%div{:id => "another_branch_address"}
+  = f.fields_for :office_addresses do  |p|
+    #fields
+      .form-group
+        .cols-sm-10
+          .input-group
+            = p.text_area :branch_address, autofocus: true,  :class => "form-control form-width", :placeholder => "Registered office Address"
+      .select_state
+        .form-group
+          .cols-sm-10
+            .input-group
+              = p.select(:state, options_for_select(State.collect_state),{},{class: "selectpicker form-width", "data-live-search": "true"})
 
-  .form-group
-    .cols-sm-10
-      .input-group
-        = p.text_field :telephone_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Telephone No"
-        %br/
-
+      .form-group
+        .cols-sm-10
+          .input-group
+            = p.text_field :telephone_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Telephone No"
+            %br/
+            %br/
+            %div{:class => "another_branch_address"}
+  = f.link_to_add "Add", :office_addresses, :data => { :target => ".another_branch_address" }

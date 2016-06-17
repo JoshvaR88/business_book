@@ -8,24 +8,29 @@ class ApplicationController < ActionController::Base
   def conditional_dropdown_list(selected)
     case selected
     when "Private"
-      a = ["Managing Director","Whole Time Director","Director"]
-      dropdown_list =  a.zip(a)
+      dropdown_values = ["Managing Director","Whole Time Director","Director"]
+      dropdown_list =  dropdown_values.zip(dropdown_values)
+      placeholder_value = "DIN"
     when "LLP"
-      a = ["Partner","Executive Partner"]
-      dropdown_list =  a.zip(a)
+      dropdown_values = ["Partner","Executive Partner"]
+      dropdown_list =  dropdown_values.zip(dropdown_values)
+      placeholder_value = "DPIN"
     when "OPC"
-      a = ["Managing Director","Whole Time Director","Director"]
-      dropdown_list =  a.zip(a)
+      dropdown_values = ["Managing Director","Whole Time Director","Director"]
+      dropdown_list =  dropdown_values.zip(dropdown_values)
+      placeholder_value = "DIN"
     when "Partnership Firm"
-      a = ["Partner","Partner"]
-      dropdown_list =  a.zip(a)
+      dropdown_list = ["Partner","Partner"]
+      dropdown_list =  dropdown_values.zip(dropdown_values)
+      placeholder_value = "Partnership Member Number"
     when "Sole Proprietorship"
-      a = ["Sole Proprietorship"]
-      dropdown_list =  a.zip(a)
+      dropdown_values = ["Sole Proprietorship"]
+      dropdown_list =  dropdown_values.zip(dropdown_values)
+      placeholder_value = "DPIN"
     else
     end
 
-    render json: {html: render_to_string("/company_profiles/_append_conditional_dropdown_list", layout: false, locals: {t: AuthorizedSignatory.new, dropdown_list: dropdown_list})} and return
+    render json: {html: render_to_string("/company_profiles/_append_conditional_dropdown_list", layout: false, locals: {f: CompanyProfile.new, dropdown_list: dropdown_list, placeholder_value: placeholder_value})} and return
   end
 
   protected
