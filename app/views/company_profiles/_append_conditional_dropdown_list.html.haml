@@ -1,17 +1,20 @@
-conditional_dropdown
-  .row.form-width
-    .col-xs-4
-      .form-group
-        .cols-sm-10
-          .input-group
-            = text_field_tag :person_name, "", autofocus: true, :class => "form-control horizontal_text", :placeholder => "Name"
-    .col-xs-4.select_position
-      .form-group.select_state
-        .cols-sm-10
-          = select_tag(:person_position, options_for_select(dropdown_list), prompt: "please select", class: "selectpicker horizontal_dropdown add-class-position", "data-live-search": "true")
-    .col-xs-4
-      .form-group
-        .cols-sm-10
-          .input-group
-            = text_field_tag :person_id_no, "", autofocus: true, :class => "form-control horizontal_textfield", :placeholder => b
+= fields_for company_profile do |f|
+  = f.fields_for :authorized_signatories do |t|
+    .row.form-width
+      .col-xs-4
+        .form-group
+          .cols-sm-10
+            .input-group
+              = t.text_field :person_name, autofocus: true, :class => "form-control horizontal_text", :placeholder => "Name"
+      .select_position
+        .col-xs-4
+          .form-group
+            .cols-sm-10
+              = t.select :person_position, options_for_select(dropdown_list),{}, {prompt: "please select", class: "selectpicker horizontal_dropdown add-class-position", "data-live-search": "true"}
+      .col-xs-4
+        .form-group
+          .cols-sm-10
+            .input-group
+              = t.text_field :person_id_no, autofocus: true, :class => "form-control horizontal_textfield", :placeholder => placeholder_value
+
 

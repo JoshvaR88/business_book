@@ -3,6 +3,10 @@
     .form-group
       .cols-sm-10
         .input-group
+          = o.label :Tax_Information
+    .form-group
+      .cols-sm-10
+        .input-group
           = o.text_field :tan_no, autofocus: true, :class => "form-control form-width", :placeholder => "TAN NUMBER"
     %div{id: 'tax_details'}
       .form-group

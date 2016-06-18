@@ -23,23 +23,25 @@
       .form-group.select_company
         .cols-sm-10
           .input-group
-            = select_tag(:company_type, options_for_select(CompanyProfile::COMPANY), prompt: "Company Type", class: "selectpicker form-width add-class-company", "data-live-search": "true")
+            = f.select :company_type, options_for_select(CompanyProfile::COMPANY),{}, {prompt: "Company Type", class: "selectpicker form-width add-class-company", "data-live-search": "true"}
       .form-group
         .cols-sm-10
           .input-group
-            = f.select(:accounting_mode, options_for_select(CompanyProfile::AC_TYPE), class: "selectpicker form-control form-width",prompt: "Accounting Mode", "data-live-search": "true")
+            = f.select :accounting_mode, options_for_select(CompanyProfile::AC_TYPE), {}, {class: "selectpicker form-control form-width", prompt: "Accounting Mode", "data-live-search": "true"}
       .form-group
         .cols-sm-10
           .input-group
             = f.text_field :pan_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Pan No"
-      .form-group
-        .cols-sm-10
-          .input-group
-            = f.text_field :corp_id_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Corporate Identity Number"
+      %div{id: 'cin_num'}
+        .form-group
+          .cols-sm-10
+            .input-group
+              = f.text_field :corp_id_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Corporate Identity Number"
+              %br/
             %br/
-          %br/
-        = render partial: 'company_profiles/add_tan_no', locals: {f: f}
-        = render partial: 'company_profiles/append_conditional_dropdown_list', locals: {f: f, dropdown_list: CompanyProfile::POSITION, placeholder_value: "okokok"}
+      = render partial: 'company_profiles/add_tan_no', locals: {f: f}
+      .conditional_dropdown
+        = render partial: 'company_profiles/append_conditional_dropdown_list', locals: {company_profile: @company_profile, dropdown_list: CompanyProfile::POSITION, placeholder_value: "okokok"}
 
       .form-group
         = f.submit "Save", class: "btn btn-primary left-align"

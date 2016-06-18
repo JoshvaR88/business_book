@@ -3,14 +3,16 @@ class CompanyProfile < ActiveRecord::Base
 
   has_many :office_addresses
   has_many :authorized_signatories
-  validates :company_name, :email, :company_website, :company_type, :pan_no, :corp_id_no, presence: true
+  has_many :tax_deductions
 
-  accepts_nested_attributes_for :office_addresses
-  accepts_nested_attributes_for :authorized_signatories
+  # validates :company_name, :email, :company_website, :company_type, :pan_no, :corp_id_no, :accounting_mode, presence: true
 
-  COMPANY = LIST_OF_COMPANY.zip(LIST_OF_COMPANY)
+  accepts_nested_attributes_for :office_addresses, :authorized_signatories, :tax_deductions
 
-  POSITION = POSITION_LIST.zip(POSITION_LIST)
+  COMPANY = LIST_OF_COMPANY
+
+  POSITION = POSITION_LIST
+
 
 end
 

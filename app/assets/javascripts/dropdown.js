@@ -14,13 +14,19 @@ $( document ).on('ready page:load', function() {
   $('.selectpicker').on('change', function(){
     var selected = $(this).find("option:selected").text();
     alert(selected);
+    if (selected == "Sole proprietorship"){
+      $('#cin_num').hide();
+    }
+    else{
+      $('#cin_num').show();
+    }
     $.ajax({
       type: "POST",
       url: '/company_profiles/dropdown',
       data:{ selected: selected},
       success: function(result) {
+        $(".conditional_dropdown").html(result.html);
         $('.selectpicker').selectpicker('refresh');
-        $(".conditional_dropdown").empty().append(result.html);
       }
     });
   });
@@ -32,6 +38,9 @@ $( document ).on('ready page:load', function() {
     $('#plus_details').hide();
   })
 
+  // $('.selectpicker').on('change', function(){
+  //   var selected = $(this).find("option:selected").text();
+  //   ('#cin_num').hide();
 });
 
 
