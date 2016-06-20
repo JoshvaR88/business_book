@@ -41,10 +41,14 @@ $( document ).on('ready page:load', function() {
 
   $('#remove_address_info').hide();
   $('#show_address_fields').on('click', function(){
-    // $('.selectpicker').selectpicker('refresh');
+    $('.selectpicker').selectpicker('refresh');
     $('#add_address_details').show();
     $('#remove_address_info').show();
   })
 });
-
+$(document).on('nested:fieldAdded', function(event){
+  var field = event.field;
+  var selectField = field.find('.selectpicker');
+  selectField.selectpicker();
+});
 
