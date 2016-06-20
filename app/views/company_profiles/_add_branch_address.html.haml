@@ -4,7 +4,7 @@
       .form-group
         .cols-sm-10
           .input-group
-            = p.text_area :branch_address, autofocus: true,  :class => "form-control form-width", :placeholder => "Registered office Address"
+            = p.text_area :branch_address, autofocus: true,  :class => "form-control form-width", placeholder: "Registered office Address"
       .select_state
         .form-group
           .cols-sm-10
@@ -14,8 +14,12 @@
       .form-group
         .cols-sm-10
           .input-group
-            = p.text_field :telephone_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Telephone No"
+            = p.text_field :telephone_no, autofocus: true,  :class => "form-control form-width", placeholder: "Telephone No"
             %br/
             %br/
-            %div{:class => "another_branch_address"}
-  = f.link_to_add "Add", :office_addresses, :data => { :target => ".another_branch_address" }
+            %div{id: "remove_address_info"}
+              %div{id: "remove_info"}
+              = f.link_to_remove "remove"
+%div{class: "another_branch_address"}
+%div{id: 'add_address_details'}
+  = f.link_to_add "Add", :office_addresses, id: "show_address_fields", :data => { :target => ".another_branch_address" }

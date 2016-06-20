@@ -40,6 +40,15 @@
               %br/
             %br/
       = render partial: 'company_profiles/add_tan_no', locals: {f: f}
+      %div{:class => "append_tan_info"}
+
+
+      %div{id: 'add_details'}
+        = f.link_to_add "Add", :tax_deductions, :data => { :target => ".append_tan_info"}
+
+      %div{id: 'plus_details'}
+        = f.link_to "+","javascript:void();", id: "show_fields"
+
       .conditional_dropdown
         = render partial: 'company_profiles/append_conditional_dropdown_list', locals: {company_profile: @company_profile, dropdown_list: CompanyProfile::POSITION, placeholder_value: "okokok"}
 

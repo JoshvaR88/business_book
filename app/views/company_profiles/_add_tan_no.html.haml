@@ -27,12 +27,8 @@
             = o.text_field :designation, autofocus: true, :class => "form-control form-width", :placeholder => "Designation"
             %br/
             %br/
-            %div{:class => "append_tan_info"}
-%div{id: 'add_details'}
-  = f.link_to_add "Add", :tax_deductions, :data => { :target => ".append_tan_info"}
-%div{id: 'plus_details'}
-= f.link_to "+","javascript:void();", id: "show_fields"
-
+            %div{id: 'remove_tan_info'}
+            = f.link_to_remove "remove"
 
 
 

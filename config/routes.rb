@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :company_profiles do
     collection do
       post 'dropdown'
+      post 'cin_no'
     end
     collection do
       post 'add_branch_address'

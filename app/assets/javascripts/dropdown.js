@@ -13,7 +13,6 @@ $( document ).on('ready page:load', function() {
 
   $('.selectpicker').on('change', function(){
     var selected = $(this).find("option:selected").text();
-    alert(selected);
     if (selected == "Sole proprietorship"){
       $('#cin_num').hide();
     }
@@ -31,16 +30,21 @@ $( document ).on('ready page:load', function() {
     });
   });
 
-  $('#tax_details, #add_details').hide();
+  $('#tax_details, #add_details, #remove_tan_info').hide();
   $('#show_fields').on('click', function(){
+    $('.selectpicker').selectpicker('refresh');
     $('#tax_details').show();
     $('#add_details').show();
+    $('#remove_tan_info').show();
     $('#plus_details').hide();
   })
 
-  // $('.selectpicker').on('change', function(){
-  //   var selected = $(this).find("option:selected").text();
-  //   ('#cin_num').hide();
+  $('#remove_address_info').hide();
+  $('#show_address_fields').on('click', function(){
+    // $('.selectpicker').selectpicker('refresh');
+    $('#add_address_details').show();
+    $('#remove_address_info').show();
+  })
 });
 
 
