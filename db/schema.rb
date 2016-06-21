@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617114856) do
+ActiveRecord::Schema.define(version: 20160621114937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,81 @@ ActiveRecord::Schema.define(version: 20160617114856) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
+  create_table "sales_configurations", force: :cascade do |t|
+    t.string   "tax_organization"
+    t.boolean  "invoice_reg_office"
+    t.boolean  "invoice_outside_branch_state"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "sales_tax_additional_infos", force: :cascade do |t|
+    t.integer  "reg_circle"
+    t.string   "division"
+    t.string   "area_code"
+    t.string   "authorized_person_name"
+    t.string   "designation"
+    t.string   "ie_code"
+    t.integer  "sales_configuration_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "sales_tax_additional_infos", ["sales_configuration_id"], name: "index_sales_tax_additional_infos_on_sales_configuration_id", using: :btree
+
+  create_table "sales_tax_centrals", force: :cascade do |t|
+    t.integer  "state"
+    t.boolean  "central_sales_tax"
+    t.string   "central_reg_no"
+    t.datetime "central_tax_date"
+    t.integer  "sales_configuration_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "sales_tax_centrals", ["sales_configuration_id"], name: "index_sales_tax_centrals_on_sales_configuration_id", using: :btree
+
+  create_table "sales_taxes", force: :cascade do |t|
+    t.integer  "vat_type"
+    t.string   "tax_reg_no"
+    t.datetime "tax_date"
+    t.integer  "sales_configuration_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "sales_taxes", ["sales_configuration_id"], name: "index_sales_taxes_on_sales_configuration_id", using: :btree
+
+  create_table "service_tax_additional_infos", force: :cascade do |t|
+    t.string   "commissionerate_name"
+    t.string   "commissionerate_code"
+    t.text     "address"
+    t.string   "jurisdiction"
+    t.string   "division_name"
+    t.string   "division_code"
+    t.string   "range_name"
+    t.string   "range_code"
+    t.text     "range_address"
+    t.string   "range_jurisdiction"
+    t.integer  "sales_configuration_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "service_tax_additional_infos", ["sales_configuration_id"], name: "index_service_tax_additional_infos_on_sales_configuration_id", using: :btree
+
+  create_table "service_taxes", force: :cascade do |t|
+    t.string   "service_type"
+    t.string   "service_provider_category"
+    t.string   "service_tax_reg_no"
+    t.boolean  "large_tax_payer"
+    t.integer  "sales_configuration_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "service_taxes", ["sales_configuration_id"], name: "index_service_taxes_on_sales_configuration_id", using: :btree
+
   create_table "states", force: :cascade do |t|
     t.string   "name",       default: ""
     t.integer  "country_id"
@@ -124,6 +199,11 @@ ActiveRecord::Schema.define(version: 20160617114856) do
   add_foreign_key "authorized_signatories", "company_profiles"
   add_foreign_key "office_addresses", "company_profiles"
   add_foreign_key "profiles", "users"
+  add_foreign_key "sales_tax_additional_infos", "sales_configurations"
+  add_foreign_key "sales_tax_centrals", "sales_configurations"
+  add_foreign_key "sales_taxes", "sales_configurations"
+  add_foreign_key "service_tax_additional_infos", "sales_configurations"
+  add_foreign_key "service_taxes", "sales_configurations"
   add_foreign_key "states", "countries"
   add_foreign_key "tax_deductions", "company_profiles"
 end

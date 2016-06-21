@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+  resources :sales_configurations
 
 
   devise_for :users
