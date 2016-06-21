@@ -1,0 +1,53 @@
+= fields_for sales_configuration do |f|
+  = f.fields_for :service_tax_additional_info do |t|
+
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :commissionerate_name, autofocus: true, :class => "form-control form_width", :placeholder => "Commissionerate Name"
+
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :commissionerate_code, autofocus: true, :class => "form-control form_width", :placeholder => "Commissionerate Code"
+
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_area :address, autofocus: true, :class => "form-control form_width", :placeholder => "Address"
+
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :jurisdiction, autofocus: true, :class => "form-control form_width", :placeholder => "Jurisdiction"
+
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :division_name, autofocus: true, :class => "form-control form_width", :placeholder => "Division Name"
+
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :division_code, autofocus: true, :class => "form-control form_width", :placeholder => "Division Code"
+
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :range_name, autofocus: true, :class => "form-control form_width", :placeholder => "Range Name"
+
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :range_code, autofocus: true, :class => "form-control form_width", :placeholder => "Range Code"
+
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_area :range_address, autofocus: true, :class => "form-control form_width", :placeholder => "Range Address"
+
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :range_jurisdiction, autofocus: true, :class => "form-control form_width", :placeholder => "Range Jurisdiction"
+

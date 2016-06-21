@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613053207) do
+ActiveRecord::Schema.define(version: 20160617114856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160613053207) do
     t.string   "corp_id_no"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "accounting_mode"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -86,6 +87,19 @@ ActiveRecord::Schema.define(version: 20160613053207) do
 
   add_index "states", ["country_id"], name: "index_states_on_country_id", using: :btree
 
+  create_table "tax_deductions", force: :cascade do |t|
+    t.string   "tan_no"
+    t.string   "cit_address"
+    t.integer  "deductor_collector"
+    t.string   "responsibility_tax_person"
+    t.string   "designation"
+    t.integer  "company_profile_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "tax_deductions", ["company_profile_id"], name: "index_tax_deductions_on_company_profile_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -111,4 +125,5 @@ ActiveRecord::Schema.define(version: 20160613053207) do
   add_foreign_key "office_addresses", "company_profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "states", "countries"
+  add_foreign_key "tax_deductions", "company_profiles"
 end

@@ -17,6 +17,7 @@ class CompanyProfilesController < ApplicationController
   def new
     @company_profile = CompanyProfile.new
     @company_profile.office_addresses.build
+    @company_profile.tax_deductions.build
     2.times do
       @company_profile.authorized_signatories.build
     end
@@ -62,7 +63,7 @@ class CompanyProfilesController < ApplicationController
 
 
   def company_profile_params
-    params.require(:company_profile).permit(:company_name, :email, :company_website, :company_type, :pan_no, :corp_id_no, office_addresses_attributes: [:branch_address, :state, :telephone_no], authorized_signatories_attributes: [:person_name, :person_position, :person_id_no])
+    params.require(:company_profile).permit(:company_name, :email, :company_website, :company_type, :pan_no, :corp_id_no, :accounting_mode, office_addresses_attributes: [:branch_address, :state, :telephone_no],    tax_deductions_attributes: [:tan_no, :cit_address, :deductor_collector, :responsibility_tax_person, :designation], authorized_signatories_attributes: [:person_name, :person_position, :person_id_no])
 
   end
 

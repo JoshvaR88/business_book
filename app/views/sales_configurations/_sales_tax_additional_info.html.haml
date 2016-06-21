@@ -1,0 +1,26 @@
+= fields_for sales_configuration do |f|
+  = f.fields_for :sales_tax_additional_info do |t|
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :reg_circle, autofocus: true, :class => "form-control form-width", :placeholder => "Registered Circle"
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :division, autofocus: true, :class => "form-control form-width", :placeholder => "Division"
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :area_code, autofocus: true, :class => "form-control form-width", :placeholder => "Area Code"
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :authorized_person_name, autofocus: true, :class => "form-control form-width", :placeholder => "Authorized Person Name"
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :designation, autofocus: true, :class => "form-control form-width", :placeholder => "Designation"
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.text_field :ie_code, autofocus: true, :class => "form-control form-width", :placeholder => "Import/Export Code"

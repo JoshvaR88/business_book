@@ -124,12 +124,13 @@ input::-webkit-input-placeholder {
   width: 350px !important;
 }
 .horizontal_dropdown{
-  width: 150px !important;
+  width: 160px !important;
   margin-left: 44px !important;
+
 }
 .horizontal_textfield{
   width: 160px !important;
-  margin-left: 90px !important;
+  margin-left: 100px !important;
 }
 .horizontal_text{
   width: 150px !important;
