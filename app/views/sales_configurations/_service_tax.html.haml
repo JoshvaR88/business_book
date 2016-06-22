@@ -3,4 +3,22 @@
     .form-group
       .cols-sm-10
         .input-group
+          = t.select :service_type, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Type", class: "checkbox_list_for_tax_org form-control form-width", "data-live-search": "true"}
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.select :service_provider_category, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Provide Category", class: "checkbox_list_for_tax_org form-control form-width", "data-live-search": "true"}
+    .form-group
+      .cols-sm-10
+        .input-group
           = t.text_field :service_tax_reg_no, autofocus: true, :class => "form-control form-width", :placeholder => "Service Tax Register Number"
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.label :autolyse, "Are you Large Tax Payer ?"
+          %br/
+          = t.label :autolyse, "Yes", :value => "true"
+          = t.radio_button :large_tax_payer, true
+          = t.label :autolyse, "No", :value => "false"
+          = t.radio_button :large_tax_payer, false, :checked => true
+

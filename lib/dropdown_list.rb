@@ -1,10 +1,34 @@
 module DropdownList
   # extend ActiveSupport::Concern
+  #rang of int
+  TWO_INT = (1..2).to_a
+  FIVE_INT = (1..5).to_a
+  SIX_INT = (1..6).to_a
 
-  LIST_OF_COMPANY = [["Private", 1], ["LLP", 2], ["OPC", 3], ["Partnership Firm", 4], ["Sole proprietorship", 5]]
+  #dropdown string
+  COMPANY = ["Private", "LLP", "OPC", "Partnership Firm","Sole proprietorship"]
+  POSITION = ["Managing Director", "Whole Time Director", "Director", "Partner","Sole Proprietorship", "Executive Partner"]
+  AC = ['Accounting', 'Accounting and Inventory']
+  DEDUCTOR_COLLECTOR = ["Government", "Non-Government"]
+  CHECKBOX = ["Sales of  Goods", " Sales of  Services", " Sales of  Goods & Service", " Sales of  Export Goods", " Sales of  Export Service", " Sales of Export Goods & Service"]
 
-  POSITION_LIST = [["Managing Director", 1], ["Whole Time Director", 2], ["Director", 3], ["Partner", 4], ["Sole Proprietorship", 5], ["Executive Partner", 6]]
-  AC_TYPE = [['Accounting', 1], ['Accounting and Inventory', 2]]
+  VAT_TYPE = [["vat_type", 1]]
 
-  DEDUCTOR_COLLECTOR_TYPE = [["Government", 1], ["Non-Government", 2]]
+  #zip for two constant
+  LIST_OF_COMPANY = COMPANY.zip(FIVE_INT)
+  POSITION_LIST = POSITION.zip(SIX_INT)
+  AC_TYPE = AC.zip(TWO_INT)
+  DEDUCTOR_COLLECTOR_TYPE = DEDUCTOR_COLLECTOR.zip(TWO_INT)
+  CHECKBOX_LIST = CHECKBOX.zip(CHECKBOX)
+
 end
+
+
+
+
+
+
+
+
+
+

@@ -5,7 +5,26 @@
       .form-group
         .cols-sm-10
           .input-group
-            = f.text_field :tax_organization, autofocus: true,  :class => "form-control form-width", :placeholder => "Name"
+            = f.select :tax_organization, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Tax organization type", class: "checkbox_list_for_tax_org form-control form-width", "data-live-search": "true", multiple:"multiple"}
+      .form-group
+        .cols-sm-10
+          .input-group
+            = f.label :reg_off, "If you raised the all Sales/ Service invoices from Registered office?"
+            %br/
+            = f.label :autolyse, "Yes", :value => "true"
+            = f.radio_button :invoice_reg_office, true
+            = f.label :autolyse, "No", :value => "false"
+            = f.radio_button :invoice_reg_office, false, :checked => true
+      .form-group
+        .cols-sm-10
+          .input-group
+            = f.label :outside_state, "you have any branches in outside state and raised the invoices from that branch?"
+            %br/
+            = f.label :autolyse, "Yes", :value => "true"
+            = f.radio_button :invoice_outside_branch_state, true
+            = f.label :autolyse, "No", :value => "false"
+            = f.radio_button :invoice_outside_branch_state, false, :checked => true
+
             %br/
             %br/
             %br/
@@ -15,19 +34,6 @@
         = render partial: 'sales_configurations/service_tax', locals: {sales_configuration: @sales_configuration}
         = render partial: 'sales_configurations/service_tax_additional_info', locals: {sales_configuration: @sales_configuration}
 
-
-
-
-
-      / .form-group
-      /   .cols-sm-10
-      /     .input-group
-      /       = f.email_field :email, autofocus: true,  :class => "form-control form-width", :placeholder => "Email"
-
-      / .form-group.select_company
-      /   .cols-sm-10
-      /     .input-group
-      /       = f.select :company_type, options_for_select(CompanyProfile::COMPANY),{}, {prompt: "Company Type", class: "selectpicker form-width add-class-company", "data-live-search": "true"}
-
       .form-group
         = f.submit "Save", class: "btn btn-primary left-align"
+

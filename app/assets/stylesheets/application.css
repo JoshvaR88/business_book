@@ -12,6 +12,7 @@
  *
  *= require show
  *= require bootstrap-select
+ *= require bootstrap-multiselect
  *= require_tree .
  *= require_self
  */

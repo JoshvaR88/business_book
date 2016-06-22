@@ -6,6 +6,7 @@ class CreateSalesTaxAdditionalInfos < ActiveRecord::Migration
       t.string :area_code
       t.string :authorized_person_name
       t.string :designation
+      t.string :ie_code
       t.references :sales_configuration, index: true, foreign_key: true
 
       t.timestamps null: false

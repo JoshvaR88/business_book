@@ -13,6 +13,7 @@ class SalesConfigurationsController < ApplicationController
 
   def create
      @sales_configuration = SalesConfiguration.new(sales_configuration_params)
+     p "kkkkkkkkkk#{params[:sales_configuration][:tax_organization]}"
 
     respond_to do |format|
       if @sales_configuration.save
@@ -46,7 +47,7 @@ class SalesConfigurationsController < ApplicationController
   end
 
   def sales_configuration_params
-    params.require(:sales_configuration).permit(:tax_organization, :invoice_reg_office, :invoice_outside_branch_state, sales_tax_attributes: [:vat_type, :tax_reg_no, :tax_date], sales_tax_additional_info_attributes: [:reg_circle, :division, :area_code, :authorized_person_name, :designation, :ie_code], sales_tax_central_attributes: [:central_sales_tax, :central_reg_no, :central_tax_date], service_tax_attributes: [:service_type, :service_provider_category, :service_tax_reg_no, :large_tax_payer], service_tax_additional_info_attributes: [:commissionerate_name, :commissionerate_code, :address, :jurisdiction, :division_name, :division_code, :range_name, :range_code, :range_address, :range_jurisdiction])
+    params.require(:sales_configuration).permit(:invoice_reg_office, {:tax_organization => []}, :invoice_outside_branch_state, sales_tax_attributes: [:vat_type, :tax_reg_no, :tax_date], sales_tax_additional_info_attributes: [:reg_circle, :division, :area_code, :authorized_person_name, :designation, :ie_code], sales_tax_central_attributes: [:state, :central_sales_tax, :central_reg_no, :central_tax_date], service_tax_attributes: [:service_type, :service_provider_category, :service_tax_reg_no, :large_tax_payer], service_tax_additional_info_attributes: [:commissionerate_name, :commissionerate_code, :address, :jurisdiction, :division_name, :division_code, :range_name, :range_code, :range_address, :range_jurisdiction])
   end
 end
 

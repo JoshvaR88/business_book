@@ -16,12 +16,33 @@
 //= require turbolinks
 //= require bootstrap-select
 //= require jquery_nested_form
+//= require bootstrap-multiselect
 //= require_tree .
 
 $( document ).on('ready page:load', function() {
 
   $('.selectpicker').selectpicker('refresh');
 
-});
+  $('.checkbox_list_for_tax_org').multiselect({
+    includeSelectAllOption: true,
+    maxHeight: 200,
+    enableClickableOptGroups: true,
+    buttonWidth: '350px',
+    buttonText: function(options, select) {
+      if (options.length === 0) {
+          return 'Tax organization type...';
+      }
+      else if (options.length > 1) {
+          return 'More than '+(options.length - 1)+' tax organization selected!';
+      }
+      else {
+        return options.val();
+      }
+    }
+  });
+  // $('.radio').select({
+  //   $(this).addClass('active').siblings().removeClass('active');
+  // });
 
+});
 
