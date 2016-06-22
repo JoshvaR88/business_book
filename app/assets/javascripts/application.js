@@ -17,6 +17,7 @@
 //= require bootstrap-select
 //= require jquery_nested_form
 //= require bootstrap-multiselect
+//= require bootstrap-datepicker
 //= require_tree .
 
 $( document ).on('ready page:load', function() {
@@ -40,9 +41,13 @@ $( document ).on('ready page:load', function() {
       }
     }
   });
-  // $('.radio').select({
-  //   $(this).addClass('active').siblings().removeClass('active');
-  // });
+
+  $('.datepicker').datepicker({
+     format: "dd-mm-yyyy",
+     todayHighlight: true,
+     todayBtn: 'linked',
+     autoclose: true
+  });
 
 });
 
