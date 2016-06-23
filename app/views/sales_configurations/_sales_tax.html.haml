@@ -1,15 +1,16 @@
 = fields_for sales_configuration do |f|
   = f.fields_for :sales_tax do |t|
-    .form-group
-      .cols-sm-10
-        .input-group
-          = t.select :vat_type, options_for_select(SalesConfiguration::VAT_TYPE),{}, {prompt: "Vat Type", class: "selectpicker form-width", "data-live-search": "true"}
-    .form-group
-      .cols-sm-10
-        .input-group
-          = t.text_field :tax_reg_no, autofocus: true, :class => "form-control form-width", :placeholder => "Tax Register Number"
-    .form-group
-      .cols-sm-10
-        .input-group
-          = t.text_field :tax_date, autofocus: true, :class => "datepicker form-control form-width", :placeholder => "Tax Date"
+    %div{id: 'sales_tax'}
+      .form-group
+        .cols-sm-10
+          .input-group
+            = t.select :vat_type, options_for_select(SalesConfiguration::VAT_TYPE),{}, {prompt: "Vat Type", class: "selectpicker form-width", "data-live-search": "true"}
+      .form-group
+        .cols-sm-10
+          .input-group
+            = t.text_field :tax_reg_no, autofocus: true, :class => "form-control form-width", :placeholder => "Tax Register Number"
+      .form-group
+        .cols-sm-10
+          .input-group
+            = t.text_field :tax_date, autofocus: true, :class => "datepicker form-control form-width", :placeholder => "Tax Date"
 

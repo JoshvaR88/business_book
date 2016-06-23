@@ -56,6 +56,58 @@ $( document ).on('ready page:load', function() {
     $('#add_service_tax_additional_details').hide();
     $('#remove_service_tax_additional_info').show();
   })
+
+  $('.sales').on('change', function(){
+    var items = $(".sales option:selected").map(function() {
+    return $(this).text();
+    }).get();
+    var multi = items;
+    var multiselected = $.unique(multi).join();
+
+    console.log(multiselected);
+    alert("hhhhhiiiiiiiiii");
+    if (multiselected == "Sales of Goods"){
+      $('#service_tax, #show_service_tax_add_info').hide();
+      $('#sales_tax, #show_sales_tax_add_info').show();
+    }
+    else if(multiselected == "Sales of Services"){
+      $('#sales_tax, #show_sales_tax_add_info').hide();
+      $('#service_tax, #show_service_tax_add_info').show();
+    }
+    else if(multiselected == "Sales of Goods & Service"){
+      $('#sales_tax, #show_sales_tax_add_info').show();
+      $('#service_tax, #show_service_tax_add_info').show();
+    }
+    else if(multiselected == "Sales of Export Goods"){
+      $('#sales_tax, #show_sales_tax_add_info').show();
+      $('#service_tax, #show_service_tax_add_info').hide();
+    }
+    else if(multiselected == "Sales of Export Goods & Service"){
+      $('#sales_tax, #show_sales_tax_add_info').show();
+      $('#service_tax, #show_service_tax_add_info').show();
+    }
+    else if(multiselected == "Sales of Goods","Sales of Services"){
+      $('#sales_tax, #show_sales_tax_add_info').show();
+      $('#service_tax, #show_service_tax_add_info').show();
+    }
+    else if(multiselected == "Sales of Goods","Sales of Goods & Service"){
+      $('#sales_tax, #show_sales_tax_add_info').show();
+      $('#service_tax, #show_service_tax_add_info').show();
+    }
+    else if(multiselected == "Sales of Goods","Sales of Export Service"){
+      $('#sales_tax, #show_sales_tax_add_info').show();
+      $('#service_tax, #show_service_tax_add_info').show();
+    }
+    else if(multiselected == "Sales of Goods","Sales of Export Goods & Service"){
+      $('#sales_tax, #show_sales_tax_add_info').show();
+      $('#service_tax, #show_service_tax_add_info').show();
+    }
+    else if(multiselected == "Sales of Goods","Sales of Services","Sales of Export Goods","Sales of Export Service","Sales of Export Goods & Service"){
+      $('#sales_tax, #show_sales_tax_add_info').show();
+      $('#service_tax, #show_service_tax_add_info').show();
+    }
+
+    });
 });
 $(document).on('nested:fieldAdded', function(event){
   var field = event.field;
