@@ -45,6 +45,17 @@ $( document ).on('ready page:load', function() {
     $('#add_address_details').show();
     $('#remove_address_info').show();
   })
+
+  $('#sales_tax_add_details').hide();
+  $('#show_sales_tax_add_info').on('click', function(){
+    $('#add_sales_tax_additional_details').hide();
+    $('#remove_sales_tax_additional_info').show();
+  })
+  $('#service_tax_add_details').hide();
+  $('#show_service_tax_add_info').on('click', function(){
+    $('#add_service_tax_additional_details').hide();
+    $('#remove_service_tax_additional_info').show();
+  })
 });
 $(document).on('nested:fieldAdded', function(event){
   var field = event.field;

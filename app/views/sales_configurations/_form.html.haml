@@ -29,10 +29,12 @@
             %br/
             %br/
         = render partial: 'sales_configurations/sales_tax', locals: {sales_configuration: @sales_configuration}
-        = render partial: 'sales_configurations/sales_tax_additional_info', locals: {sales_configuration: @sales_configuration}
+        = render partial: 'sales_configurations/sales_tax_additional_info', locals: {f: f}
+
+
         = render partial: 'sales_configurations/sales_tax_central', locals: {sales_configuration: @sales_configuration}
         = render partial: 'sales_configurations/service_tax', locals: {sales_configuration: @sales_configuration}
-        = render partial: 'sales_configurations/service_tax_additional_info', locals: {sales_configuration: @sales_configuration}
+        = render partial: 'sales_configurations/service_tax_additional_info', locals: {f: f}
 
       .form-group
         = f.submit "Save", class: "btn btn-primary left-align"

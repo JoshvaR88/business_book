@@ -1,53 +1,59 @@
-= fields_for sales_configuration do |f|
-  = f.fields_for :service_tax_additional_info do |t|
+= f.fields_for :service_tax_additional_info do |t|
+  %div{id: 'service_tax_add_details'}
 
     .form-group
       .cols-sm-10
         .input-group
-          = t.text_field :commissionerate_name, autofocus: true, :class => "form-control form_width", :placeholder => "Commissionerate Name"
+          = t.text_field :commissionerate_name, autofocus: true, :class => "form-control form-width", :placeholder => "Commissionerate Name"
 
     .form-group
       .cols-sm-10
         .input-group
-          = t.text_field :commissionerate_code, autofocus: true, :class => "form-control form_width", :placeholder => "Commissionerate Code"
+          = t.text_field :commissionerate_code, autofocus: true, :class => "form-control form-width", :placeholder => "Commissionerate Code"
 
     .form-group
       .cols-sm-10
         .input-group
-          = t.text_area :address, autofocus: true, :class => "form-control form_width", :placeholder => "Address"
+          = t.text_area :address, autofocus: true, :class => "form-control form-width", :placeholder => "Address"
 
     .form-group
       .cols-sm-10
         .input-group
-          = t.text_field :jurisdiction, autofocus: true, :class => "form-control form_width", :placeholder => "Jurisdiction"
+          = t.text_field :jurisdiction, autofocus: true, :class => "form-control form-width", :placeholder => "Jurisdiction"
 
     .form-group
       .cols-sm-10
         .input-group
-          = t.text_field :division_name, autofocus: true, :class => "form-control form_width", :placeholder => "Division Name"
+          = t.text_field :division_name, autofocus: true, :class => "form-control form-width", :placeholder => "Division Name"
 
     .form-group
       .cols-sm-10
         .input-group
-          = t.text_field :division_code, autofocus: true, :class => "form-control form_width", :placeholder => "Division Code"
+          = t.text_field :division_code, autofocus: true, :class => "form-control form-width", :placeholder => "Division Code"
 
     .form-group
       .cols-sm-10
         .input-group
-          = t.text_field :range_name, autofocus: true, :class => "form-control form_width", :placeholder => "Range Name"
+          = t.text_field :range_name, autofocus: true, :class => "form-control form-width", :placeholder => "Range Name"
 
     .form-group
       .cols-sm-10
         .input-group
-          = t.text_field :range_code, autofocus: true, :class => "form-control form_width", :placeholder => "Range Code"
+          = t.text_field :range_code, autofocus: true, :class => "form-control form-width", :placeholder => "Range Code"
 
     .form-group
       .cols-sm-10
         .input-group
-          = t.text_area :range_address, autofocus: true, :class => "form-control form_width", :placeholder => "Range Address"
+          = t.text_area :range_address, autofocus: true, :class => "form-control form-width", :placeholder => "Range Address"
 
     .form-group
       .cols-sm-10
         .input-group
-          = t.text_field :range_jurisdiction, autofocus: true, :class => "form-control form_width", :placeholder => "Range Jurisdiction"
+          = t.text_field :range_jurisdiction, autofocus: true, :class => "form-control form-width", :placeholder => "Range Jurisdiction"
+          %div{id: "remove_service_tax_additional_info"}
+            %div{id: "remove_service_info"}
+            = f.link_to_remove "remove"
+%div{class: "append_service_tax_additional_info"}
+%div{id: 'add_service_tax_additional_details'}
+  = f.link_to_add "Add", :service_tax_additional_info, id: "show_service_tax_add_info", :data => { :target => ".append_service_tax_additional_info" }
 
