@@ -13,6 +13,7 @@ $( document ).on('ready page:load', function() {
 
   $('.selectpicker').on('change', function(){
     var selected = $(this).find("option:selected").text();
+    alert("testing");
     if (selected == "Sole proprietorship"){
       $('#cin_num').hide();
     }
@@ -50,6 +51,7 @@ $( document ).on('ready page:load', function() {
   $('#show_sales_tax_add_info').on('click', function(){
     $('#add_sales_tax_additional_details').hide();
     $('#remove_sales_tax_additional_info').show();
+    $('#sales_tax_add_details').show();
   })
   $('#service_tax_add_details').hide();
   $('#show_service_tax_add_info').on('click', function(){
@@ -57,57 +59,75 @@ $( document ).on('ready page:load', function() {
     $('#remove_service_tax_additional_info').show();
   })
 
-  $('.sales').on('change', function(){
-    var items = $(".sales option:selected").map(function() {
-    return $(this).text();
-    }).get();
-    var multi = items;
-    var multiselected = $.unique(multi).join();
+  $('.checkbox_list_for_tax_org').on('change', function(){
 
+    var items = []
+    $(".checkbox_list_for_tax_org option:selected").map(function() {
+      items.push($(this).text());
+    })
+    // .get();
+    var multi = items;
+    var multiselected = $.unique(multi);
     console.log(multiselected);
-    alert("hhhhhiiiiiiiiii");
-    if (multiselected == "Sales of Goods"){
+    if(multiselected == "Sales of Goods"){
       $('#service_tax, #show_service_tax_add_info').hide();
       $('#sales_tax, #show_sales_tax_add_info').show();
+      $('#show_sales_tax_add_info').on('click', function() {
+        $(".sales-ie").hide();
+      })
     }
     else if(multiselected == "Sales of Services"){
       $('#sales_tax, #show_sales_tax_add_info').hide();
       $('#service_tax, #show_service_tax_add_info').show();
+      $('#show_sales_tax_add_info').on('click', function() {
+        $(".sales-ie").hide();
+      })
+
     }
     else if(multiselected == "Sales of Goods & Service"){
       $('#sales_tax, #show_sales_tax_add_info').show();
       $('#service_tax, #show_service_tax_add_info').show();
+      $('#show_sales_tax_add_info').on('click', function() {
+        $(".sales-ie").hide();
+      })
     }
     else if(multiselected == "Sales of Export Goods"){
       $('#sales_tax, #show_sales_tax_add_info').show();
       $('#service_tax, #show_service_tax_add_info').hide();
+      $('#show_sales_tax_add_info').on('click', function() {
+        $(".sales-ie").show();
+      })
     }
     else if(multiselected == "Sales of Export Goods & Service"){
       $('#sales_tax, #show_sales_tax_add_info').show();
       $('#service_tax, #show_service_tax_add_info').show();
+      $('#show_sales_tax_add_info').on('click', function() {
+        $(".sales-ie").show();
+      })
     }
-    else if(multiselected == "Sales of Goods","Sales of Services"){
+    else if(multiselected.indexOf("Sales of Export Goods") > -1){
       $('#sales_tax, #show_sales_tax_add_info').show();
       $('#service_tax, #show_service_tax_add_info').show();
+      $('#show_sales_tax_add_info').on('click', function() {
+        $(".sales-ie").show();
+      })
     }
-    else if(multiselected == "Sales of Goods","Sales of Goods & Service"){
+    else if(multiselected.indexOf("Sales of Export Service") > -1){
       $('#sales_tax, #show_sales_tax_add_info').show();
       $('#service_tax, #show_service_tax_add_info').show();
-    }
-    else if(multiselected == "Sales of Goods","Sales of Export Service"){
-      $('#sales_tax, #show_sales_tax_add_info').show();
-      $('#service_tax, #show_service_tax_add_info').show();
-    }
-    else if(multiselected == "Sales of Goods","Sales of Export Goods & Service"){
-      $('#sales_tax, #show_sales_tax_add_info').show();
-      $('#service_tax, #show_service_tax_add_info').show();
-    }
-    else if(multiselected == "Sales of Goods","Sales of Services","Sales of Export Goods","Sales of Export Service","Sales of Export Goods & Service"){
-      $('#sales_tax, #show_sales_tax_add_info').show();
-      $('#service_tax, #show_service_tax_add_info').show();
+      $('#show_sales_tax_add_info').on('click', function() {
+        $(".sales-ie").show();
+      })
     }
 
-    });
+    else {
+      $('#sales_tax, #show_sales_tax_add_info').show();
+      $('#service_tax, #show_service_tax_add_info').show();
+      $('#show_sales_tax_add_info').on('click', function() {
+        $(".sales-ie").hide();
+      })
+    }
+  });
 });
 $(document).on('nested:fieldAdded', function(event){
   var field = event.field;
