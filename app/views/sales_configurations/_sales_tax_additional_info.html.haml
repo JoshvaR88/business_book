@@ -1,33 +1,38 @@
 = f.fields_for :sales_tax_additional_info do |s|
   %div{id: 'sales_tax_add_details'}
+    = s.label :reg_circle,"Registered Circle"
     .form-group
       .cols-sm-10
         .input-group
-          = s.text_field :reg_circle, autofocus: true, :class => "form-control form-width", :placeholder => "Registered Circle"
+          = s.text_field :reg_circle, autofocus: true, :class => "form-control form-width"
+    = s.label :division,"Division"
     .form-group
       .cols-sm-10
         .input-group
-          = s.text_field :division, autofocus: true, :class => "form-control form-width", :placeholder => "Division"
+          = s.text_field :division, autofocus: true, :class => "form-control form-width"
+    = s.label :area_code,"area_code"
     .form-group
       .cols-sm-10
         .input-group
-          = s.text_field :area_code, autofocus: true, :class => "form-control form-width", :placeholder => "Area Code"
+          = s.text_field :area_code, autofocus: true, :class => "form-control form-width"
+    = s.label :authorized_person_name,"authorized_person_name"
     .form-group
       .cols-sm-10
         .input-group
-          = s.text_field :authorized_person_name, autofocus: true, :class => "form-control form-width", :placeholder => "Authorized Person Name"
+          = s.text_field :authorized_person_name, autofocus: true, :class => "form-control form-width"
+    = s.label :designation,"designation"
     .form-group
       .cols-sm-10
         .input-group
-          = s.text_field :designation, autofocus: true, :class => "form-control form-width", :placeholder => "Designation"
-    .sales-ie
-      .form-group
-        .cols-sm-10
-          .input-group
-            = s.text_field :ie_code, autofocus: true, :class => "form-control form-width", :placeholder => "Import/Export Code"
-    %div{id: "remove_sales_tax_additional_info"}
-      %div{id: "remove_sales_info"}
-      = f.link_to_remove "remove"
-%div{class: "append_sales_tax_additional_info"}
+          = s.text_field :designation, autofocus: true, :class => "form-control form-width"
+  .sales-ie
+    = s.label :ie_code,"ie_code"
+    .form-group
+      .cols-sm-10
+        .input-group
+          = s.text_field :ie_code, autofocus: true, :class => "form-control form-width"
+  %div{id: "remove_sales_tax_additional_info"}
+    %div{id: "remove_sales_info"}
+    = f.link_to_remove "remove", id: "remove_sales_tax_add_info"
 %div{id: 'add_sales_tax_additional_details'}
 = f.link_to "Add","#", id: "show_sales_tax_add_info"

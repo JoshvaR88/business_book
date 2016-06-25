@@ -1,25 +1,28 @@
 = fields_for sales_configuration do |f|
   = f.fields_for :sales_tax_central do |t|
+    = t.label :state,"state"
     .form-group
       .cols-sm-10
         .input-group
           = t.select :state, options_for_select(State.collect_state),{}, {prompt: "Vat Type", class: "selectpicker form-width", "data-live-search": "true"}
+    = t.label :autolyse, "If you registered Central Sales Tax ?"
     .form-group
       .cols-sm-10
         .input-group
-          = t.label :autolyse, "If you registered Central Sales Tax ?"
           %br/
           = t.label :autolyse, "Yes", :value => "true"
           = t.radio_button :central_sales_tax, true
           = t.label :autolyse, "No", :value => "false"
           = t.radio_button :central_sales_tax, false, :checked => true
+    = t.label :central_reg_no,"central_reg_no"
     .form-group
       .cols-sm-10
         .input-group
-          = t.text_field :central_reg_no, autofocus: true, :class => "form-control form-width", :placeholder => "Central register Number"
+          = t.text_field :central_reg_no, autofocus: true, :class => "form-control form-width"
+    = t.label :central_tax_date,"central_tax_date"
     .form-group
       .cols-sm-10
         .input-group
-          = t.text_field :central_tax_date, autofocus: true, :class => "datepicker form-control form-width", :placeholder => "Central Tax Date"
+          = t.text_field :central_tax_date, autofocus: true, :class => "datepicker form-control form-width"
 
 

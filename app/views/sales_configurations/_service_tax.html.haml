@@ -1,14 +1,18 @@
 = fields_for sales_configuration do |f|
   = f.fields_for :service_tax do |t|
     %div{id: 'service_tax'}
+      = t.label :service_tax,"Service Tax"
+      = t.label :service_type,"service_type"
       .form-group
         .cols-sm-10
           .input-group
-            = t.select :service_type, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Type", class: "checkbox_list_for_tax_org form-control form-width", "data-live-search": "true"}
+            = t.select :service_type, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Type", class: "selectpicker form-control form-width", "data-live-search": "true"}
+      = t.label :service_provider_category,"service_provider_category"
       .form-group
         .cols-sm-10
           .input-group
-            = t.select :service_provider_category, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Provide Category", class: "checkbox_list_for_tax_org form-control form-width", "data-live-search": "true"}
+            = t.select :service_provider_category, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Provide Category", class: "selectpicker form-control form-width", "data-live-search": "true"}
+      = t.label :service_tax_reg_no,"service_tax_reg_no"
       .form-group
         .cols-sm-10
           .input-group
