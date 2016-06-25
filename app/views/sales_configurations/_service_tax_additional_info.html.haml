@@ -1,58 +1,66 @@
 = f.fields_for :service_tax_additional_info do |t|
   %div{id: 'service_tax_add_details'}
+    = t.label :commissionerate_name,"commissionerate_name"
     .form-group
       .cols-sm-10
         .input-group
           = t.text_field :commissionerate_name, autofocus: true, :class => "form-control form-width", :placeholder => "Commissionerate Name"
 
+    = t.label :commissionerate_code,"commissionerate_code"
     .form-group
       .cols-sm-10
         .input-group
           = t.text_field :commissionerate_code, autofocus: true, :class => "form-control form-width", :placeholder => "Commissionerate Code"
 
+    = t.label :address,"address"
     .form-group
       .cols-sm-10
         .input-group
           = t.text_area :address, autofocus: true, :class => "form-control form-width", :placeholder => "Address"
 
+    = t.label :jurisdiction,"jurisdiction"
     .form-group
       .cols-sm-10
         .input-group
           = t.text_field :jurisdiction, autofocus: true, :class => "form-control form-width", :placeholder => "Jurisdiction"
 
+    = t.label :division_name,"division_name"
     .form-group
       .cols-sm-10
         .input-group
           = t.text_field :division_name, autofocus: true, :class => "form-control form-width", :placeholder => "Division Name"
 
+    = t.label :division_code,"division_code"
     .form-group
       .cols-sm-10
         .input-group
           = t.text_field :division_code, autofocus: true, :class => "form-control form-width", :placeholder => "Division Code"
 
+    = t.label :range_name,"range_name"
     .form-group
       .cols-sm-10
         .input-group
           = t.text_field :range_name, autofocus: true, :class => "form-control form-width", :placeholder => "Range Name"
 
+    = t.label :range_code,"range_code"
     .form-group
       .cols-sm-10
         .input-group
           = t.text_field :range_code, autofocus: true, :class => "form-control form-width", :placeholder => "Range Code"
 
+    = t.label :range_address,"range_address"
     .form-group
       .cols-sm-10
         .input-group
           = t.text_area :range_address, autofocus: true, :class => "form-control form-width", :placeholder => "Range Address"
 
+    = t.label :range_jurisdiction,"range_jurisdiction"
     .form-group
       .cols-sm-10
         .input-group
           = t.text_field :range_jurisdiction, autofocus: true, :class => "form-control form-width", :placeholder => "Range Jurisdiction"
-          %div{id: "remove_service_tax_additional_info"}
-            %div{id: "remove_service_info"}
-            = f.link_to_remove "remove"
-%div{class: "append_service_tax_additional_info"}
+    %div{id: "remove_service_tax_additional_info"}
+      %div{id: "remove_service_info"}
+      = f.link_to_remove "remove", id: "remove_service_tax_add_info"
 %div{id: 'add_service_tax_additional_details'}
-  = f.link_to_add "Add", :service_tax_additional_info, id: "show_service_tax_add_info", :data => { :target => ".append_service_tax_additional_info" }
-
+  = f.link_to "Add1", "#", id: 'show_service_tax_add_info'
