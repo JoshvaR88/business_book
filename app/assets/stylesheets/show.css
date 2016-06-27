@@ -79,6 +79,15 @@ input::-webkit-input-placeholder {
 .main-center{
   margin-top: 40px;
   margin: 0 auto;
+  max-width: 700px !important;
+  padding: 30px 40px 40px 40px;
+  margin-bottom: 40px;
+}
+
+
+.main-center-sales{
+  margin-top: 40px;
+  margin: 0 auto;
   max-width: 2100px !important;
   padding: 30px 40px 40px 40px;
   margin-bottom: 40px;
@@ -138,29 +147,15 @@ input::-webkit-input-placeholder {
 .multiselect{
   font-size: 12px !important
 }
-/*table {
-  border-collapse: separate;
-  border-spacing: 0 5px;
+.field_two{
+  width: 150px !important;
 }
-
-thead th {
-  background-color: #006DCC;
-  color: white;
+.label-padding{
+  padding-left: 80px !important;
 }
-
-tbody td {
-  background-color: #EEEEEE;
+.field-padding{
+  padding-left: 100px !important;
 }
-
-tr td:first-child,
-tr th:first-child {
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+.right-padding{
+  padding-right: 60px !important;
 }
-
-tr td:last-child,
-tr th:last-child {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-*/

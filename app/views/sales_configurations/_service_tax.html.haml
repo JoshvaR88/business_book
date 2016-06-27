@@ -1,30 +1,48 @@
 = fields_for sales_configuration do |f|
   = f.fields_for :service_tax do |t|
     %div{id: 'service_tax'}
-      = t.label :service_tax,"Service Tax"
-      = t.label :service_type,"service_type"
-      .form-group
-        .cols-sm-10
-          .input-group
-            = t.select :service_type, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Type", class: "selectpicker form-control form-width", "data-live-search": "true"}
-      = t.label :service_provider_category,"service_provider_category"
-      .form-group
-        .cols-sm-10
-          .input-group
-            = t.select :service_provider_category, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Provide Category", class: "selectpicker form-control form-width", "data-live-search": "true"}
-      = t.label :service_tax_reg_no,"service_tax_reg_no"
-      .form-group
-        .cols-sm-10
-          .input-group
-            = t.text_field :service_tax_reg_no, autofocus: true, :class => "form-control form-width", :placeholder => "Service Tax Register Number"
-      .form-group
-        .cols-sm-10
-          .input-group
-            = t.label :autolyse, "Are you Large Tax Payer ?"
-            %br/
-            = t.label :autolyse, "Yes", :value => "true"
-            = t.radio_button :large_tax_payer, true
-            = t.label :autolyse, "No", :value => "false"
-            = t.radio_button :large_tax_payer, false, :checked => true
+      = t.label :service_tax,"Service Tax", class: "col-sm-6 control-label"
+      %br
+      %br
+      %br
+      .form-inline
+        = t.label :service_type,"Which category of service provided to your Customer?", class: "col-sm-6 control-label"
+        .col-sm-6
+          .form-group
+            .input-group
+              = t.select :service_type, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Type", class: "selectpicker form-width", "data-live-search": "true"}
+              %br
+              %br
+              %br
+      .form-inline
+        = t.label :service_provider_category,"service_provider_category", class: "col-sm-6 control-label"
+        .col-sm-6
+          .form-group
+            .input-group
+              = t.select :service_provider_category, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Provide Category", class: "selectpicker form-width", "data-live-search": "true"}
+              %br
+              %br
+              %br
+      .form-inline
+        = t.label :service_tax_reg_no,"Service Tax Registeration No", class: "col-sm-6 control-label"
+        .col-sm-6
+          .form-group
+            .input-group
+              = t.text_field :service_tax_reg_no, autofocus: true, :class => "form-control form-width", :placeholder => "Service Tax Register Number"
+              %br
+              %br
+              %br
+      .form-inline
+        = t.label :autolyse, "Are you Large Tax Payer ?",class: "col-sm-6 control-label"
+        .col-sm-6
+          .form-group
+            .input-group
+              = t.label :autolyse, "Yes", :value => "true"
+              = t.radio_button :large_tax_payer, true
+              = t.label :autolyse, "No", :value => "false"
+              = t.radio_button :large_tax_payer, false, :checked => true
+              %br
+              %br
+              %br
 
 

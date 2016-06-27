@@ -1,43 +1,47 @@
 - content_for :javascript_includes do
   = javascript_include_tag "dropdown.js"
-.main-login.main-center
+.main-login.main-center-sales
   = nested_form_for(@sales_configuration) do |f|
     - all_views_side_error_messages!(@sales_configuration)
-    .form-group
-      .cols-sm-10
-        .input-group
-          = f.select :tax_organization, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Tax organization type", class: "checkbox_list_for_tax_org form-control form-width", "data-live-search": "true", multiple:"multiple"}
+    .form-inline
+      = f.label :tax_organization, "Which Tax is applicable for your organisation ?", class: "col-sm-6 control-label"
+      .col-sm-6
+        .form-group
+          .input-group
+            = f.select :tax_organization, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Tax organization type", class: "checkbox_list_for_tax_org form-control form-width", "data-live-search": "true", multiple:"multiple"}
+            %br
+            %br
     .sales-i
-      = f.label :reg_off, "If you raised the all Sales/ Service invoices from Registered office?"
-      %br/
-      .form-group
-        .cols-sm-10
+      .form-inline
+        = f.label :reg_off, "Have you raised all the Sales/ Service invoices from the Registered office?", class: "col-sm-6 control-label"
+        .col-sm-6
+          .form-group
+            .input-group
+              = f.label :autolyse, "Yes", :value => "true"
+              = f.radio_button :invoice_reg_office, true
+              = f.label :autolyse, "No", :value => "false"
+              = f.radio_button :invoice_reg_office, false, :checked => true
+              %br
+
+    .form-inline
+      = f.label :outside_state, "Do you have any branches outside the  state and raised invoices from that branch?", class: "col-sm-6 control-label"
+      .col-sm-6
+        .form-group
           .input-group
             = f.label :autolyse, "Yes", :value => "true"
-            = f.radio_button :invoice_reg_office, true
+            = f.radio_button :invoice_outside_branch_state, true
             = f.label :autolyse, "No", :value => "false"
-            = f.radio_button :invoice_reg_office, false, :checked => true
-    .form-group
-      .cols-sm-10
-        .input-group
-          = f.label :outside_state, "you have any branches in outside state and raised the invoices from that branch?"
-          %br/
-          = f.label :autolyse, "Yes", :value => "true"
-          = f.radio_button :invoice_outside_branch_state, true
-          = f.label :autolyse, "No", :value => "false"
-          = f.radio_button :invoice_outside_branch_state, false, :checked => true
-
-          %br/
-          %br/
-          %br/
-      = render partial: 'sales_configurations/sales_tax', locals: {sales_configuration: @sales_configuration}
-      = render partial: 'sales_configurations/sales_tax_additional_info', locals: {f: f}
+            = f.radio_button :invoice_outside_branch_state, false, :checked => true
+            %br
+            %br
+    = render partial: 'sales_configurations/sales_tax', locals: {sales_configuration: @sales_configuration}
+    = render partial: 'sales_configurations/sales_tax_additional_info', locals: {f: f}
 
 
-      = render partial: 'sales_configurations/sales_tax_central', locals: {sales_configuration: @sales_configuration}
-      / %div{id: 'service_tax'}
-      = render partial: 'sales_configurations/service_tax', locals: {sales_configuration: @sales_configuration}
-      = render partial: 'sales_configurations/service_tax_additional_info', locals: {f: f}
+    = render partial: 'sales_configurations/sales_tax_central', locals: {sales_configuration: @sales_configuration}
+    / %div{id: 'service_tax'}
+    = render partial: 'sales_configurations/service_tax', locals: {sales_configuration: @sales_configuration}
+    = render partial: 'sales_configurations/service_tax_additional_info', locals: {f: f}
     .form-group
       = f.submit "Save", class: "btn btn-primary left-align"
 
