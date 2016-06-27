@@ -86,6 +86,7 @@ $( document ).on('ready page:load', function() {
     if(multiselected == "Sales of Goods"){
       $('#service_tax, #show_service_tax_add_info').hide();
       $('#sales_tax, #show_sales_tax_add_info').show();
+      $(".sales-ie").hide();
       $('#show_sales_tax_add_info').on('click', function() {
       $(".sales-ie").hide();
       })
@@ -103,13 +104,7 @@ $( document ).on('ready page:load', function() {
 
 
     }
-    else if(multiselected == "Sales of Goods & Services"){
-      $('#sales_tax, #show_sales_tax_add_info').show();
-      $('#service_tax, #show_service_tax_add_info').show();
-      $('#show_sales_tax_add_info').on('click', function() {
-        $(".sales-ie").hide();
-      })
-    }
+
     else if(multiselected == "Sales of Export Goods"){
       $('#sales_tax, #show_sales_tax_add_info').show();
       $('#service_tax, #show_service_tax_add_info').hide();
@@ -122,19 +117,18 @@ $( document ).on('ready page:load', function() {
       $('#service_tax, #show_service_tax_add_info').show();
       $(".sales-ie").show();
     }
-    else if(multiselected == "Sales of Export Goods & Services"){
-      $('#sales_tax, #show_sales_tax_add_info').show();
-      $('#service_tax, #show_service_tax_add_info').show();
-      $('#show_sales_tax_add_info').on('click', function() {
-        $(".sales-ie").show();
-      })
-    }
+
     else if(multiselected == "Sales of Goods,Sales of Export Goods"){
       $('#sales_tax, #show_sales_tax_add_info').show();
       $('#service_tax, #show_service_tax_add_info').hide();
       $('#show_sales_tax_add_info').on('click', function() {
         $(".sales-ie").show();
       })
+    }
+    else if(multiselected == "Sales of Goods,Sales of Services"){
+      $('#sales_tax, #show_sales_tax_add_info').show();
+      $('#service_tax, #show_service_tax_add_info').show();
+      $(".sales-ie").hide();
     }
     else if(multiselected.indexOf("Sales of Export Goods") > -1){
       $('#sales_tax, #show_sales_tax_add_info').show();
@@ -144,13 +138,6 @@ $( document ).on('ready page:load', function() {
       })
     }
     else if(multiselected.indexOf("Sales of Export Services") > -1){
-      $('#sales_tax, #show_sales_tax_add_info').show();
-      $('#service_tax, #show_service_tax_add_info').show();
-      $('#show_sales_tax_add_info').on('click', function() {
-        $(".sales-ie").show();
-      })
-    }
-    else if(multiselected.indexOf("Sales of Export Goods & Services") > -1){
       $('#sales_tax, #show_sales_tax_add_info').show();
       $('#service_tax, #show_service_tax_add_info').show();
       $('#show_sales_tax_add_info').on('click', function() {

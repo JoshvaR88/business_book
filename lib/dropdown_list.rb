@@ -10,7 +10,7 @@ module DropdownList
   POSITION = ["Managing Director", "Whole Time Director", "Director", "Partner","Sole Proprietorship", "Executive Partner"]
   AC = ['Accounting', 'Accounting and Inventory']
   DEDUCTOR_COLLECTOR = ["Government", "Non-Government"]
-  CHECKBOX = ["Sales of Goods", "Sales of Services", "Sales of Goods & Services", "Sales of Export Goods", "Sales of Export Services", "Sales of Export Goods & Services"]
+  CHECKBOX = ["Sales of Goods", "Sales of Services", "Sales of Export Goods", "Sales of Export Services"]
 
   VAT_TYPE = [["vat_type", 1]]
 
