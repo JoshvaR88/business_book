@@ -150,12 +150,16 @@ input::-webkit-input-placeholder {
 .field_two{
   width: 150px !important;
 }
-.label-padding{
-  padding-left: 80px !important;
+.close {
+display:inline-block;
+padding:20px 50px;
+background:#ccc;
 }
-.field-padding{
-  padding-left: 100px !important;
+.glyphicon-remove-sign{
+  padding: 0px 0px 20px 420px !important;
+
 }
-.right-padding{
-  padding-right: 60px !important;
+.add_box{
+  width: 400px;
+  border-style: solid;
 }

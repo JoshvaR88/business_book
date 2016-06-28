@@ -42,15 +42,24 @@ $( document ).on('ready page:load', function() {
 
   $('#remove_address_info').hide();
   $('#show_address_fields').on('click', function(){
+    alert("aaaaa");
+    $('#another_branches').addClass("add_box");
+
     $('.selectpicker').selectpicker('refresh');
+    // $('#remove_address_info').show();
     $('#add_address_details').show();
-    $('#remove_address_info').show();
+
   })
+  $('#remove_info_details').on('click', function(){
+    alert("hello");
+    $('.add_box').hide();
+  })
+
 
 
   $('#remove_sales_tax_additional_info').hide();
   $('#show_sales_tax_add_info').on('click', function(){
-    alert("add");
+    // alert("add");
     $(".sales-ie").show();
     $('#show_sales_tax_add_info').hide();
     $('#remove_sales_tax_additional_info').show();
@@ -62,7 +71,7 @@ $( document ).on('ready page:load', function() {
 
   $('#remove_service_tax_additional_info').hide();
   $('#show_service_tax_add_info').on('click', function(){
-    alert("add1");
+    // alert("add1");
     $('#show_service_tax_add_info').hide();
     $('#service_tax_add_details').show();
     $('#remove_service_tax_additional_info').show();
@@ -91,6 +100,7 @@ $( document ).on('ready page:load', function() {
       $(".sales-ie").hide();
       })
       $('#remove_sales_tax_add_info').on('click', function() {
+
         $("#show_sales_tax_add_info").show();
       })
     }
