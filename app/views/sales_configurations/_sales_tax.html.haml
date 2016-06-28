@@ -6,27 +6,24 @@
       %br
       .form-group
         .input-group
-          = t.label :sales_tax,"Sales Tax", class: "col-sm-12"
+          = t.label :sales_tax,"Sales Tax", class: "col-sm-12 text-right"
       %br
       .form-inline
         .form-group
           .input-group
-        = t.label :vat_type,"Type of Dealer VAT TIN", class: "col-sm-6 control-label"
-        .col-sm-6
-          .form-group
-            .input-group
-              = t.select :vat_type, options_for_select(SalesConfiguration::VAT_TYPE),{}, {prompt: "Vat Type", class: "selectpicker form-width", "data-live-search": "true"}
-              %br
-              %br
-              %br
-      .form-inline
-        .form-group
-          .input-group
-            = t.label :tax_reg_no,"State Sales Tax Registration Number", class: "col-sm-2 control-label"
-            = t.text_field :tax_reg_no, autofocus: true, class: "col-sm-4"
-            = t.label :tax_date,"VAT with effect from", class: "col-sm-2 control-label"
-            = t.text_field :tax_date, autofocus: true, :class => "datepicker col-sm-4"
-            %br
-            %br
-            %br
+        = t.label :vat_type,"Type of Dealer VAT TIN", class: "col-sm-6 control-label text-right"
+        = t.select :vat_type, options_for_select(SalesConfiguration::VAT_TYPE),{}, {prompt: "Vat Type", class: "selectpicker form-width col-sm-6", "data-live-search": "true"}
+        %br
+        %br
+        %br
+      / .form-inline
+      .form-group
+        .input-group
+          = t.label :tax_reg_no,"State Sales Tax Registration Number", class: "col-sm-3 control-label text-right"
+          = t.text_field :tax_reg_no, autofocus: true, class: "col-sm-3"
+          = t.label :tax_date,"VAT with effect from", class: "col-sm-3 control-label text-right"
+          = t.text_field :tax_date, autofocus: true, :class => "datepicker col-sm-3"
+          %br
+          %br
+          %br
 

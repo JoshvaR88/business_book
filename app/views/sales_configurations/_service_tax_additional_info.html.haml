@@ -1,17 +1,17 @@
 = f.fields_for :service_tax_additional_info do |t|
   %div{id: 'service_tax_add_details'}
+    / .form-inline
+    .form-group
+      .input-group
+        = t.label :commissionerate_name,"Commissionerate Name", class: "col-sm-3 control-label text-right"
+        = t.text_field :commissionerate_name, autofocus: true, :class => "col-sm-3", :placeholder => "Commissionerate Name"
+        = t.label :commissionerate_code,"Commissionerate Code", class: "col-sm-3 control-label text-right"
+        = t.text_field :commissionerate_code, autofocus: true, :class => "col-sm-3", :placeholder => "Commissionerate Code"
+        %br
+        %br
+        %br
     .form-inline
-      .form-group
-        .input-group
-          = t.label :commissionerate_name,"Commissionerate Name", class: "col-sm-3 control-label"
-          = t.text_field :commissionerate_name, autofocus: true, :class => "col-sm-3 field-padding", :placeholder => "Commissionerate Name"
-          = t.label :commissionerate_code,"Commissionerate Code", class: "col-sm-3 control-label label-padding"
-          = t.text_field :commissionerate_code, autofocus: true, :class => "col-sm-3", :placeholder => "Commissionerate Code"
-          %br
-          %br
-          %br
-    .form-inline
-      = t.label :address,"Address", class: "col-sm-6 control-label"
+      = t.label :address,"Address", class: "col-sm-6 control-label text-right"
       .form-group
         .col-sm-6
           .input-group
@@ -20,7 +20,7 @@
             %br
             %br
     .form-inline
-      = t.label :jurisdiction,"Jurisdiction", class: "col-sm-6 control-label"
+      = t.label :jurisdiction,"Jurisdiction", class: "col-sm-6 control-label text-right"
       .form-group
         .col-sm-6
           .input-group
@@ -28,28 +28,28 @@
             %br
             %br
             %br
+    / .form-inline
+    .form-group
+      .input-group
+        = t.label :division_name,"Division Name", class: "col-sm-3 control-label text-right"
+        = t.text_field :division_name, autofocus: true, :class => "col-sm-3", :placeholder => "Division Name"
+        = t.label :division_code,"Division Code", class: "col-sm-3 control-label text-right"
+        = t.text_field :division_code, autofocus: true, :class => "col-sm-3", :placeholder => "Division Code"
+        %br
+        %br
+        %br
+    / .form-inline
+    .form-group
+      .input-group
+        = t.label :range_name,"Range Name", class: "col-sm-3 control-label text-right"
+        = t.text_field :range_name, autofocus: true, :class => "col-sm-3", :placeholder => "Range Name"
+        = t.label :range_code,"Range Code", class: "col-sm-3 control-label text-right"
+        = t.text_field :range_code, autofocus: true, :class => "col-sm-3", :placeholder => "Range Code"
+        %br
+        %br
+        %br
     .form-inline
-      .form-group
-        .input-group
-          = t.label :division_name,"Division Name", class: "col-sm-3 control-label"
-          = t.text_field :division_name, autofocus: true, :class => "col-sm-3 field-padding", :placeholder => "Division Name"
-          = t.label :division_code,"Division Code", class: "col-sm-3 control-label label-padding"
-          = t.text_field :division_code, autofocus: true, :class => "col-sm-3", :placeholder => "Division Code"
-          %br
-          %br
-          %br
-    .form-inline
-      .form-group
-        .input-group
-          = t.label :range_name,"Range Name", class: "col-sm-3 control-label"
-          = t.text_field :range_name, autofocus: true, :class => "col-sm-3 field-padding", :placeholder => "Range Name"
-          = t.label :range_code,"Range Code", class: "col-sm-3 control-label label-padding"
-          = t.text_field :range_code, autofocus: true, :class => "col-sm-3", :placeholder => "Range Code"
-          %br
-          %br
-          %br
-    .form-inline
-      = t.label :range_address,"Range Address", class: "col-sm-6 control-label"
+      = t.label :range_address,"Range Address", class: "col-sm-6 control-label text-right"
       .col-sm-6
         .form-group
           .input-group
@@ -58,7 +58,7 @@
             %br
             %br
     .form-inline
-      = t.label :range_jurisdiction,"Range Jurisdiction", class: "col-sm-6 control-label"
+      = t.label :range_jurisdiction,"Range Jurisdiction", class: "col-sm-6 control-label text-right"
       .col-sm-6
         .form-group
           .input-group

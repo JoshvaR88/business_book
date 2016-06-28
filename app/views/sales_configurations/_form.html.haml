@@ -1,10 +1,10 @@
 - content_for :javascript_includes do
   = javascript_include_tag "dropdown.js"
 .main-login.main-center-sales
-  = nested_form_for(@sales_configuration) do |f|
+  = nested_form_for(@sales_configuration, class: "form-inline") do |f|
     - all_views_side_error_messages!(@sales_configuration)
     .form-inline
-      = f.label :tax_organization, "Which Tax is applicable for your organisation ?", class: "col-sm-6 control-label"
+      = f.label :tax_organization, "Which Tax is applicable for your organisation ?", class: "col-sm-6 control-label text-right"
       .col-sm-6
         .form-group
           .input-group
@@ -13,7 +13,7 @@
             %br
     .sales-i
       .form-inline
-        = f.label :reg_off, "Have you raised all the Sales/ Service invoices from the Registered office?", class: "col-sm-6 control-label"
+        = f.label :reg_off, "Have you raised all the Sales/ Service invoices from the Registered office?", class: "col-sm-6 control-label text-right"
         .col-sm-6
           .form-group
             .input-group
@@ -24,7 +24,7 @@
               %br
 
     .form-inline
-      = f.label :outside_state, "Do you have any branches outside the  state and raised invoices from that branch?", class: "col-sm-6 control-label"
+      = f.label :outside_state, "Do you have any branches outside the  state and raised invoices from that branch?", class: "col-sm-6 control-label text-right"
       .col-sm-6
         .form-group
           .input-group

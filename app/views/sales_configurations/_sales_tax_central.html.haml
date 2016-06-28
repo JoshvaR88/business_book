@@ -21,14 +21,14 @@
             %br
             %br
             %br
-    .form-inline
-      .form-group
-        .input-group
-          = t.label :central_reg_no,"Central Sales Tax Registeration No", class: "col-sm-3 control-label"
-          = t.text_field :central_reg_no, autofocus: true, :class => "col-sm-3"
-          = t.label :central_tax_date,"CST with effect from", class: "col-sm-3 control-label"
-          = t.text_field :central_tax_date, autofocus: true, :class => "datepicker col-sm-3 field-padding"
-          %br
-          %br
+    / .form-inline
+    .form-group
+      .input-group
+        = t.label :central_reg_no,"Central Sales Tax Registeration No", class: "col-sm-3 control-label"
+        = t.text_field :central_reg_no, autofocus: true, :class => "col-sm-3"
+        = t.label :central_tax_date,"CST with effect from", class: "col-sm-3 control-label"
+        = t.text_field :central_tax_date, autofocus: true, :class => "datepicker col-sm-3"
+        %br
+        %br
 
 
