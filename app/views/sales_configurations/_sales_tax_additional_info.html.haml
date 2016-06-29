@@ -1,47 +1,59 @@
 
 = f.fields_for :sales_tax_additional_info do |s|
   %div{id: 'sales_tax_add_details'}
+
     .form-inline
-      = s.label :reg_circle,"Registered Assessment Circle", class: "col-sm-6 control-label text-right"
-      .form-group
-        .col-sm-6
-          .input-group
-            = s.text_field :reg_circle, autofocus: true
-            %br
-            %br
-            %br
-    / .form-inline
-    .form-group
-      .input-group
-      = s.label :division,"Division", class: "col-sm-3 control-label text-right"
-      = s.text_field :division, autofocus: true, :class => "col-sm-3"
-      = s.label :area_code,"Area Code", class: "col-sm-3 control-label text-right"
-      = s.text_field :area_code, autofocus: true, :class => "col-sm-3"
-      %br
-      %br
-      %br
-    / .form-inline
-    .form-group
-      .input-group
-        = s.label :authorized_person_name, "Authorized Person Name", class: "col-sm-3 control-label text-right"
-        = s.text_field :authorized_person_name, autofocus: true, :class => "col-sm-3"
-        = s.label :designation,"Designation", class: "col-sm-3 control-label text-right"
-        = s.text_field :designation, autofocus: true, :class => "col-sm-3"
-        %br
-        %br
-        %br
-      .sales-ie
-        .form-inline
-          = s.label :ie_code,"Enter your IE Code", class: "col-sm-6 control-label text-right"
-          .col-sm-6
-            .form-group
-              .input-group
-                = s.text_field :ie_code, autofocus: true, :class => "form-control form-width"
-                %br
-                %br
-                %br
       %div{id: "remove_sales_tax_additional_info"}
         %div{id: "remove_sales_info"}
-        = f.link_to_remove "remove", id: "remove_sales_tax_add_info"
+        = f.link_to_remove id: "remove_sales_tax_add_info" do
+          .glyphicon.glyphicon-remove-sign.glyphicon-sales{"aria-hidden" => "true"}
+    .form-inline
+      = s.label :reg_circle,"Registered Assessment Circle", class: "col-sm-6 control-label text-right"
+    .form-group
+      .col-sm-6
+        .input-group
+          = s.text_field :reg_circle, autofocus: true,  :class => "form-control form-width"
+          %br
+          %br
+          %br
+
+    .fieldset
+      .row
+        .col-sm-10
+          = s.label :division,"Division", class: "col-sm-3 control-label text-right"
+
+          = s.text_field :division, autofocus: true, :class => "col-sm-3"
+          = s.label :area_code,"Area Code", class: "col-sm-3 control-label text-right"
+          = s.text_field :area_code, autofocus: true, :class => "col-sm-3"
+    %br
+    %br
+    %br
+    .fieldset
+      .row
+        .col-sm-10
+          = s.label :authorized_person_name, "Authorized Person Name", class: "col-sm-3 control-label text-right"
+          = s.text_field :authorized_person_name, autofocus: true,  :class => "col-sm-3"
+          = s.label :designation,"Designation", class: "col-sm-3 control-label text-right"
+          = s.text_field :designation, autofocus: true, :class => "col-sm-3"
+    %br
+    %br
+    %br
+  .sales-ie
+    .form-inline
+      = s.label :ie_code,"Enter your IE Code", class: "col-sm-6 control-label text-right"
+      .col-sm-6
+        .form-group
+          .input-group
+            = s.text_field :ie_code, autofocus: true, :class => "form-control form-width"
+  %br
+  %br
+  %br
+.form-group
 %div{id: 'add_sales_tax_additional_details'}
-= f.link_to "Add","#", id: "show_sales_tax_add_info"
+  .pull-right
+    = link_to "#", id: "show_sales_tax_add_info" do
+      %span Add
+      %span.glyphicon.glyphicon-plus-sign{"aria-hidden" => "true"}
+      %span.glyphicon.glyphicon-info-sign{"aria-hidden" => "true", "data-placement" => "left", "data-toggle" => "tooltip", :title => "If you add more details,click here", :type => "button"}
+%br
+%br

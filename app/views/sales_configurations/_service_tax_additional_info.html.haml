@@ -1,15 +1,20 @@
 = f.fields_for :service_tax_additional_info do |t|
   %div{id: 'service_tax_add_details'}
-    / .form-inline
-    .form-group
-      .input-group
-        = t.label :commissionerate_name,"Commissionerate Name", class: "col-sm-3 control-label text-right"
-        = t.text_field :commissionerate_name, autofocus: true, :class => "col-sm-3", :placeholder => "Commissionerate Name"
-        = t.label :commissionerate_code,"Commissionerate Code", class: "col-sm-3 control-label text-right"
-        = t.text_field :commissionerate_code, autofocus: true, :class => "col-sm-3", :placeholder => "Commissionerate Code"
-        %br
-        %br
-        %br
+    .form-inline
+      %div{id: "remove_service_tax_additional_info"}
+        %div{id: "remove_service_info"}
+        = f.link_to_remove id: "remove_service_tax_add_info" do
+          .glyphicon.glyphicon-remove-sign.glyphicon-sales{"aria-hidden" => "true"}
+    .fieldset
+      .row
+        .col-sm-10
+          = t.label :commissionerate_name,"Commissionerate Name", class: "col-sm-3 control-label text-right"
+          = t.text_field :commissionerate_name, autofocus: true, :class => "col-sm-3", :placeholder => "Commissionerate Name"
+          = t.label :commissionerate_code,"Commissionerate Code", class: "col-sm-3 control-label text-right"
+          = t.text_field :commissionerate_code, autofocus: true, :class => "col-sm-3", :placeholder => "Commissionerate Code"
+    %br
+    %br
+    %br
     .form-inline
       = t.label :address,"Address", class: "col-sm-6 control-label text-right"
       .form-group
@@ -21,50 +26,55 @@
             %br
     .form-inline
       = t.label :jurisdiction,"Jurisdiction", class: "col-sm-6 control-label text-right"
+    .form-group
+      .col-sm-6
+        .input-group
+          = t.text_field :jurisdiction, autofocus: true, :class => "form-control form-width", :placeholder => "Jurisdiction"
+          %br
+          %br
+          %br
+    .fieldset
+      .row
+        .col-sm-10
+          = t.label :division_name,"Division Name", class: "col-sm-3 control-label text-right"
+          = t.text_field :division_name, autofocus: true, :class => "col-sm-3"
+          = t.label :division_code,"Division Code", class: "col-sm-3 control-label text-right"
+          = t.text_field :division_code, autofocus: true, :class => "col-sm-3"
+    %br
+    %br
+    %br
+    .fieldset
+      .row
+        .col-sm-10
+          = t.label :range_name,"Range Name", class: "col-sm-3 control-label text-right"
+          = t.text_field :range_name, autofocus: true, :class => "col-sm-3"
+          = t.label :range_code,"Range Code", class: "col-sm-3 control-label text-right"
+          = t.text_field :range_code, autofocus: true, :class => "col-sm-3"
+    %br
+    %br
+    %br
+  .form-inline
+    = t.label :range_address,"Range Address", class: "col-sm-6 control-label text-right"
+    .col-sm-6
       .form-group
-        .col-sm-6
-          .input-group
-            = t.text_field :jurisdiction, autofocus: true, :class => "form-control form-width", :placeholder => "Jurisdiction"
-            %br
-            %br
-            %br
-    / .form-inline
-    .form-group
-      .input-group
-        = t.label :division_name,"Division Name", class: "col-sm-3 control-label text-right"
-        = t.text_field :division_name, autofocus: true, :class => "col-sm-3", :placeholder => "Division Name"
-        = t.label :division_code,"Division Code", class: "col-sm-3 control-label text-right"
-        = t.text_field :division_code, autofocus: true, :class => "col-sm-3", :placeholder => "Division Code"
-        %br
-        %br
-        %br
-    / .form-inline
-    .form-group
-      .input-group
-        = t.label :range_name,"Range Name", class: "col-sm-3 control-label text-right"
-        = t.text_field :range_name, autofocus: true, :class => "col-sm-3", :placeholder => "Range Name"
-        = t.label :range_code,"Range Code", class: "col-sm-3 control-label text-right"
-        = t.text_field :range_code, autofocus: true, :class => "col-sm-3", :placeholder => "Range Code"
-        %br
-        %br
-        %br
-    .form-inline
-      = t.label :range_address,"Range Address", class: "col-sm-6 control-label text-right"
-      .col-sm-6
-        .form-group
-          .input-group
-            = t.text_area :range_address, autofocus: true, :class => "form-control form-width", :placeholder => "Range Address"
-            %br
-            %br
-            %br
-    .form-inline
-      = t.label :range_jurisdiction,"Range Jurisdiction", class: "col-sm-6 control-label text-right"
-      .col-sm-6
-        .form-group
-          .input-group
-            = t.text_field :range_jurisdiction, autofocus: true, :class => "form-control form-width", :placeholder => "Range Jurisdiction"
-    %div{id: "remove_service_tax_additional_info"}
-      %div{id: "remove_service_info"}
-      = f.link_to_remove "remove", id: "remove_service_tax_add_info"
+        .input-group
+          = t.text_area :range_address, autofocus: true, :class => "form-control form-width", :placeholder => "Range Address"
+          %br
+          %br
+          %br
+  .form-inline
+    = t.label :range_jurisdiction,"Range Jurisdiction", class: "col-sm-6 control-label text-right"
+    .col-sm-6
+      .form-group
+        .input-group
+          = t.text_field :range_jurisdiction, autofocus: true, :class => "form-control form-width", :placeholder => "Range Jurisdiction"
+
 %div{id: 'add_service_tax_additional_details'}
-  = f.link_to "Add1", "#", id: 'show_service_tax_add_info'
+  .pull-right
+    = link_to "#", id: "show_service_tax_add_info" do
+      %span Add
+      %span.glyphicon.glyphicon-plus-sign{"aria-hidden" => "true"}
+      %span.glyphicon.glyphicon-info-sign{"aria-hidden" => "true", "data-placement" => "left", "data-toggle" => "tooltip", :title => "If you add more details,click here", :type => "button"}
+%br
+%br
+

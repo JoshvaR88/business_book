@@ -50,7 +50,9 @@ $( document ).on('ready page:load', function() {
 
 
   $('#remove_sales_tax_additional_info').hide();
+  $(".sales-ie").show();
   $('#show_sales_tax_add_info').on('click', function(){
+    $('#sales_tax_add_details').addClass("add_box_sales");
     $(".sales-ie").show();
     $('#show_sales_tax_add_info').hide();
     $('#remove_sales_tax_additional_info').show();
@@ -59,6 +61,8 @@ $( document ).on('ready page:load', function() {
 
   $('#remove_service_tax_additional_info').hide();
   $('#show_service_tax_add_info').on('click', function(){
+    alert("service add");
+    $('#service_tax_add_details').addClass("add_box_services");
     $('#show_service_tax_add_info').hide();
     $('#service_tax_add_details').show();
     $('#remove_service_tax_additional_info').show();
@@ -119,6 +123,12 @@ $( document ).on('ready page:load', function() {
         $(".sales-ie").show();
       })
     }
+    else if(multiselected == "Sales of Services,Sales of Export Services"){
+      alert("heloo");
+      $(".sales-ie").show();
+      $('#sales_tax, #show_sales_tax_add_info').hide();
+      $('#service_tax, #show_service_tax_add_info').show();
+    }
     else if(multiselected == "Sales of Goods,Sales of Services"){
       $('#sales_tax, #show_sales_tax_add_info').show();
       $('#service_tax, #show_service_tax_add_info').show();
@@ -152,7 +162,7 @@ $(document).on('nested:fieldAdded', function(event){
   var field = event.field;
   var selectField = field.find('.selectpicker');
   selectField.selectpicker();
-  $('.another_branch_address .fields:visible').addClass("add_box");
+  $('.another_branch_address .fields:visible').addClass("add_box_company");
 });
 
 // $(document).on('nested:fieldRemoved', function(event){

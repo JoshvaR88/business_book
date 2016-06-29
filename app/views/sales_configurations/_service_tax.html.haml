@@ -1,7 +1,8 @@
 = fields_for sales_configuration do |f|
   = f.fields_for :service_tax do |t|
     %div{id: 'service_tax'}
-      = t.label :service_tax,"Service Tax", class: "col-sm-6 control-label text-right"
+      .panel-primary
+        = t.label :service_tax,"Service Tax", class: "col-sm-6 control-label panel-heading sub-titles"
       %br
       %br
       %br
@@ -11,27 +12,27 @@
           .form-group
             .input-group
               = t.select :service_type, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Type", class: "selectpicker form-control form-width", "data-live-search": "true"}
-              %br
-              %br
-              %br
+      %br
+      %br
+      %br
       .form-inline
         = t.label :service_provider_category,"service_provider_category", class: "col-sm-6 control-label text-right"
         .col-sm-6
           .form-group
             .input-group
               = t.select :service_provider_category, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Provide Category", class: "selectpicker form-control form-width", "data-live-search": "true"}
-              %br
-              %br
-              %br
+      %br
+      %br
+      %br
       .form-inline
         = t.label :service_tax_reg_no,"Service Tax Registeration No", class: "col-sm-6 control-label text-right"
         .col-sm-6
           .form-group
             .input-group
               = t.text_field :service_tax_reg_no, autofocus: true, :class => "form-control form-width", :placeholder => "Service Tax Register Number"
-              %br
-              %br
-              %br
+      %br
+      %br
+      %br
       .form-inline
         = t.label :autolyse, "Are you Large Tax Payer ?",class: "col-sm-6 control-label text-right"
         .col-sm-6
@@ -41,8 +42,8 @@
               = t.radio_button :large_tax_payer, true
               = t.label :autolyse, "No", :value => "false"
               = t.radio_button :large_tax_payer, false, :checked => true
-              %br
-              %br
-              %br
+      %br
+      %br
+      %br
 
 
