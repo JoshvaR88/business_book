@@ -9,7 +9,6 @@
               = t.select :state, options_for_select(State.collect_state),{}, {prompt: "Vat Type", class: "selectpicker form-width", "data-live-search": "true"}
       %br
       %br
-      %br
       .form-inline
         = t.label :autolyse, "Have you registered Central Sales Tax ?", class: "col-sm-6 control-label text-right"
         .col-sm-6
@@ -21,7 +20,6 @@
               = t.radio_button :central_sales_tax, false, :checked => true
       %br
       %br
-      %br
       .fieldset
         .row
           .col-sm-10
@@ -29,7 +27,6 @@
             = t.text_field :central_reg_no, autofocus: true, :class => "col-sm-3"
             = t.label :central_tax_date,"CST with effect from", class: "col-sm-3 control-label text-right"
             = t.text_field :central_tax_date, autofocus: true, :class => "datepicker col-sm-3"
-      %br
       %br
 
 

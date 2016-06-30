@@ -42,8 +42,8 @@
     / %div{id: 'service_tax'}
     = render partial: 'sales_configurations/service_tax', locals: {sales_configuration: @sales_configuration}
     = render partial: 'sales_configurations/service_tax_additional_info', locals: {f: f}
-    .form-group
-      .col-sm-6
-      .col-sm-6
+    .col-sm-6
+    .col-sm-6
+      .form-group
         = f.submit "Save", class: "btn btn-primary left-align"
 

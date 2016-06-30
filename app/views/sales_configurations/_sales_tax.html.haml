@@ -7,8 +7,7 @@
       .form-inline
         .form-group
         = t.label :vat_type,"Type of Dealer VAT TIN", class: "col-sm-6 control-label text-right"
-        = t.select :vat_type, options_for_select(SalesConfiguration::VAT_TYPE),{}, {prompt: "Vat Type", class: "selectpicker  form-control form-width col-sm-6", "data-live-search": "true"}
-        %br
+        = t.select :vat_type, options_for_select(SalesConfiguration::VAT_TYPE_LIST),{}, {prompt: "Vat Type", class: "selectpicker  form-control form-width col-sm-6", "data-live-search": "true"}
         %br
         %br
       .fieldset
@@ -18,5 +17,5 @@
             = t.text_field :tax_reg_no, autofocus: true, class: "col-sm-3"
             = t.label :tax_date,"VAT with effect from", class: "col-sm-3 control-label text-right"
             = t.text_field :tax_date, autofocus: true, :class => "datepicker col-sm-3"
-    %br
+
 

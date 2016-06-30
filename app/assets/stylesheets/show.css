@@ -92,6 +92,10 @@ input::-webkit-input-placeholder {
   padding: 30px 40px 40px 40px;
   margin-bottom: 40px;
 }
+.new_sales_configuration{
+  height: auto;
+
+}
 .company_profile{
   max-width: 700px !important;
 }
@@ -168,11 +172,11 @@ background:#ccc;
   border-style: solid;
 }
 .add_box_services{
-  width: 1000px 500px 1000px 500px;
+  width: 1000px 500px 1000px 500px !important;
   border-style: solid;
 }
 .sub-titles{
-  font-size: 25px;
+  font-size: 15px;
   font-color: violet;
   font-family: Verdana;
   width: 100% !important;

@@ -13,26 +13,21 @@
           = t.label :commissionerate_code,"Commissionerate Code", class: "col-sm-3 control-label text-right"
           = t.text_field :commissionerate_code, autofocus: true, :class => "col-sm-3", :placeholder => "Commissionerate Code"
     %br
-    %br
-    %br
     .form-inline
       = t.label :address,"Address", class: "col-sm-6 control-label text-right"
       .form-group
         .col-sm-6
           .input-group
             = t.text_area :address, autofocus: true, :class => "form-control form-width", :placeholder => "Address"
-            %br
-            %br
-            %br
+    %br
     .form-inline
       = t.label :jurisdiction,"Jurisdiction", class: "col-sm-6 control-label text-right"
     .form-group
       .col-sm-6
         .input-group
           = t.text_field :jurisdiction, autofocus: true, :class => "form-control form-width", :placeholder => "Jurisdiction"
-          %br
-          %br
-          %br
+    %br
+    %br
     .fieldset
       .row
         .col-sm-10
@@ -40,8 +35,6 @@
           = t.text_field :division_name, autofocus: true, :class => "col-sm-3"
           = t.label :division_code,"Division Code", class: "col-sm-3 control-label text-right"
           = t.text_field :division_code, autofocus: true, :class => "col-sm-3"
-    %br
-    %br
     %br
     .fieldset
       .row
@@ -51,24 +44,25 @@
           = t.label :range_code,"Range Code", class: "col-sm-3 control-label text-right"
           = t.text_field :range_code, autofocus: true, :class => "col-sm-3"
     %br
+    .form-inline
+      = t.label :range_address,"Range Address", class: "col-sm-6 control-label text-right"
+      .col-sm-6
+        .form-group
+          .input-group
+            = t.text_area :range_address, autofocus: true, :class => "form-control form-width", :placeholder => "Range Address"
     %br
     %br
-  .form-inline
-    = t.label :range_address,"Range Address", class: "col-sm-6 control-label text-right"
-    .col-sm-6
-      .form-group
-        .input-group
-          = t.text_area :range_address, autofocus: true, :class => "form-control form-width", :placeholder => "Range Address"
-          %br
-          %br
-          %br
-  .form-inline
-    = t.label :range_jurisdiction,"Range Jurisdiction", class: "col-sm-6 control-label text-right"
-    .col-sm-6
-      .form-group
-        .input-group
-          = t.text_field :range_jurisdiction, autofocus: true, :class => "form-control form-width", :placeholder => "Range Jurisdiction"
-
+    %br
+    %br
+    .form-inline
+      = t.label :range_jurisdiction,"Range Jurisdiction", class: "col-sm-6 control-label text-right"
+      .col-sm-6
+        .form-group
+          .input-group
+            = t.text_field :range_jurisdiction, autofocus: true, :class => "form-control form-width", :placeholder => "Range Jurisdiction"
+    %br
+    %br
+    %br
 %div{id: 'add_service_tax_additional_details'}
   .pull-right
     = link_to "#", id: "show_service_tax_add_info" do
