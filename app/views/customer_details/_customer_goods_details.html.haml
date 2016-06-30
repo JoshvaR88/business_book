@@ -1,0 +1,71 @@
+= fields_for customer_detail do |f|
+  = f.fields_for :customer_goods_detail do |t|
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.label :state,"State", class: "col-sm-6 control-label text-right"
+          = t.select(:state, options_for_select(State.collect_state),{},{class: " selectpicker form-width", "data-live-search": "true"})
+    .form-inline
+      = t.label :pin_code,"PIN Code", class: "col-sm-6 control-label text-right"
+      .col-sm-6
+        .form-group
+          .input-group
+            = t.text_field :pin_code, autofocus: true, :class => "form-control form-width", :placeholder => "PIN Code"
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.label :customer_business_type,"select Customer Business Type", class: "col-sm-6 control-label text-right"
+          = t.select :customer_business_type, options_for_select(CustomerDetail::COMPANY),{}, {prompt: "Customer Business Type", class: "selectpicker form-width add-class-company", "data-live-search": "true"}
+    .form-group
+      = t.label :customer_pan_no,"Customer PAN Number", class: "col-sm-6 control-label text-right"
+      .col-sm-6
+        .form-group
+          .input-group
+            = t.text_field :customer_pan_no, autofocus: true, :class => "form-control form-width", :placeholder => "Customer PAN Number"
+    .form-inline
+      = t.label :service_tax_no,"Service Tax Number", class: "col-sm-6 control-label text-right"
+      .col-sm-6
+        .form-group
+          .input-group
+            = t.text_field :service_tax_no, autofocus: true, :class => "form-control form-width", :placeholder => "Service Tax Number"
+    .form-group
+      = t.label :local_sales_tax_no,"Local Sales Tax Number", class: "col-sm-6 control-label text-right"
+      .col-sm-6
+        .form-group
+          .input-group
+            = t.text_field :local_sales_tax_no, autofocus: true, :class => "form-control form-width", :placeholder => "Local Sales Tax Number"
+    .form-inline
+      = t.label :central_sales_tax_no,"Central Sales Tax Number", class: "col-sm-6 control-label text-right"
+      .col-sm-6
+        .form-group
+          .input-group
+            = t.text_field :central_sales_tax_no, autofocus: true, :class => "form-control form-width", :placeholder => "Central Sales Tax Number"
+    .form-inline
+      = t.label :autolyse, "Goods to be delivered at same address?", class: "col-sm-6 control-label text-right"
+      .col-sm-6
+        .form-group
+          .input-group
+            = t.label :autolyse, "Yes", :value => "true"
+            = t.radio_button :delivery_address, true
+            = t.label :autolyse, "No", :value => "false"
+            = t.radio_button :delivery_address, false, :checked => true
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.label :email, "Email", class: "col-sm-6 control-label"
+          = t.email_field :email, autofocus: true,  :class => "form-control form-width", :placeholder => "Email"
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.label :contact_no, "Contact Number", class: "col-sm-6 control-label"
+          = t.text_field :contact_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Contact Number"
+    .form-group
+      .cols-sm-10
+        .input-group
+          = t.select(:delivery_state, options_for_select(State.collect_state),{},{class: " selectpicker form-width", "data-live-search": "true"})
+    .form-inline
+      = t.label :state_code,"PIN Code", class: "col-sm-6 control-label text-right"
+      .col-sm-6
+        .form-group
+          .input-group
+            = t.text_field :state_code, autofocus: true, :class => "form-control form-width", :placeholder => "PIN Code"

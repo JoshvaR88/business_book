@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :customer_details
+
   resources :company_profiles do
     collection do
       post 'dropdown'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621114937) do
+ActiveRecord::Schema.define(version: 20160630123104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,39 @@ ActiveRecord::Schema.define(version: 20160621114937) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
+
+  create_table "customer_details", force: :cascade do |t|
+    t.integer  "address"
+    t.boolean  "residential_status_type"
+    t.string   "customer_name"
+    t.string   "attention_to"
+    t.text     "billing_address"
+    t.string   "email"
+    t.string   "contact_number"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "customer_goods_details", force: :cascade do |t|
+    t.integer  "state"
+    t.string   "pin_code"
+    t.integer  "customer_business_type"
+    t.string   "customer_pan_no"
+    t.string   "service_tax_no"
+    t.string   "local_sales_tax_no"
+    t.string   "central_sales_tax_no"
+    t.boolean  "goods_address"
+    t.text     "delivery_address"
+    t.string   "email"
+    t.string   "contact_no"
+    t.integer  "customer_detail_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "delivery_state"
+    t.string   "state_code"
+  end
+
+  add_index "customer_goods_details", ["customer_detail_id"], name: "index_customer_goods_details_on_customer_detail_id", using: :btree
 
   create_table "office_addresses", force: :cascade do |t|
     t.text     "branch_address"
@@ -111,6 +144,15 @@ ActiveRecord::Schema.define(version: 20160621114937) do
   end
 
   add_index "sales_tax_centrals", ["sales_configuration_id"], name: "index_sales_tax_centrals_on_sales_configuration_id", using: :btree
+
+  create_table "sales_tax_ie_codes", force: :cascade do |t|
+    t.string   "ie_code"
+    t.integer  "sales_configuration_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "sales_tax_ie_codes", ["sales_configuration_id"], name: "index_sales_tax_ie_codes_on_sales_configuration_id", using: :btree
 
   create_table "sales_taxes", force: :cascade do |t|
     t.integer  "vat_type"
@@ -197,10 +239,12 @@ ActiveRecord::Schema.define(version: 20160621114937) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "authorized_signatories", "company_profiles"
+  add_foreign_key "customer_goods_details", "customer_details"
   add_foreign_key "office_addresses", "company_profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "sales_tax_additional_infos", "sales_configurations"
   add_foreign_key "sales_tax_centrals", "sales_configurations"
+  add_foreign_key "sales_tax_ie_codes", "sales_configurations"
   add_foreign_key "sales_taxes", "sales_configurations"
   add_foreign_key "service_tax_additional_infos", "sales_configurations"
   add_foreign_key "service_taxes", "sales_configurations"
