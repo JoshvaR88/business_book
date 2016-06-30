@@ -9,24 +9,26 @@
               = t.select :state, options_for_select(State.collect_state),{}, {prompt: "Vat Type", class: "selectpicker form-width", "data-live-search": "true"}
       %br
       %br
-      .form-inline
-        = t.label :autolyse, "Have you registered Central Sales Tax ?", class: "col-sm-6 control-label text-right"
-        .col-sm-6
-          .form-group
-            .input-group
-              = t.label :autolyse, "Yes", :value => "true"
-              = t.radio_button :central_sales_tax, true
-              = t.label :autolyse, "No", :value => "false"
-              = t.radio_button :central_sales_tax, false, :checked => true
+      %div{id: 'central_tax_no'}
+        .form-inline
+          = t.label :autolyse, "Have you registered Central Sales Tax ?", class: "col-sm-6 control-label text-right"
+          .col-sm-6
+            .form-group
+              .input-group
+                = t.label :autolyse, "Yes", :value => "true"
+                = t.radio_button :central_sales_tax, true, :checked => true,  class: 'sales_tax_true'
+                = t.label :autolyse, "No", :value => "false"
+                = t.radio_button :central_sales_tax, false, class: 'sales_tax_false'
       %br
       %br
-      .fieldset
-        .row
-          .col-sm-10
-            = t.label :central_reg_no,"Central Sales Tax Registeration No", class: "col-sm-3 control-label text-right"
-            = t.text_field :central_reg_no, autofocus: true, :class => "col-sm-3"
-            = t.label :central_tax_date,"CST with effect from", class: "col-sm-3 control-label text-right"
-            = t.text_field :central_tax_date, autofocus: true, :class => "datepicker col-sm-3"
+      .central-condition
+        .fieldset
+          .row
+            .col-sm-10
+              = t.label :central_reg_no,"Central Sales Tax Registeration No", class: "col-sm-3 control-label text-right"
+              = t.text_field :central_reg_no, autofocus: true, :class => "col-sm-3"
+              = t.label :central_tax_date,"CST with effect from", class: "col-sm-3 control-label text-right"
+              = t.text_field :central_tax_date, autofocus: true, :class => "datepicker col-sm-3"
       %br
 
 

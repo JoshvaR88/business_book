@@ -13,7 +13,6 @@ $( document ).on('ready page:load', function() {
 
   $('.selectpicker').on('change', function(){
     var selected = $(this).find("option:selected").text();
-    alert("testing");
     if (selected == "Sole proprietorship"){
       $('#cin_num').hide();
     }
@@ -67,6 +66,18 @@ $( document ).on('ready page:load', function() {
     $('#service_tax_add_details').show();
     $('#remove_service_tax_additional_info').show();
   })
+
+  $('#central_tax_no').on('click', '.sales_tax_false, .sales_tax_true', function(){
+    var get_val = $(this).val();
+      alert(get_val);
+      if(get_val == "false"){
+        $('.central-condition').hide();
+      }
+      else{
+        $('.central-condition').show();
+      }
+  })
+
 
   $('.checkbox_list_for_tax_org').on('change', function(){
     $('.checkbox_list_for_tax_org option:disabled').remove();
