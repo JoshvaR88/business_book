@@ -11,16 +11,7 @@
         .col-sm-6
           .form-group
             .input-group
-              = t.select :service_type, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Type", class: "selectpicker form-control form-width", "data-live-search": "true"}
-      %br
-      %br
-      %br
-      .form-inline
-        = t.label :service_provider_category,"service_provider_category", class: "col-sm-6 control-label text-right"
-        .col-sm-6
-          .form-group
-            .input-group
-              = t.select :service_provider_category, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Service Provide Category", class: "selectpicker form-control form-width", "data-live-search": "true"}
+              = t.select :service_type, options_for_select(ServiceCategory.collect_service_category),{}, {prompt: "Service Type", class: "selectpicker form-control form-width", "data-live-search": "true"}
       %br
       %br
       %br
