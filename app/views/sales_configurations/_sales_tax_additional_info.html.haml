@@ -31,13 +31,15 @@
           = s.label :designation,"Designation", class: "col-sm-3 control-label text-right"
           = s.text_field :designation, autofocus: true, :class => "col-sm-3"
     %br
-  .sales-ie
-    .form-inline
-      = s.label :ie_code,"Enter your IE Code", class: "col-sm-6 control-label text-right"
-      .col-sm-6
-        .form-group
-          .input-group
-            = s.text_field :ie_code, autofocus: true, :class => "form-control form-width"
+    .sales-ie
+      .form-inline
+        = s.label :ie_code,"Enter your IE Code", class: "col-sm-6 control-label text-right"
+        .col-sm-6
+          .form-group
+            .input-group
+              = s.text_field :ie_code, autofocus: true, :class => "form-control form-width"
+    %br
+    %br
 .form-group
 %div{id: 'add_sales_tax_additional_details'}
   .pull-right
