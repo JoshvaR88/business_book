@@ -30,14 +30,20 @@ $( document ).on('ready page:load', function() {
     });
   });
 
-  $('#tax_details, #add_details, #remove_tan_info').hide();
-  $('#show_fields').on('click', function(){
+  $('#tax_details, #add_details, #remove_tan_info, #remove_tan_info_main').hide();
+  $('#show_tax_fields').on('click', function(){
     $('.selectpicker').selectpicker('refresh');
+    $('#tax_details').addClass("add_box_company");
     $('#tax_details').show();
     $('#add_details').show();
-    $('#remove_tan_info').show();
+    $('#remove_tan_info').hide();
+    $('#remove_tan_info_main').main();
     $('#plus_details').hide();
   })
+
+  // $('#show_another_tax_fields').on('click', function(){
+  //   $('#tax_deduction_info').addClass("add_box_company");
+  // })
 
   $('#remove_address_info').hide();
   $('#show_address_fields').on('click', function(){
@@ -174,6 +180,7 @@ $(document).on('nested:fieldAdded', function(event){
   var selectField = field.find('.selectpicker');
   selectField.selectpicker();
   $('.another_branch_address .fields:visible').addClass("add_box_company");
+  $('.append_tan_info .fields:visible').addClass("add_box_company");
 });
 
 // $(document).on('nested:fieldRemoved', function(event){

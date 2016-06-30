@@ -1,3 +1,5 @@
+- content_for :javascript_includes do
+  = javascript_include_tag "dropdown.js"
 .col-sm-6
   .main-login.main-center.company_profile
     = nested_form_for(@company_profile) do |f|
@@ -37,23 +39,30 @@
           .cols-sm-10
             .input-group
               = f.text_field :corp_id_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Corporate Identity Number"
-              %br/
-            %br/
+      .form-group
+        .cols-sm-10
+          .input-group
+            .panel-primary
+              = f.label :Tax_Information, :class => "panel-heading"
       = render partial: 'company_profiles/add_tan_no', locals: {f: f}
-      %div{:class => "append_tan_info"}
-
-
       %div{id: 'add_details'}
-        = f.link_to_add "Add", :tax_deductions, :data => { :target => ".append_tan_info"}
-
+        .pull-right
+          = f.link_to_add :tax_deductions, id: "show_another_tax_fields", :data => { :target => ".append_tan_info"} do
+            %span Add
+            %span.glyphicon.glyphicon-info-sign{"aria-hidden" => "true", "data-placement" => "left", "data-toggle" => "tooltip", :title => "If you add more details,click here", :type => "button"}
       %div{id: 'plus_details'}
-        = f.link_to "+","javascript:void();", id: "show_fields"
-
+        .pull-right
+          = link_to "#", id: "show_tax_fields" do
+            %span.glyphicon.glyphicon-plus-sign{"aria-hidden" => "true"}
+            %span.glyphicon.glyphicon-info-sign{"aria-hidden" => "true", "data-placement" => "left", "data-toggle" => "tooltip", :title => "If you add more details,click here", :type => "button"}
+      %br
       .conditional_dropdown
         = render partial: 'company_profiles/append_conditional_dropdown_list', locals: {company_profile: @company_profile, dropdown_list: CompanyProfile::POSITION, placeholder_value: "okokok"}
 
       .form-group
-        = f.submit "Save", class: "btn btn-primary left-align"
+        .cols-sm-10
+          .input-group
+            = f.submit "Save", class: "btn btn-primary left-align"
 
 
 
