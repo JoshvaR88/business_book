@@ -18,31 +18,31 @@
       .cols-sm-6
         .form-group
           .input-group
-            = t.select :customer_business_type, options_for_select(CustomerDetail::COMPANY),{}, {prompt: "Customer Business Type", class: "selectpicker form-width add-class-company", "data-live-search": "true"}
-      .form-inline
-        = t.label :customer_pan_no,"Customer PAN Number", class: "col-sm-6 control-label text-right"
-      .col-sm-6
-        .form-group
-          .input-group
-            = t.text_field :customer_pan_no, autofocus: true, :class => "form-control form-width", :placeholder => "Customer PAN Number"
-      .form-inline
-        = t.label :service_tax_no,"Service Tax Number", class: "col-sm-6 control-label text-right"
-      .col-sm-6
-        .form-group
-          .input-group
-            = t.text_field :service_tax_no, autofocus: true, :class => "form-control form-width", :placeholder => "Service Tax Number"
-      .form-inline
-        = t.label :local_sales_tax_no,"Local Sales Tax Number", class: "col-sm-6 control-label text-right"
-      .col-sm-6
-        .form-group
-          .input-group
-            = t.text_field :local_sales_tax_no, autofocus: true, :class => "form-control form-width", :placeholder => "Local Sales Tax Number"
-      .form-inline
-        = t.label :central_sales_tax_no,"Central Sales Tax Number", class: "col-sm-6 control-label text-right"
-      .col-sm-6
-        .form-group
-          .input-group
-            = t.text_field :central_sales_tax_no, autofocus: true, :class => "form-control form-width", :placeholder => "Central Sales Tax Number"
+            = t.select :customer_business_type, options_for_select(CustomerDetail::COMPANY),{}, {prompt: "Customer Business Type", class: "selectpicker form-width", "data-live-search": "true"}
+      .fieldset
+        .row
+          .col-sm-2
+          .col-sm-10
+            = t.label :customer_pan_no,"Customer PAN Number", class: "col-sm-2 control-label text-right"
+
+            = t.text_field :customer_pan_no, autofocus: true, :class => "col-sm-3", :placeholder => "Customer PAN Number"
+
+            = t.label :service_tax_no,"Service Tax Number", class: "col-sm-2 control-label text-right"
+
+            = t.text_field :service_tax_no, autofocus: true, :class => "col-sm-3", :placeholder => "Service Tax Number"
+      %br/
+      .fieldset
+        .row
+          .col-sm-2
+          .col-sm-10
+            = t.label :local_sales_tax_no,"Local Sales Tax Number", class: "col-sm-2 control-label text-right"
+
+            = t.text_field :local_sales_tax_no, autofocus: true, :class => "col-sm-3", :placeholder => "Local Sales Tax Number"
+
+            = t.label :central_sales_tax_no,"Central Sales Tax Number", class: "col-sm-2 control-label text-right"
+
+            = t.text_field :central_sales_tax_no, autofocus: true, :class => "col-sm-3", :placeholder => "Central Sales Tax Number"
+      %br/
       .form-inline
         = t.label :autolyse, "Goods to be delivered at same address?", class: "col-sm-6 control-label text-right"
       .col-sm-6
@@ -65,7 +65,7 @@
           .input-group
             = t.text_field :contact_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Contact Number"
       .form-inline
-        = t.label :delivery_state, "Contact Number", class: "col-sm-6 control-label text-right"
+        = t.label :delivery_state, "State", class: "col-sm-6 control-label text-right"
       .cols-sm-6
         .form-group
           .input-group
