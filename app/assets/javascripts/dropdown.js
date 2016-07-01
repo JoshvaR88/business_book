@@ -157,7 +157,19 @@ $( document ).on('ready page:load', function() {
       })
     }
   });
+
+  $('.domestic_select, .abroad_select').on('click', function(){
+    alert($(this).val());
+    if($(this).val() == "true") {
+      $('#customer_goods_details').show();
+    }
+    else {
+      $('#customer_goods_details').hide();
+    }
+  });
+
 });
+
 $(document).on('nested:fieldAdded', function(event){
   var field = event.field;
   var selectField = field.find('.selectpicker');
@@ -165,6 +177,19 @@ $(document).on('nested:fieldAdded', function(event){
   $('.another_branch_address .fields:visible').addClass("add_box_company");
 });
 
+
+
+
+
+  // $('.selectpicker').on('change', function(){
+  //   var selected = $(this).find("option:selected").text();
+  //   alert("testing");
+  //   if (selected == "Sole proprietorship"){
+  //     $('#cin_num').hide();
+  //   }
+  //   else{
+  //     $('#cin_num').show();
+  //   }
 // $(document).on('nested:fieldRemoved', function(event){
 //   alert("remove work");
 //   var field = event.field;
