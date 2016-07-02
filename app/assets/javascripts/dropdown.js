@@ -48,18 +48,12 @@ $( document ).on('ready page:load', function() {
     alert(count);
   })
 
+
+
   $('#remove_address_info').hide();
   $('#show_address_fields').on('click', function(){
     $('.selectpicker').selectpicker('refresh');
     $('#add_address_details').show();
-  })
-    var add_count = count;
-  $('#remove_tan_info').on('click', function(){
-    add_count--;
-    alert(add_count);
-    while(add_count == 0){
-      $('.remove_tan_info_main').show();
-    }
   })
 
 
@@ -190,19 +184,17 @@ $( document ).on('ready page:load', function() {
     selectField.selectpicker();
     $('.another_branch_address .fields:visible').addClass("add_box_company");
     $('.append_tan_info .fields:visible').addClass("add_box_company");
-    // $('#show_another_tax_fields .fields:visible').on('click', function(){
     $(".remove_tan_info_main").hide();
-    // $('#show_another_tax_fields').removeClass('remove_tan_info_main');
-    // $('#show_another_tax_fields').on('click', function(){
-    //$('#show_another_tax_fields').removeClass("remove_tan_info_main");
-  // })
   });
 
   $(document).on('nested:fieldRemoved', function(event){
-    // var field = event.field;
+    var field = event.field;
     // it's already extended by Prototype
-    // var selectField = field.find('.add_box');
-    // selectField.removeClass();
+    var selectField = field.find('#remove_tan_info');
+    var a = count--;
+    if(a == 1){
+      $('.remove_tan_info_main').show();
+    }
   });
 });
 
