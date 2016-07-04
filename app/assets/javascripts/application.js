@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require bootstrap-select
+//= require bootstrap_sb_admin_base_v2
 //= require_tree .
 
 $( document ).on('ready page:load', function() {
