@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160630123104) do
-=======
-ActiveRecord::Schema.define(version: 20160630103608) do
->>>>>>> account_software
+ActiveRecord::Schema.define(version: 20160704062533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,7 +117,10 @@ ActiveRecord::Schema.define(version: 20160630103608) do
     t.boolean  "invoice_outside_branch_state"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "company_profile_id"
   end
+
+  add_index "sales_configurations", ["company_profile_id"], name: "index_sales_configurations_on_company_profile_id", using: :btree
 
   create_table "sales_tax_additional_infos", force: :cascade do |t|
     t.integer  "reg_circle"
@@ -148,15 +147,6 @@ ActiveRecord::Schema.define(version: 20160630103608) do
   end
 
   add_index "sales_tax_centrals", ["sales_configuration_id"], name: "index_sales_tax_centrals_on_sales_configuration_id", using: :btree
-
-  create_table "sales_tax_ie_codes", force: :cascade do |t|
-    t.string   "ie_code"
-    t.integer  "sales_configuration_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "sales_tax_ie_codes", ["sales_configuration_id"], name: "index_sales_tax_ie_codes_on_sales_configuration_id", using: :btree
 
   create_table "sales_taxes", force: :cascade do |t|
     t.integer  "vat_type"
@@ -251,9 +241,9 @@ ActiveRecord::Schema.define(version: 20160630103608) do
   add_foreign_key "customer_goods_details", "customer_details"
   add_foreign_key "office_addresses", "company_profiles"
   add_foreign_key "profiles", "users"
+  add_foreign_key "sales_configurations", "company_profiles"
   add_foreign_key "sales_tax_additional_infos", "sales_configurations"
   add_foreign_key "sales_tax_centrals", "sales_configurations"
-  add_foreign_key "sales_tax_ie_codes", "sales_configurations"
   add_foreign_key "sales_taxes", "sales_configurations"
   add_foreign_key "service_tax_additional_infos", "sales_configurations"
   add_foreign_key "service_taxes", "sales_configurations"
