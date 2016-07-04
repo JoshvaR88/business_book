@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160630123104) do
+=======
+ActiveRecord::Schema.define(version: 20160630103608) do
+>>>>>>> account_software
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,6 +169,12 @@ ActiveRecord::Schema.define(version: 20160630123104) do
 
   add_index "sales_taxes", ["sales_configuration_id"], name: "index_sales_taxes_on_sales_configuration_id", using: :btree
 
+  create_table "service_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "service_tax_additional_infos", force: :cascade do |t|
     t.string   "commissionerate_name"
     t.string   "commissionerate_code"
@@ -185,12 +195,11 @@ ActiveRecord::Schema.define(version: 20160630123104) do
 
   create_table "service_taxes", force: :cascade do |t|
     t.string   "service_type"
-    t.string   "service_provider_category"
     t.string   "service_tax_reg_no"
     t.boolean  "large_tax_payer"
     t.integer  "sales_configuration_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "service_taxes", ["sales_configuration_id"], name: "index_service_taxes_on_sales_configuration_id", using: :btree

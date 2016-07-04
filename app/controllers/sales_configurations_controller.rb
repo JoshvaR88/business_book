@@ -12,9 +12,7 @@ class SalesConfigurationsController < ApplicationController
   end
 
   def create
-     @sales_configuration = SalesConfiguration.new(sales_configuration_params)
-     p "kkkkkkkkkk#{params[:sales_configuration][:tax_organization]}"
-
+    @sales_configuration = SalesConfiguration.new(sales_configuration_params)
     respond_to do |format|
       if @sales_configuration.save
         format.html { redirect_to @sales_configuration, notice: 'sales configuration was successfully created.' }
@@ -40,6 +38,10 @@ class SalesConfigurationsController < ApplicationController
   def show
   end
 
+  def checkbox
+    checkbox_conditional_list(params[:multiselected])
+  end
+
   private
 
   def set_sales_configuration
@@ -47,8 +49,9 @@ class SalesConfigurationsController < ApplicationController
   end
 
   def sales_configuration_params
-    params.require(:sales_configuration).permit(:invoice_reg_office, {:tax_organization => []}, :invoice_outside_branch_state, sales_tax_attributes: [:vat_type, :tax_reg_no, :tax_date], sales_tax_additional_info_attributes: [:reg_circle, :division, :area_code, :authorized_person_name, :designation, :ie_code], sales_tax_central_attributes: [:state, :central_sales_tax, :central_reg_no, :central_tax_date], service_tax_attributes: [:service_type, :service_provider_category, :service_tax_reg_no, :large_tax_payer], service_tax_additional_info_attributes: [:commissionerate_name, :commissionerate_code, :address, :jurisdiction, :division_name, :division_code, :range_name, :range_code, :range_address, :range_jurisdiction])
+    params.require(:sales_configuration).permit(:invoice_reg_office, {:tax_organization => []}, :invoice_outside_branch_state, sales_tax_attributes: [:vat_type, :tax_reg_no,:tax_date], sales_tax_additional_info_attributes: [:reg_circle, :division, :area_code, :authorized_person_name, :designation, :ie_code], sales_tax_central_attributes: [:state, :central_sales_tax, :central_reg_no, :central_tax_date], service_tax_attributes: [:service_type, :service_tax_reg_no, :large_tax_payer], service_tax_additional_info_attributes: [:commissionerate_name, :commissionerate_code, :address, :jurisdiction, :division_name, :division_code, :range_name, :range_code, :range_address, :range_jurisdiction])
   end
 end
 
 
+# @contact.birth_day = (Date.strptime(params[:contact][:birth_day], Date::DATE_FORMATS[:default]) rescue nil)

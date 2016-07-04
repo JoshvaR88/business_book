@@ -1,13 +1,15 @@
 = f.fields_for :tax_deductions do |o|
   #fields
-    .form-group
-      .cols-sm-10
-        .input-group
-          = o.label :Tax_Information
+    %div{id: 'remove_tan_info'}
+      = f.link_to_remove do
+        .glyphicon.glyphicon-remove-sign{"aria-hidden" => "true"}
     .form-group
       .cols-sm-10
         .input-group
           = o.text_field :tan_no, autofocus: true, :class => "form-control form-width", :placeholder => "TAN NUMBER"
+    %div{:class => "remove_tan_info_main"}
+      = link_to  "#", id: "remove_tax_add_info"do
+        .glyphicon.glyphicon-remove-sign{"aria-hidden" => "true"}
     %div{id: 'tax_details'}
       .form-group
         .cols-sm-10
@@ -20,15 +22,25 @@
       .form-group
         .cols-sm-10
           .input-group
-            = o.text_field :responsibility_tax_person, autofocus: true, :class => "form-control form-width", :placeholder => "Responsibility of Tax Collection Authorized Person Name"
+            = o.text_field :responsibility_tax_person, autofocus: true, :class => " form-control form-width", :placeholder => "Responsibility of Tax Collection Authorized Person Name"
       .form-group
         .cols-sm-10
           .input-group
             = o.text_field :designation, autofocus: true, :class => "form-control form-width", :placeholder => "Designation"
-            %br/
-            %br/
-            %div{id: 'remove_tan_info'}
-            = f.link_to_remove "remove"
+      %br/
+%div{:class => "append_tan_info"}
+%div{id: 'add_details'}
+  .pull-right
+    = f.link_to_add :tax_deductions, id: "show_another_tax_fields", :data => { :target => ".append_tan_info"} do
+      %span Add
+      %span.glyphicon.glyphicon-info-sign{"aria-hidden" => "true", "data-placement" => "left", "data-toggle" => "tooltip", :title => "If you add more details,click here", :type => "button"}
+%br
+%div{id: 'plus_details'}
+  = link_to "#", id: "show_tax_fields" do
+    .pull-right
+      %span.glyphicon.glyphicon-plus-sign{"aria-hidden" => "true"}
+      %span.glyphicon.glyphicon-info-sign{"aria-hidden" => "true", "data-placement" => "left", "data-toggle" => "tooltip", :title => "If you add more details,click here", :type => "button"}
+%br
 
 
 

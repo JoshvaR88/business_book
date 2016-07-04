@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service_type: MyString
+  service_provider_category: MyString
+  service_tax_reg_no: MyString
+  large_tax_payer: false
+  sales_configuration_id: 
+
+two:
+  service_type: MyString
+  service_provider_category: MyString
+  service_tax_reg_no: MyString
+  large_tax_payer: false
+  sales_configuration_id: 

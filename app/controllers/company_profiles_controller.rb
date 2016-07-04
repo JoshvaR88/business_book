@@ -5,14 +5,17 @@ class CompanyProfilesController < ApplicationController
   def add_branch_address
     @company_profile = CompanyProfile.new
     @company_profile.office_addresses.build
-    p "===================#{@company_profile}"
-    p "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"
     render json: {html: render_to_string("/company_profiles/_add_branch_address", layout: false, locals: {f: @company_profile })} and return
   end
 
   def dropdown
     conditional_dropdown_list(params[:selected])
   end
+
+  def cin_no
+    conditional_cin_no_list([:selected_list])
+  end
+
 
   def new
     @company_profile = CompanyProfile.new

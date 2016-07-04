@@ -1,0 +1,14 @@
+form-group
+%label.control-label.col-md-2.col-md-offset-2{for: "id_checkin"} Checkin
+.col-md-8
+.col-md-3
+.form-group.internal.input-group
+%input.form-control.datepicker{id: "id_checkin"}
+%span.input-group-addon
+%i.glyphicon.glyphicon-calendar
+%label.control-label.col-md-2{for: "id_checkout"} Checkout
+.col-md-3
+.form-group.internal.input-group
+%input.form-control.datepicker{id: "id_checkout"}
+%span.input-group-addon
+%i.glyphicon.glyphicon-calendar

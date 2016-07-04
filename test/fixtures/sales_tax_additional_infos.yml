@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reg_circle: 1
+  division: MyString
+  area_code: MyString
+  authorized_person_name: MyString
+  designation: MyString
+  sales_configuration_id: 
+
+two:
+  reg_circle: 1
+  division: MyString
+  area_code: MyString
+  authorized_person_name: MyString
+  designation: MyString
+  sales_configuration_id: 

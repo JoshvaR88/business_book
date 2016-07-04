@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sales_configurations
+  resources :sales_configurations do
+    collection do
+      post 'checkbox'
+    end
+   end
 
 
   devise_for :users

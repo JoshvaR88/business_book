@@ -12,7 +12,7 @@ module DropdownList
   DEDUCTOR_COLLECTOR = ["Government", "Non-Government"]
   CHECKBOX = ["Sales of Goods", "Sales of Services", "Sales of Export Goods", "Sales of Export Services"]
 
-  VAT_TYPE = [["vat_type", 1]]
+  VAT_TYPE = ["Regular", "Composition"]
 
   #zip for two constant
   LIST_OF_COMPANY = COMPANY.zip(FIVE_INT)
@@ -20,10 +20,9 @@ module DropdownList
   AC_TYPE = AC.zip(TWO_INT)
   DEDUCTOR_COLLECTOR_TYPE = DEDUCTOR_COLLECTOR.zip(TWO_INT)
   CHECKBOX_LIST = CHECKBOX.zip(CHECKBOX)
+  VAT_TYPE_LIST = VAT_TYPE.zip(TWO_INT)
 
 end
-
-
 
 
 
