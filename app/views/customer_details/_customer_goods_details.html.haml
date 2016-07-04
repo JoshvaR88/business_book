@@ -43,36 +43,38 @@
 
             = t.text_field :central_sales_tax_no, autofocus: true, :class => "col-sm-3", :placeholder => "Central Sales Tax Number"
       %br/
-      .form-inline
-        = t.label :autolyse, "Goods to be delivered at same address?", class: "col-sm-6 control-label text-right"
-      .col-sm-6
-        .form-group
-          .input-group
-            = t.label :autolyse, "Yes", :value => "true"
-            = t.radio_button :delivery_address, true
-            = t.label :autolyse, "No", :value => "false"
-            = t.radio_button :delivery_address, false, :checked => true
-      .form-inline
-        = t.label :email, "Email", class: "col-sm-6 control-label text-right"
-      .cols-sm-6
-        .form-group
-          .input-group
-            = t.email_field :email, autofocus: true,  :class => "form-control form-width", :placeholder => "Email"
-      .form-inline
-        = t.label :contact_no, "Contact Number", class: "col-sm-6 control-label text-right"
-      .cols-sm-6
-        .form-group
-          .input-group
-            = t.text_field :contact_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Contact Number"
-      .form-inline
-        = t.label :delivery_state, "State", class: "col-sm-6 control-label text-right"
-      .cols-sm-6
-        .form-group
-          .input-group
-            = t.select(:delivery_state, options_for_select(State.collect_state),{},{class: " selectpicker form-width", "data-live-search": "true"})
-      .form-inline
-        = t.label :state_code,"PIN Code", class: "col-sm-6 control-label text-right"
-      .col-sm-6
-        .form-group
-          .input-group
-            = t.text_field :state_code, autofocus: true, :class => "form-control form-width", :placeholder => "PIN Code"
+      - if customer_goods?
+        %div{id: 'customer_goods_delivery'}
+        .form-inline
+          = t.label :autolyse, "Goods to be delivered at same address?", class: "col-sm-6 control-label text-right"
+        .col-sm-6
+          .form-group
+            .input-group
+              = t.label :autolyse, "Yes", :value => "true"
+              = t.radio_button :delivery_address, true
+              = t.label :autolyse, "No", :value => "false"
+              = t.radio_button :delivery_address, false, :checked => true
+        .form-inline
+          = t.label :email, "Email", class: "col-sm-6 control-label text-right"
+        .cols-sm-6
+          .form-group
+            .input-group
+              = t.email_field :email, autofocus: true,  :class => "form-control form-width", :placeholder => "Email"
+        .form-inline
+          = t.label :contact_no, "Contact Number", class: "col-sm-6 control-label text-right"
+        .cols-sm-6
+          .form-group
+            .input-group
+              = t.text_field :contact_no, autofocus: true,  :class => "form-control form-width", :placeholder => "Contact Number"
+        .form-inline
+          = t.label :delivery_state, "State", class: "col-sm-6 control-label text-right"
+        .cols-sm-6
+          .form-group
+            .input-group
+              = t.select(:delivery_state, options_for_select(State.collect_state),{},{class: " selectpicker form-width", "data-live-search": "true"})
+        .form-inline
+          = t.label :state_code,"PIN Code", class: "col-sm-6 control-label text-right"
+        .col-sm-6
+          .form-group
+            .input-group
+              = t.text_field :state_code, autofocus: true, :class => "form-control form-width", :placeholder => "PIN Code"

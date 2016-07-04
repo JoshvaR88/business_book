@@ -68,14 +68,21 @@ $( document ).on('ready page:load', function() {
     $('#remove_sales_tax_additional_info').show();
     $('#sales_tax_add_details').show();
   })
+  // var multi_selected = ["Sales of Goods", "Sales of Services", "Sales of Export Goods", "Sales of Export Services"];
+  // $('#remove_service_tax_additional_info').hide();
+  // $('#show_service_tax_add_info').on('click', function(){
+  //   $('#service_tax_add_details').addClass("add_box_services");
+  //   $('#show_service_tax_add_info').hide();
+  //   $('#service_tax_add_details').show();
+  //   $('#remove_service_tax_additional_info').show();
+  // })
 
-  $('#remove_service_tax_additional_info').hide();
-  $('#show_service_tax_add_info').on('click', function(){
-    $('#service_tax_add_details').addClass("add_box_services");
-    $('#show_service_tax_add_info').hide();
-    $('#service_tax_add_details').show();
-    $('#remove_service_tax_additional_info').show();
-  })
+ // else if(multiselected.indexOf("Sales of Export Goods") > -1){
+ //      $('#sales_tax, #show_sales_tax_add_info').show();
+ //      $('#service_tax, #show_service_tax_add_info').show();
+ //      $('#show_sales_tax_add_info').on('click', function() {
+ //        $(".sales-ie").show();
+  // ["Sales of Goods", "Sales of Services", "Sales of Export Goods", "Sales of Export Services"]
 
   $('#central_tax_no').on('click', '.sales_tax_false, .sales_tax_true', function(){
     var get_val = $(this).val();
@@ -174,6 +181,7 @@ $( document ).on('ready page:load', function() {
       })
     }
   });
+
 
   $('.domestic_select, .abroad_select').on('click', function(){
     alert($(this).val());
