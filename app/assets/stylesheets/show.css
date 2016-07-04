@@ -198,3 +198,6 @@ background:#ccc;
 .hide_remove_button{
   display: none !important;
 }
+.index-content{
+  margin-top: 5%;
+}

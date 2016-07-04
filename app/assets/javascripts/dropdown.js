@@ -78,6 +78,7 @@ $( document ).on('ready page:load', function() {
   })
 
   $('#central_tax_no').on('click', '.sales_tax_false, .sales_tax_true', function(){
+    alert("ssssssssssssssssssssssssss");
     var get_val = $(this).val();
       if(get_val == "false"){
         $('.central-condition').hide();
@@ -86,6 +87,34 @@ $( document ).on('ready page:load', function() {
         $('.central-condition').show();
       }
   })
+  $('.domestic_select, .abroad_select').on('click', function(){
+    alert($(this).val());
+    if($(this).val() == "true") {
+      $('#customer_goods_details').show();
+    }
+    else {
+      $('#customer_goods_details').hide();
+    }
+  })
+
+  // $('.reg-off-yes, .reg-off-no').on('click', function(){
+  //   alert($(this).val());
+  //   if($(this).val() == "true") {
+  //     var option = $(this).val();
+  //   }
+  //   else {
+  //     var option = $(this).val();
+  //   }
+  //   alert("hi hw r u?");
+  //       $.ajax({
+  //     type: "POST",
+  //     url: '/company_profiles/address',
+  //     data:{ option: option},
+  //     success: function(result) {
+  //       $(".conditional_address").html(result.html);
+  //     }
+  //   });
+  // });
 
 
   $('.checkbox_list_for_tax_org').on('change', function(){
@@ -175,35 +204,6 @@ $( document ).on('ready page:load', function() {
     }
   });
 
-  $('.domestic_select, .abroad_select').on('click', function(){
-    alert($(this).val());
-    if($(this).val() == "true") {
-      $('#customer_goods_details').show();
-    }
-    else {
-      $('#customer_goods_details').hide();
-    }
-  });
-
-});
-
-  // $('.selectpicker').on('change', function(){
-  //   var selected = $(this).find("option:selected").text();
-  //   alert("testing");
-  //   if (selected == "Sole proprietorship"){
-  //     $('#cin_num').hide();
-  //   }
-  //   else{
-  //     $('#cin_num').show();
-  //   }
-// $(document).on('nested:fieldRemoved', function(event){
-//   alert("remove work");
-//   var field = event.field;
-//   // it's already extended by Prototype
-//   var selectField = field.find('.add_box');
-//   selectField.removeClass();
-// });
-
   $(document).on('nested:fieldAdded', function(event){
     var field = event.field;
     var selectField = field.find('.selectpicker');
@@ -222,4 +222,6 @@ $( document ).on('ready page:load', function() {
       $('.remove_tan_info_main').show();
     }
   });
+
+});
 
