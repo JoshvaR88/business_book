@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_one :profile
+  has_one :company_profile
   accepts_nested_attributes_for :profile
 
 

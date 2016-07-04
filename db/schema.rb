@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160630123104) do
-=======
-ActiveRecord::Schema.define(version: 20160630103608) do
->>>>>>> account_software
+ActiveRecord::Schema.define(version: 20160704062622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +43,10 @@ ActiveRecord::Schema.define(version: 20160630103608) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "accounting_mode"
+    t.integer  "user_id"
   end
+
+  add_index "company_profiles", ["user_id"], name: "index_company_profiles_on_user_id", using: :btree
 
   create_table "countries", force: :cascade do |t|
     t.string   "name",               default: ""
@@ -67,7 +66,10 @@ ActiveRecord::Schema.define(version: 20160630103608) do
     t.string   "contact_number"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "company_profile_id"
   end
+
+  add_index "customer_details", ["company_profile_id"], name: "index_customer_details_on_company_profile_id", using: :btree
 
   create_table "customer_goods_details", force: :cascade do |t|
     t.integer  "state"
@@ -248,6 +250,8 @@ ActiveRecord::Schema.define(version: 20160630103608) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "authorized_signatories", "company_profiles"
+  add_foreign_key "company_profiles", "users"
+  add_foreign_key "customer_details", "company_profiles"
   add_foreign_key "customer_goods_details", "customer_details"
   add_foreign_key "office_addresses", "company_profiles"
   add_foreign_key "profiles", "users"
