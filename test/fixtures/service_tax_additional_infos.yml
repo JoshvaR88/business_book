@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commissionerate_name: MyString
+  commissionerate_code: MyString
+  address: MyText
+  jurisdiction: MyString
+  division_name: MyString
+  division_code: MyString
+  range_name: MyString
+  range_code: MyString
+  range_address: MyText
+  range_jurisdiction: MyString
+  sales_configuration_id: 
+
+two:
+  commissionerate_name: MyString
+  commissionerate_code: MyString
+  address: MyText
+  jurisdiction: MyString
+  division_name: MyString
+  division_code: MyString
+  range_name: MyString
+  range_code: MyString
+  range_address: MyText
+  range_jurisdiction: MyString
+  sales_configuration_id: 

@@ -176,7 +176,7 @@ background:#ccc;
   z-index: 3000 !important;
 }
 .add_box_services{
-  width: 1000px 500px 1000px 500px !important;
+  width: 100% !important;
   border-style: solid;
   border-width: 2px;
   z-index: 3000 !important;

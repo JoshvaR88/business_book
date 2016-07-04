@@ -1,7 +1,7 @@
 class BusinessType < ActiveRecord::Base
 
   def self.collect_business_type
-    pluck(:name)
+    pluck(:name, :id)
   end
 
 end

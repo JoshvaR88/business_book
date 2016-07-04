@@ -7,7 +7,7 @@ class CompanyProfile < ActiveRecord::Base
 
   # validates :company_name, :email, :company_website, :company_type, :pan_no, :corp_id_no, :accounting_mode, presence: true
 
-  accepts_nested_attributes_for :office_addresses, :authorized_signatories, :tax_deductions
+  accepts_nested_attributes_for :office_addresses, :authorized_signatories, :tax_deductions, allow_destroy: true, reject_if: :all_blank
 
   COMPANY = LIST_OF_COMPANY
 

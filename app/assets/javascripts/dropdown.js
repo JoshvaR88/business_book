@@ -144,7 +144,6 @@ $( document ).on('ready page:load', function() {
       })
     }
     else if(multiselected == "Sales of Services,Sales of Export Services"){
-      alert("heloo");
       $(".sales-ie").show();
       $('#sales_tax, #show_sales_tax_add_info').hide();
       $('#service_tax, #show_service_tax_add_info').show();
@@ -164,9 +163,7 @@ $( document ).on('ready page:load', function() {
     else if(multiselected.indexOf("Sales of Export Services") > -1){
       $('#sales_tax, #show_sales_tax_add_info').show();
       $('#service_tax, #show_service_tax_add_info').show();
-      $('#show_sales_tax_add_info').on('click', function() {
-        $(".sales-ie").show();
-      })
+      $(".sales-ie").show();
     }
 
     else {
