@@ -1,6 +1,22 @@
 Rails.application.routes.draw do
 
+  resources :customer_details
 
+  resources :company_profiles do
+    collection do
+      post 'dropdown'
+      post 'cin_no'
+    end
+    collection do
+      post 'add_branch_address'
+    end
+  end
+
+  resources :sales_configurations do
+    collection do
+      post 'checkbox'
+    end
+   end
 
 
   devise_for :users
@@ -18,7 +34,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :company_profiles
+  #resources :company_profiles
 
   # Example resource route with options:
   #   resources :products do

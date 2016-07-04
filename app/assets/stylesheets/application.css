@@ -13,6 +13,8 @@
  *= require show
  *= require bootstrap-select
  *= require bootstrap_sb_admin_base_v2
+ *= require bootstrap-multiselect
+ *= require bootstrap-datepicker
  *= require_tree .
  *= require_self
  */

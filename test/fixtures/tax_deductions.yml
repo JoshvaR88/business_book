@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tan_no: MyString
+  cit_address: MyString
+  deductor_collector: 1
+  responsibility_tax_person: MyString
+  designation: MyString
+  company_profile_id: 
+
+two:
+  tan_no: MyString
+  cit_address: MyString
+  deductor_collector: 1
+  responsibility_tax_person: MyString
+  designation: MyString
+  company_profile_id: 

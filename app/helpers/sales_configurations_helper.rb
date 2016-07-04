@@ -1,0 +1,2 @@
+module SalesConfigurationsHelper
+end

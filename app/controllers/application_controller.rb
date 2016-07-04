@@ -5,6 +5,34 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def conditional_dropdown_list(selected)
+    case selected
+      when "Private"
+        dropdown_values = [["Managing Director", 1], ["Whole Time Director", 2], ["Director", 3]]
+        placeholder_value = "DIN"
+      when "LLP"
+        dropdown_values = [["Partner", 1],["Executive Partner", 2]]
+        placeholder_value = "DPIN"
+      when "OPC"
+        dropdown_values = [["Managing Director", 1], ["Whole Time Director", 2], ["Director", 3]]
+        placeholder_value = "DIN"
+      when "Partnership Firm"
+        dropdown_values = [["Partner", 1]]
+        placeholder_value = "Partnership Member Number"
+      when "Sole proprietorship"
+        dropdown_values = [["Sole proprietorship", 1]]
+        placeholder_value = "DPIN"
+      else
+    end
+    company_profile = CompanyProfile.new
+    2.times do
+      company_profile.authorized_signatories.build
+    end
+    render json: {html: render_to_string("/company_profiles/_append_conditional_dropdown_list", layout: false, locals: {company_profile: company_profile, dropdown_list: dropdown_values, placeholder_value: placeholder_value})} and return
+    # render json: 'company_profiles/append_conditional_dropdown_list', locals: {f: f, dropdown_list: CompanyProfile::POSITION, placeholder_value: "okokok"}
+
+  end
+
   protected
 
     def configure_permitted_parameters
@@ -12,3 +40,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name,:last_name,:email, :password, :password_confirmation, :current_password, :avatar, :avatar_cache, :remove_avatar) }
     end
 end
+
+
+
+

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state: 1
+  pin_code: MyString
+  customer_business_type: 1
+  customer_pan_no: MyString
+  service_tax_no: MyString
+  local_sales_tax_no: MyString
+  central_sales_tax_no: MyString
+  goods_address: false
+  delivery_address: MyText
+  email: MyString
+  contact_no: MyString
+  state: 1
+  pin_code: MyString
+  customer_detail_id: 
+
+two:
+  state: 1
+  pin_code: MyString
+  customer_business_type: 1
+  customer_pan_no: MyString
+  service_tax_no: MyString
+  local_sales_tax_no: MyString
+  central_sales_tax_no: MyString
+  goods_address: false
+  delivery_address: MyText
+  email: MyString
+  contact_no: MyString
+  state: 1
+  pin_code: MyString
+  customer_detail_id: 

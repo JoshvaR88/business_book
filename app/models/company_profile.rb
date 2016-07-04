@@ -1,13 +1,21 @@
 class CompanyProfile < ActiveRecord::Base
+  include DropdownList
+
   has_many :office_addresses
   has_many :authorized_signatories
+  has_many :tax_deductions
+  belongs_to :user
+  has_many :customer_details
+  has_one :sales_configuration
 
-  accepts_nested_attributes_for :office_addresses
-  accepts_nested_attributes_for :authorized_signatories
+  # validates :company_name, :email, :company_website, :company_type, :pan_no, :corp_id_no, :accounting_mode, presence: true
 
-  COMPANY = ["private", "private"]
-  POSITION = ["Managing Director", "Managing Director"]
-  STATE = ["Tamil Nadu", "Tamil Nadu"]
+  accepts_nested_attributes_for :office_addresses, :authorized_signatories, :tax_deductions, allow_destroy: true, reject_if: :all_blank
+
+  COMPANY = LIST_OF_COMPANY
+
+  POSITION = POSITION_LIST
+
 
 end
 

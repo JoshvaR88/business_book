@@ -1,0 +1,31 @@
+= f.fields_for :office_addresses do |p|
+  #fields
+    %div{id: "remove_address_info"}
+
+      = f.link_to_remove id: "remove_info_details" do
+        .glyphicon.glyphicon-remove-sign{"aria-hidden" => "true"}
+    .form-group
+      .cols-sm-10
+        .input-group
+          = p.text_area :branch_address, autofocus: true,  :class => "form-control form-width", placeholder: "Registered office Address"
+    .select_state
+      .form-group
+        .cols-sm-10
+          .input-group
+            = p.select(:state, options_for_select(State.collect_state),{},{class: " selectpicker form-width", "data-live-search": "true"})
+
+    .form-group
+      .cols-sm-10
+        .input-group
+          = p.text_field :telephone_no, autofocus: true,  :class => "form-control form-width", placeholder: "Telephone No"
+          %br/
+          %br/
+
+/ %div{id: 'another_branches'}
+%div{class: "another_branch_address"}
+%div{id: 'add_address_details'}
+  .pull-right
+    = f.link_to_add :office_addresses, id: "show_address_fields", :data => { :target => ".another_branch_address" } do
+      %span Add
+      %span.glyphicon.glyphicon-plus-sign{"aria-hidden" => "true"}
+    %span.glyphicon.glyphicon-info-sign{"aria-hidden" => "true", "data-placement" => "left", "data-toggle" => "tooltip", :title => "If you add more details,click here", :type => "button"}

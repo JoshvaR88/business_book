@@ -31,7 +31,7 @@ footer {
 
 body, html{
   height: 100%;
-  background-color:#f2f2f2!important;
+  background-color: #FFFFFF !important;
 }
 
 .main{
@@ -79,9 +79,28 @@ input::-webkit-input-placeholder {
 .main-center{
   margin-top: 40px;
   margin: 0 auto;
-  max-width: 500px;
-  padding: 30px 40px 10px 40px;
+  max-width: 700px !important;
+  padding: 30px 40px 40px 40px;
   margin-bottom: 40px;
+}
+
+
+.main-center-sales{
+  margin-top: 40px;
+  margin: 0 auto;
+  max-width: 100% !important;
+  padding: 30px 40px 40px 40px;
+  margin-bottom: 40px;
+}
+.new_sales_configuration{
+  height: auto;
+
+}
+.company_profile{
+  max-width: 700px !important;
+}
+.customer_details{
+  max-width: 1000px !important;
 }
 
 .login-button{
@@ -94,6 +113,9 @@ input::-webkit-input-placeholder {
 }
 .center-align{
   margin-left: 50%;
+}
+.left-align{
+  margin-left: 4%;
 }
 .dropdown{
   z-index: 1000 !important;
@@ -113,4 +135,66 @@ input::-webkit-input-placeholder {
 .alert{
   margin-top: 75px !important;
   margin-bottom: 0 !important;
+}
+.form-width{
+  width: 350px !important;
+}
+.horizontal_dropdown{
+  width: 160px !important;
+  margin-left: 44px !important;
+
+}
+.horizontal_textfield{
+  width: 160px !important;
+  margin-left: 100px !important;
+}
+.horizontal_text{
+  width: 150px !important;
+}
+.multiselect{
+  font-size: 12px !important
+}
+.field_two{
+  width: 150px !important;
+}
+.close {
+display:inline-block;
+padding:20px 50px;
+background:#ccc;
+}
+.glyphicon-remove-sign{
+  padding: 0px 0px 20px 420px !important;
+
+}
+.add_box_company{
+  width: 400px;
+  border-style: solid;
+  border-width: 2px;
+  z-index: 3000 !important;
+}
+.add_box_sales{
+  width: 1000px 500px 1000px 500px;
+  border-style: solid;
+  border-width: 2px;
+  z-index: 3000 !important;
+}
+.add_box_services{
+  width: 100% !important;
+  border-style: solid;
+  border-width: 2px;
+  z-index: 3000 !important;
+}
+.sub-titles{
+  font-size: 15px;
+  font-color: violet;
+  font-family: Verdana;
+}
+.glyphicon-sales{
+  padding: 0px 0px 20px 1100px !important;
+}
+.specific_remove_icon{
+  padding: 0px 0px 20px 1100px !important;
+}
+.hide_remove_button{
+  display: none !important;
 }

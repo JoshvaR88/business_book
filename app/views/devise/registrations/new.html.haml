@@ -71,12 +71,13 @@
                 %span.input-group-addon
                   %i.fa.fa-user.fa{"aria-hidden" => "true"}
                 = p.select(:country, Country.collect_country,{}, {class: "selectpicker add_class_country dropdown_country form-control", title: "select country", "data-live-search": "true"})
-          .form-group.select_state
-            .cols-sm-10
-              .input-group
-                %span.input-group-addon
-                  %i.fa.fa-user.fa{"aria-hidden" => "true"}
-                = p.select(:state, State.collect_state,{}, {class: "selectpicker add_class_state dropdown_state form-control", title: "select state", "data-live-search": "true"})
+          .select_state
+            .form-group
+              .cols-sm-10
+                .input-group
+                  %span.input-group-addon
+                    %i.fa.fa-user.fa{"aria-hidden" => "true"}
+                  = p.select(:state, State.collect_state,{}, {class: "selectpicker add_class_state dropdown_state form-control", title: "select state", "data-live-search": "true"})
           .form-group
             .cols-sm-10
               .input-group
