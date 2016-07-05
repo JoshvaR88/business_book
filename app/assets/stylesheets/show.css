@@ -83,10 +83,6 @@ input::-webkit-input-placeholder {
   padding: 30px 40px 40px 40px;
   margin-bottom: 40px;
 }
-.index-content{
-  margin-top: 5%;
-}
-
 
 .main-center-sales{
   margin-top: 40px;
@@ -200,4 +196,7 @@ background:#ccc;
 }
 .hide_remove_button{
   display: none !important;
+}
+.index-content{
+  margin-top: 5%;
 }

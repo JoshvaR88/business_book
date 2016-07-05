@@ -46,12 +46,14 @@ $( document ).on('ready page:load', function() {
   $('#show_another_tax_fields').on('click', function(){
     count++;
     alert(count);
+
   });
 
   $('#remove_address_info').hide();
   $('#show_address_fields').on('click', function(){
     $('.selectpicker').selectpicker('refresh');
     $('#add_address_details').show();
+
   });
 
   $('#remove_sales_tax_additional_info').hide();
@@ -62,9 +64,11 @@ $( document ).on('ready page:load', function() {
     $('#show_sales_tax_add_info').hide();
     $('#remove_sales_tax_additional_info').show();
     $('#sales_tax_add_details').show();
+
   });
 
   $('#central_tax_no').on('click', '.sales_tax_false, .sales_tax_true', function(){
+    alert("ssssssssssssssssssssssssss");
     var get_val = $(this).val();
       if(get_val == "false"){
         $('.central-condition').hide();
@@ -72,6 +76,7 @@ $( document ).on('ready page:load', function() {
       else{
         $('.central-condition').show();
       }
+
   });
 
   $('.checkbox_list_for_tax_org').on('change', function(){
@@ -104,6 +109,7 @@ $( document ).on('ready page:load', function() {
       $('#service_tax, #show_service_tax_add_info').show();
       $('#remove_service_tax_add_info').on('click', function() {
         $("#show_service_tax_add_info").show();
+
       });
 
     }
@@ -159,7 +165,16 @@ $( document ).on('ready page:load', function() {
       });
     }
   });
-});
+
+  $('.domestic_select, .abroad_select').on('click', function(){
+    alert($(this).val());
+    if($(this).val() == "true") {
+      $('#customer_goods_details').show();
+    }
+    else {
+      $('#customer_goods_details').hide();
+    }
+  });
 
   $(document).on('nested:fieldAdded', function(event){
     var field = event.field;
@@ -179,3 +194,4 @@ $( document ).on('ready page:load', function() {
       $('.remove_tan_info_main').show();
     }
  });
+
