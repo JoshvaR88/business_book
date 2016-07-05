@@ -1,3 +1,5 @@
+- content_for :javascript_includes do
+  = javascript_include_tag "dropdown.js"
 .col-sm-10
   .main-login.main-center.customer_details
     = nested_form_for(@customer_detail) do |f|
