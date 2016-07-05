@@ -14,7 +14,7 @@ class SalesConfigurationsController < ApplicationController
 
   def create
     @sales_configuration = SalesConfiguration.new(sales_configuration_params)
-    @sales_configuration.company_profile_id = current_user.company_profile.id
+    @sales_configuration.company_profile_id = current_user.company_profile.id rescue nil
     respond_to do |format|
       if @sales_configuration.save
         format.html { redirect_to @sales_configuration, notice: 'sales configuration was successfully created.' }

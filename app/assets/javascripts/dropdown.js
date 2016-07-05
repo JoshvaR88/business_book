@@ -48,15 +48,11 @@ $( document ).on('ready page:load', function() {
     alert(count);
   })
 
-
-
   $('#remove_address_info').hide();
   $('#show_address_fields').on('click', function(){
     $('.selectpicker').selectpicker('refresh');
     $('#add_address_details').show();
   })
-
-
 
 
   $('#remove_sales_tax_additional_info').hide();
@@ -69,13 +65,6 @@ $( document ).on('ready page:load', function() {
     $('#sales_tax_add_details').show();
   })
 
-  $('#remove_service_tax_additional_info').hide();
-  $('#show_service_tax_add_info').on('click', function(){
-    $('#service_tax_add_details').addClass("add_box_services");
-    $('#show_service_tax_add_info').hide();
-    $('#service_tax_add_details').show();
-    $('#remove_service_tax_additional_info').show();
-  })
 
   $('#central_tax_no').on('click', '.sales_tax_false, .sales_tax_true', function(){
     alert("ssssssssssssssssssssssssss");
@@ -87,35 +76,6 @@ $( document ).on('ready page:load', function() {
         $('.central-condition').show();
       }
   })
-  $('.domestic_select, .abroad_select').on('click', function(){
-    alert($(this).val());
-    if($(this).val() == "true") {
-      $('#customer_goods_details').show();
-    }
-    else {
-      $('#customer_goods_details').hide();
-    }
-  })
-
-  // $('.reg-off-yes, .reg-off-no').on('click', function(){
-  //   alert($(this).val());
-  //   if($(this).val() == "true") {
-  //     var option = $(this).val();
-  //   }
-  //   else {
-  //     var option = $(this).val();
-  //   }
-  //   alert("hi hw r u?");
-  //       $.ajax({
-  //     type: "POST",
-  //     url: '/company_profiles/address',
-  //     data:{ option: option},
-  //     success: function(result) {
-  //       $(".conditional_address").html(result.html);
-  //     }
-  //   });
-  // });
-
 
   $('.checkbox_list_for_tax_org').on('change', function(){
     $('.checkbox_list_for_tax_org option:disabled').remove();
@@ -148,8 +108,6 @@ $( document ).on('ready page:load', function() {
       $('#remove_service_tax_add_info').on('click', function() {
         $("#show_service_tax_add_info").show();
       })
-
-
     }
 
     else if(multiselected == "Sales of Export Goods"){
@@ -201,6 +159,18 @@ $( document ).on('ready page:load', function() {
       $('#show_sales_tax_add_info').on('click', function() {
         $(".sales-ie").show();
       })
+    }
+  });
+
+
+
+  $('.domestic_select, .abroad_select').on('click', function(){
+    alert($(this).val());
+    if($(this).val() == "true") {
+      $('#customer_goods_details').show();
+    }
+    else {
+      $('#customer_goods_details').hide();
     }
   });
 
