@@ -1,12 +1,13 @@
 module CustomerDetailsHelper
-  def register_office_address?
+  def get_office_address
     if current_user.company_profile.sales_configuration.invoice_reg_office == "true"
-      @a = curent_user.company_profile.office_addresses.branch_address.first.inspect
+      @a = curent_user.company_profile.office_addresses.pluck(:branch_address, :state, :telephone_no).first.gsub("\r", "")
     else
-      @a = current_user.company_profile.office_addresses.last.inspect
+      @a = current_user.company_profile.office_addresses.pluck(:branch_address, :state, :telephone_no).last
     end
-    return @a;
+    return @a.join();
   end
+
   def customer_goods?
     string = current_user.company_profile.sales_configuration.tax_organization
     str_to_arr = eval(string)

@@ -31,7 +31,6 @@ gem "nested_form"
 
 gem 'bootstrap-multiselect-rails'
 gem 'bootstrap-datepicker-rails'
-gem 'jquery-turbolinks'
 
 
 # Use ActiveModel has_secure_password

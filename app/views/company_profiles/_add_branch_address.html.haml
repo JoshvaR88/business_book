@@ -18,10 +18,8 @@
       .cols-sm-10
         .input-group
           = p.text_field :telephone_no, autofocus: true,  :class => "form-control form-width", placeholder: "Telephone No"
-          %br/
-          %br/
+          = p.hidden_field_tag :is_registered, true, id: "reg_off_address"
 
-/ %div{id: 'another_branches'}
 %div{class: "another_branch_address"}
 %div{id: 'add_address_details'}
   .pull-right

@@ -154,15 +154,6 @@ ActiveRecord::Schema.define(version: 20160704062622) do
 
   add_index "sales_tax_centrals", ["sales_configuration_id"], name: "index_sales_tax_centrals_on_sales_configuration_id", using: :btree
 
-  create_table "sales_tax_ie_codes", force: :cascade do |t|
-    t.string   "ie_code"
-    t.integer  "sales_configuration_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "sales_tax_ie_codes", ["sales_configuration_id"], name: "index_sales_tax_ie_codes_on_sales_configuration_id", using: :btree
-
   create_table "sales_taxes", force: :cascade do |t|
     t.integer  "vat_type"
     t.string   "tax_reg_no"
@@ -176,8 +167,11 @@ ActiveRecord::Schema.define(version: 20160704062622) do
 
   create_table "service_categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "service_tax_code"
+    t.integer  "interest_tax_code"
+    t.integer  "penalties_code"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "service_tax_additional_infos", force: :cascade do |t|
@@ -261,7 +255,6 @@ ActiveRecord::Schema.define(version: 20160704062622) do
   add_foreign_key "sales_configurations", "company_profiles"
   add_foreign_key "sales_tax_additional_infos", "sales_configurations"
   add_foreign_key "sales_tax_centrals", "sales_configurations"
-  add_foreign_key "sales_tax_ie_codes", "sales_configurations"
   add_foreign_key "sales_taxes", "sales_configurations"
   add_foreign_key "service_tax_additional_infos", "sales_configurations"
   add_foreign_key "service_taxes", "sales_configurations"

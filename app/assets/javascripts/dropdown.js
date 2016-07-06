@@ -51,8 +51,13 @@ $( document ).on('ready page:load', function() {
 
   $('#remove_address_info').hide();
   $('#show_address_fields').on('click', function(){
+    alert("jjjjjssss");
     $('.selectpicker').selectpicker('refresh');
     $('#add_address_details').show();
+    var value = "false"
+    console.log(value);
+    $("#reg_off_address:hidden").val(value);
+    console.log("worked");
 
   });
 
@@ -96,10 +101,9 @@ $( document ).on('ready page:load', function() {
       $('#sales_tax, #show_sales_tax_add_info').show();
       $(".sales-ie").hide();
       $('#show_sales_tax_add_info').on('click', function() {
-      $(".sales-ie").hide();
+        $(".sales-ie").hide();
       });
       $('#remove_sales_tax_add_info').on('click', function() {
-
         $("#show_sales_tax_add_info").show();
       });
     }
@@ -194,4 +198,5 @@ $( document ).on('ready page:load', function() {
       $('.remove_tan_info_main').show();
     }
  });
+});
 

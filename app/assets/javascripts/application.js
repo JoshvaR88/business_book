@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
@@ -54,17 +53,5 @@ $( document ).on('ready page:load', function() {
      todayBtn: 'linked',
      autoclose: true
   });
-
-  $('.domestic_select, .abroad_select').on('click', function(){
-    alert($(this).val());
-    if($(this).val() == "true") {
-      $('#customer_goods_details').show();
-    }
-    else {
-      $('#customer_goods_details').hide();
-    }
-  });
-
-
 });
 

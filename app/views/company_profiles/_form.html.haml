@@ -1,7 +1,7 @@
 - content_for :javascript_includes do
   = javascript_include_tag "dropdown.js"
-.col-sm-6
-  .main-login.main-center.company_profile
+.col-sm-12
+  .main-login.main-center-sales
     = nested_form_for(@company_profile) do |f|
       - all_views_side_error_messages!(@company_profile)
       .form-group
@@ -29,7 +29,7 @@
       .form-group
         .cols-sm-10
           .input-group
-            = f.select :accounting_mode, options_for_select(CompanyProfile::AC_TYPE), {}, {class: "selectpicker form-control form-width", prompt: "Accounting Mode", "data-live-search": "true"}
+            = f.select :accounting_mode, options_for_select(CompanyProfile::AC_TYPE), {}, {class: "selectpicker form-control form-width dropdown", prompt: "Accounting Mode", "data-live-search": "true"}
       .form-group
         .cols-sm-10
           .input-group
