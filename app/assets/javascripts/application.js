@@ -66,5 +66,19 @@ $( document ).on('ready page:load', function() {
   });
 
 
+  $("#customer_goods_select").change(function() {
+    alert("sdfsdf")
+    var selected = $(this).find("option:selected").val();
+    alert(selected);
+      $(".local_sales_tax_no").val(selected);
+  });
+
+  $("#customer_sales_tax_no").change(function() {
+    console.log("hello")
+    var selected = $(this).find("option:selected").val();
+    console.log(selected)
+    $(".state_sales_tax_no").val(selected);
+  });
+
 });
 

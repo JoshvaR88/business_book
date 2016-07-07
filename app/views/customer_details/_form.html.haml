@@ -5,58 +5,58 @@
     = nested_form_for(@customer_detail) do |f|
       - all_views_side_error_messages!(@customer_detail)
       %div{id: 'customer_details'}
-        -if register_office_address?
-          .form-inline
-            = f.label :autolyse, "Where is the customer invoices raised from?", class: "col-sm-6 control-label text-right"
-          .cols-sm-6
-            .form-group
-              .input-group
-                = f.text_area :address, autofocus: true,  :class => "form-control form-width", value: @a
+        / -if register_office_address?
+        .form-inline
+          = f.label :autolyse, "Where is the customer invoices raised from?", class: "col-sm-6 control-label text-right"
+        .cols-sm-6
+          .form-group
+            .input-group
+              = f.text_area :address, autofocus: true,  :class => "form-control form-width", value: @a
 
-        .form-inline
-          = f.label :autolyse, "Customer Residential Status type", class: "col-sm-6 control-label text-right"
+      .form-inline
+        = f.label :autolyse, "Customer Residential Status type", class: "col-sm-6 control-label text-right"
 
-        .col-sm-6
-          .form-group
-            .input-group#customer_select
-              = f.label :autolyse, "Domestic", :value => "true"
-              = f.radio_button :residential_status_type, true, class: "domestic_select"
-              = f.label :autolyse, "Abroad", :value => "false"
-              = f.radio_button :residential_status_type, false, class: "abroad_select"
-
-        .form-inline
-          = f.label :customer_name,"Customer Name", class: "col-sm-6 control-label text-right"
-        .cols-sm-6
-          .form-group
-            .input-group
-              = f.text_field :customer_name, autofocus: true,  :class => "form-control form-width", :placeholder => "Customer Name"
-        .form-inline
-          = f.label :attention_to,"Attention To", class: "col-sm-6 control-label text-right"
-        .cols-sm-6
-          .form-group
-            .input-group
-              = f.text_field :attention_to, autofocus: true,  :class => "form-control form-width", :placeholder => "Attention To"
-        .form-inline
-          = f.label :autolyse, "Billing Address", class: "col-sm-6 control-label text-right"
-        .cols-sm-6
-          .form-group
-            .input-group
-              = f.text_area :billing_address, autofocus: true,  :class => "form-control form-width", :placeholder => "Billing Address"
-        .form-inline
-          = f.label :email, "Email", class: "col-sm-6 control-label text-right"
-        .cols-sm-6
-          .form-group
-            .input-group
-              = f.email_field :email, autofocus: true,  :class => "form-control form-width", :placeholder => "Email"
-        .form-inline
-          = f.label :contact_number, "Contact Number", class: "col-sm-6 control-label text-right"
-        .cols-sm-6
-          .form-group
-            .input-group
-              = f.text_field :contact_number, autofocus: true,  :class => "form-control form-width", :placeholder => "Contact Number"
-          = render partial: 'customer_details/customer_goods_details', locals: {customer_detail: @customer_detail}
+      .col-sm-6
         .form-group
+          .input-group#customer_select
+            = f.label :autolyse, "Domestic", :value => "true"
+            = f.radio_button :residential_status_type, true, class: "domestic_select"
+            = f.label :autolyse, "Abroad", :value => "false"
+            = f.radio_button :residential_status_type, false, class: "abroad_select"
+
+      .form-inline
+        = f.label :customer_name,"Customer Name", class: "col-sm-6 control-label text-right"
+      .cols-sm-6
+        .form-group
+          .input-group
+            = f.text_field :customer_name, autofocus: true,  :class => "form-control form-width", :placeholder => "Customer Name"
+      .form-inline
+        = f.label :attention_to,"Attention To", class: "col-sm-6 control-label text-right"
+      .cols-sm-6
+        .form-group
+          .input-group
+            = f.text_field :attention_to, autofocus: true,  :class => "form-control form-width", :placeholder => "Attention To"
+      .form-inline
+        = f.label :autolyse, "Billing Address", class: "col-sm-6 control-label text-right"
+      .cols-sm-6
+        .form-group
+          .input-group
+            = f.text_area :billing_address, autofocus: true,  :class => "form-control form-width", :placeholder => "Billing Address"
+      .form-inline
+        = f.label :email, "Email", class: "col-sm-6 control-label text-right"
+      .cols-sm-6
+        .form-group
+          .input-group
+            = f.email_field :email, autofocus: true,  :class => "form-control form-width", :placeholder => "Email"
+      .form-inline
+        = f.label :contact_number, "Contact Number", class: "col-sm-6 control-label text-right"
+      .cols-sm-6
+        .form-group
+          .input-group
+            = f.text_field :contact_number, autofocus: true,  :class => "form-control form-width", :placeholder => "Contact Number"
+        = render partial: 'customer_details/customer_goods_details', locals: {customer_detail: @customer_detail}
+      .form-group
+        .col-sm-6
           .col-sm-6
-            .col-sm-6
-          = f.submit "Save", class: "btn btn-primary left-align"
+        = f.submit "Save", class: "btn btn-primary left-align"
 

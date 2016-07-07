@@ -1,14 +1,7 @@
 = fields_for sales_configuration do |f|
   = f.fields_for :sales_tax_central do |t|
     %div{id: 'sales_tax_central'}
-      .form-inline
-        = t.label :state,"State", class: "col-sm-6 control-label text-right"
-        .col-sm-6
-          .form-group
-            .input-group
-              = t.select :state, options_for_select(State.collect_state),{}, {prompt: "Vat Type", class: "selectpicker form-width", "data-live-search": "true"}
-      %br
-      %br
+
       %div{id: 'central_tax_no'}
         .form-inline
           = t.label :autolyse, "Have you registered Central Sales Tax ?", class: "col-sm-6 control-label text-right"
