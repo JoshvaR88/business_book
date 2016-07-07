@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704062622) do
+ActiveRecord::Schema.define(version: 20160706101146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,7 +143,6 @@ ActiveRecord::Schema.define(version: 20160704062622) do
   add_index "sales_tax_additional_infos", ["sales_configuration_id"], name: "index_sales_tax_additional_infos_on_sales_configuration_id", using: :btree
 
   create_table "sales_tax_centrals", force: :cascade do |t|
-    t.integer  "state"
     t.boolean  "central_sales_tax"
     t.string   "central_reg_no"
     t.datetime "central_tax_date"
@@ -154,15 +153,6 @@ ActiveRecord::Schema.define(version: 20160704062622) do
 
   add_index "sales_tax_centrals", ["sales_configuration_id"], name: "index_sales_tax_centrals_on_sales_configuration_id", using: :btree
 
-  create_table "sales_tax_ie_codes", force: :cascade do |t|
-    t.string   "ie_code"
-    t.integer  "sales_configuration_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "sales_tax_ie_codes", ["sales_configuration_id"], name: "index_sales_tax_ie_codes_on_sales_configuration_id", using: :btree
-
   create_table "sales_taxes", force: :cascade do |t|
     t.integer  "vat_type"
     t.string   "tax_reg_no"
@@ -170,6 +160,7 @@ ActiveRecord::Schema.define(version: 20160704062622) do
     t.integer  "sales_configuration_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "state"
   end
 
   add_index "sales_taxes", ["sales_configuration_id"], name: "index_sales_taxes_on_sales_configuration_id", using: :btree
@@ -214,6 +205,7 @@ ActiveRecord::Schema.define(version: 20160704062622) do
     t.integer  "country_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "state_code"
   end
 
   add_index "states", ["country_id"], name: "index_states_on_country_id", using: :btree
@@ -261,7 +253,6 @@ ActiveRecord::Schema.define(version: 20160704062622) do
   add_foreign_key "sales_configurations", "company_profiles"
   add_foreign_key "sales_tax_additional_infos", "sales_configurations"
   add_foreign_key "sales_tax_centrals", "sales_configurations"
-  add_foreign_key "sales_tax_ie_codes", "sales_configurations"
   add_foreign_key "sales_taxes", "sales_configurations"
   add_foreign_key "service_tax_additional_infos", "sales_configurations"
   add_foreign_key "service_taxes", "sales_configurations"
