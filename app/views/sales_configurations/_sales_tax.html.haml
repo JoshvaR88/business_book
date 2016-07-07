@@ -4,18 +4,31 @@
       %br
       .panel-primary
         = t.label :sales_tax,"Sales Tax", class: "col-sm-12 control-label panel-heading sub-titles"
+    %br
+    %br
+    %div{id: 'customer_sales_tax_no'}
       .form-inline
+        = t.label :state,"State", class: "col-sm-6 control-label text-right"
+        .col-sm-6
+          .form-group
+            .input-group
+              = t.select :state, options_for_select(State.collect_state_sales),{}, {prompt: "Vat Type", class: "selectpicker form-width form-control col-sm-6", "data-live-search": "true"}
+      %br
+      %br
+    .form-inline
+      = t.label :vat_type,"Type of Dealer VAT TIN", class: "col-sm-6 control-label text-right"
+      .col-sm-6
         .form-group
-        = t.label :vat_type,"Type of Dealer VAT TIN", class: "col-sm-6 control-label text-right"
-        = t.select :vat_type, options_for_select(SalesConfiguration::VAT_TYPE_LIST),{}, {prompt: "Vat Type", class: "selectpicker  form-control form-width col-sm-6", "data-live-search": "true"}
-        %br
-        %br
-      .fieldset
-        .row
-          .col-sm-10
-            = t.label :tax_reg_no,"State Sales Tax Registration Number", class: "col-sm-3 control-label text-right"
-            = t.text_field :tax_reg_no, autofocus: true, class: "col-sm-3"
-            = t.label :tax_date,"VAT with effect from", class: "col-sm-3 control-label text-right"
-            = t.text_field :tax_date, autofocus: true, :class => "datepicker col-sm-3"
+          .input-group
+            = t.select :vat_type, options_for_select(SalesConfiguration::VAT_TYPE_LIST),{}, {prompt: "Vat Type", class: "selectpicker form-width form-control col-sm-6", "data-live-search": "true"}
+    %br
+    %br
+    .fieldset
+      .row
+        .col-sm-10
+          = t.label :tax_reg_no,"State Sales Tax Registration Number", class: "col-sm-3 control-label text-right"
+          = t.text_field :tax_reg_no, autofocus: true, class: "col-sm-3 state_sales_tax_no"
+          = t.label :tax_date,"VAT with effect from", class: "col-sm-3 control-label text-right"
+          = t.text_field :tax_date, autofocus: true, :class => "datepicker col-sm-3"
 
 

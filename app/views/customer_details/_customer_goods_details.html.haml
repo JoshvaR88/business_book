@@ -1,12 +1,13 @@
 = fields_for customer_detail do |f|
   = f.fields_for :customer_goods_detail do |t|
     %div{id: 'customer_goods_details'}
-      .form-inline
-        = t.label :state,"State", class: "col-sm-6 control-label text-right"
-      .cols-sm-6
-        .form-group
-          .input-group
-            = t.select(:state, options_for_select(State.collect_state),{},{class: " selectpicker form-width", "data-live-search": "true"})
+      %div{id: 'customer_goods_select'}
+        .form-inline
+          = t.label :state,"State", class: "col-sm-6 control-label text-right"
+        .cols-sm-6
+          .form-group
+            .input-group
+              = t.select(:state, options_for_select(State.collect_state_code),{},{class: " selectpicker form-width", "data-live-search": "true"})
       .form-inline
         = t.label :pin_code,"PIN Code", class: "col-sm-6 control-label text-right"
       .col-sm-6
@@ -31,13 +32,15 @@
 
             = t.text_field :service_tax_no, autofocus: true, :class => "col-sm-3", :placeholder => "Service Tax Number"
       %br/
+
       .fieldset
         .row
           .col-sm-2
           .col-sm-10
-            = t.label :local_sales_tax_no,"Local Sales Tax Number", class: "col-sm-2 control-label text-right"
+            %div{id: ''}
+              = t.label :local_sales_tax_no,"Local Sales Tax Number", class: "col-sm-2 control-label text-right"
 
-            = t.text_field :local_sales_tax_no, autofocus: true, :class => "col-sm-3", :placeholder => "Local Sales Tax Number"
+              = t.text_field :local_sales_tax_no, autofocus: true, :class => "local_sales_tax_no col-sm-3", :placeholder => "Local Sales Tax Number"
 
             = t.label :central_sales_tax_no,"Central Sales Tax Number", class: "col-sm-2 control-label text-right"
 

@@ -178,6 +178,7 @@ $( document ).on('ready page:load', function() {
     }
   });
 
+});
   $(document).on('nested:fieldAdded', function(event){
     var field = event.field;
     var selectField = field.find('.selectpicker');
