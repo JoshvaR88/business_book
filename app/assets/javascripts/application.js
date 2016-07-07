@@ -54,5 +54,29 @@ $( document ).on('ready page:load', function() {
      autoclose: true
   });
 
+  $('.domestic_select, .abroad_select').on('click', function(){
+    alert($(this).val());
+    if($(this).val() == "true") {
+      $('#customer_goods_details').show();
+    }
+    else {
+      $('#customer_goods_details').hide();
+    }
+  });
+
+
+  $("#customer_goods_select").change(function() {
+    alert("sdfsdf")
+    var selected = $(this).find("option:selected").val();
+    alert(selected);
+      $(".local_sales_tax_no").val(selected);
+  });
+
+  $("#customer_sales_tax_no").change(function() {
+    console.log("hello")
+    var selected = $(this).find("option:selected").val();
+    console.log(selected)
+    $(".state_sales_tax_no").val(selected);
+  });
 });
 

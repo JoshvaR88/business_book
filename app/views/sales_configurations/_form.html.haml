@@ -11,16 +11,16 @@
             = f.select :tax_organization, options_for_select(SalesConfiguration::CHECKBOX_LIST),{}, {prompt: "Tax organization type", class: "checkbox_list_for_tax_org form-control form-width", "data-live-search": "true", multiple:"multiple"}
             %br
             %br
-    .sales-i
+    .register-office-address
       .form-inline
         = f.label :reg_off, "Have you raised all the Sales/ Service invoices from the Registered office?", class: "col-sm-6 control-label text-right"
         .col-sm-6
           .form-group
             .input-group
               = f.label :autolyse, "Yes", :value => "true"
-              = f.radio_button :invoice_reg_office, true
+              = f.radio_button :invoice_reg_office, true, class: "reg-off-yes"
               = f.label :autolyse, "No", :value => "false"
-              = f.radio_button :invoice_reg_office, false, :checked => true
+              = f.radio_button :invoice_reg_office, false, :checked => true, class: "reg-off-no"
               %br
 
     .form-inline

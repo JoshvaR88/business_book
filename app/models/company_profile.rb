@@ -4,6 +4,9 @@ class CompanyProfile < ActiveRecord::Base
   has_many :office_addresses
   has_many :authorized_signatories
   has_many :tax_deductions
+  belongs_to :user
+  has_many :customer_details
+  has_one :sales_configuration
 
   # validates :company_name, :email, :company_website, :company_type, :pan_no, :corp_id_no, :accounting_mode, presence: true
 
