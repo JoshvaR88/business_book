@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
@@ -79,6 +78,5 @@ $( document ).on('ready page:load', function() {
     console.log(selected)
     $(".state_sales_tax_no").val(selected);
   });
-
 });
 

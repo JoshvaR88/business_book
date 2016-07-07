@@ -6,12 +6,13 @@
       %br
       %br
       %br
-      .form-inline
-        = t.label :service_type,"Which category of service provided to your Customer?", class: "col-sm-6 control-label text-right"
-        .col-sm-6
-          .form-group
-            .input-group
-              = t.select :service_type, options_for_select(ServiceCategory.collect_service_category),{}, {prompt: "Service Type", class: "selectpicker form-control form-width", "data-live-search": "true"}
+      .dropdown
+        .form-inline
+          = t.label :service_type,"Which category of service provided to your Customer?", class: "col-sm-6 control-label text-right"
+          .col-sm-6
+            .form-group
+              .input-group
+                = t.select :service_type, options_for_select(ServiceCategory.collect_service_category),{}, {prompt: "Service Type", class: "selectpicker form-control form-width", "data-live-search": "true"}
       %br
       %br
       %br

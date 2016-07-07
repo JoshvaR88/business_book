@@ -11,7 +11,6 @@ business_types = ["Advertisement Agency", "Beauty Parlor / Spa", "Brokerage and 
 
 
 countries.each do |c|
-  # p "load country"
   country = Country.create!(c)
   states.each do |s|
     # p "load state"

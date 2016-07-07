@@ -167,8 +167,11 @@ ActiveRecord::Schema.define(version: 20160706101146) do
 
   create_table "service_categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "service_tax_code"
+    t.integer  "interest_tax_code"
+    t.integer  "penalties_code"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "service_tax_additional_infos", force: :cascade do |t|
