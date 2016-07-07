@@ -55,10 +55,8 @@ $( document ).on('ready page:load', function() {
     $('.selectpicker').selectpicker('refresh');
     $('#add_address_details').show();
     var value = "false"
-    console.log(value);
     $("#reg_off_address:hidden").val(value);
     console.log("worked");
-
   });
 
   $('#remove_sales_tax_additional_info').hide();
@@ -191,7 +189,6 @@ $( document ).on('ready page:load', function() {
 
   $(document).on('nested:fieldRemoved', function(event){
     var field = event.field;
-    // it's already extended by Prototype
     var selectField = field.find('#remove_tan_info');
     var a = count--;
     if(a == 1){
